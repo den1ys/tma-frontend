@@ -2,7 +2,9 @@ import { capitalCase } from 'change-case';
 import { Link as RouterLink } from 'react-router-dom';
 // @mui
 import { styled } from '@mui/material/styles';
-import { Box, Card, Stack, Link, Alert, Tooltip, Container, Typography, Avatar } from '@mui/material';
+import { Box, Button, Card, Stack, Link, Alert, Tooltip, Container, Typography, Avatar } from '@mui/material';
+
+import GoogleIcon from '@mui/icons-material/Google';
 // routes
 import { PATH_AUTH } from '../../routes/paths';
 // hooks
@@ -16,7 +18,13 @@ import Image from '../../components/Image';
 import { LoginForm } from '../../sections/auth/login';
 import Particles from 'react-particles';
 import { loadFull } from "tsparticles";
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
+
+
+import { GoogleLogin } from 'react-google-login';
+import { gapi } from 'gapi-script';
+
+import './Login.css';
 
 // ----------------------------------------------------------------------
 
@@ -64,14 +72,14 @@ const ContentStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function Login() {
-  const { method } = useAuth();
+  const { login, method } = useAuth();
+
 
   const smUp = useResponsive('up', 'sm');
 
   const mdUp = useResponsive('up', 'md');
 
   const particlesInit = useCallback(async (engine) => {
-    console.log(engine);
     // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
     // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
     // starting from v2 you can add only the features you need reducing the bundle size
@@ -81,6 +89,30 @@ export default function Login() {
   const particlesLoaded = useCallback(async (container) => {
     await console.log(container);
   }, []);
+
+  useEffect(() => {
+    const initClient = () => {
+      gapi.client.init({
+        clientId: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+        scope: ""
+      });
+    };
+    gapi.load('client:auth2', initClient);
+  });
+
+  const onSuccessGoogle = async (res) => {
+    const perfil = res.profileObj;
+
+    try {
+      await login(perfil.email);
+    } catch (error) {
+      alert("No se pudo iniciar sesión: ", error);
+    }
+  };
+
+  const onFailureGoogle = (err) => {
+    alert("No se pudo iniciar sesión. Vuelva a intentarlo!");
+  };
 
   return (
     <Page title="Login">
@@ -642,6 +674,19 @@ export default function Login() {
             </Stack>
 
             <LoginForm />
+
+            <div className="text-line">O</div>
+
+            <GoogleLogin
+              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+              render={renderProps => (
+                <Button onClick={renderProps.onClick} variant="outlined" startIcon={<GoogleIcon />}>
+                  Iniciar sesión con google
+                </Button>
+              )}
+              onSuccess={onSuccessGoogle}
+              onFailure={onFailureGoogle}
+            />
           </ContentStyle>
         </Container>
       </RootStyle>

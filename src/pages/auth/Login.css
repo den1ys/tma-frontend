@@ -1,0 +1,22 @@
+.text-line {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.text-line:before,
+.text-line:after {
+    content: "";
+    flex: 1 1;
+    border-bottom: 1px solid;
+    margin: auto;
+}
+
+.text-line:before {
+    margin-right: 10px
+}
+
+.text-line:after {
+    margin-left: 10px
+}
