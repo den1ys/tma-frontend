@@ -47,6 +47,7 @@ const setSession = (accessToken) => {
     const { exp } = jwtDecode(accessToken); // ~5 days by minimals server
     handleTokenExpired(exp);
   } else {
+    localStorage.removeItem('materiales');
     localStorage.removeItem('accessToken');
     delete axios.defaults.headers.common.Authorization;
   }
