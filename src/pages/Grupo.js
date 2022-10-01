@@ -14,7 +14,7 @@ import { TipoMaterialCard } from '../sections/@dashboard/user/cards';
 // data
 import { tipo_material } from '../_mock/tipo_material';
 
-export default function Periodo() {
+export default function Grupo() {
   const { themeStretch } = useSettings();
 
   const location = useLocation();
@@ -25,35 +25,32 @@ export default function Periodo() {
 
   const [lista_tipo_material, set_lista_tipo_material] = useState([]);
 
-  const ver_grupo_o_presentacion = ({ id, nombre }) => {
-    set_parametro(actual => ({ ...actual, periodo_id: id, periodo_nombre: nombre }));
+  const ver_presentacion = ({ id, nombre }) => {
+    set_parametro(actual => ({ ...actual, grupo_id: id, grupo_nombre: nombre }));
 
-    if ([3146, 3147, 3164, 3165, 3166, 3167, 3168, 3169].includes(id) && parametro.tipo_material_id === 2) {
-      navigate("/principal/grupo", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
-    } else {
-      navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
-    }
+    navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, grupo_id: id, grupo_nombre: nombre } } });
   };
 
   useEffect(() => {
-    const { tipo_material_id } = parametro;
+    const { periodo_id } = parametro;
 
-    let lista = tipo_material.filter(e => e.id_tipo === 2 && e.id_padre.includes(tipo_material_id));
+    let lista = tipo_material.filter(e => e.id_tipo === 3);
 
-    lista = lista.map(e => ({ ...e, callback: ver_grupo_o_presentacion }));
+    lista = lista.map(e => ({ ...e, callback: ver_presentacion }));
 
     set_lista_tipo_material(actual => [...actual, ...lista]);
   }, []);
 
   return (
-    <Page title="TMA: Periodo">
+    <Page title="TMA: Grupo">
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <HeaderBreadcrumbs
-          heading="Periodo"
+          heading="Grupo"
           links={[
             { name: parametro.curso_nombre, href: '/principal/horario' },
             { name: parametro.tipo_material_nombre, href: '/principal/tipo_material', state: { params: parametro } },
-            { name: 'Periodo', href: '/principal/periodo' }
+            { name: parametro.periodo_nombre, href: '/principal/periodo', state: { params: parametro } },
+            { name: 'Grupo', href: '/principal/grupo' }
           ]}
         />
 

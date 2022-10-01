@@ -53,9 +53,9 @@ export default function Horario() {
     getHorario();
   }, []);
 
-  const verTipoMaterial = async ({ curso_id: cursoId, profesor_id: profesorId, aula_id: aulaId }) => {
-    if (!materiales.some(e => e.curso_id === cursoId && e.aula_id === aulaId)) {
-      const response = await axios.get(`/api/materiales?curso_id=${cursoId}&profesor_id=${profesorId}&aula_id=${aulaId}`);
+  const ver_tipo_material = async ({ curso_id, profesor_id, aula_id, curso_nombre }) => {
+    if (!materiales.some(e => e.curso_id === curso_id && e.aula_id === aula_id)) {
+      const response = await axios.get(`/api/materiales?curso_id=${curso_id}&profesor_id=${profesor_id}&aula_id=${aula_id}`);
       const { json: { data } } = await response.data;
 
       setMateriales(materiales => [...materiales, ...data]);
@@ -72,7 +72,7 @@ export default function Horario() {
       ); */
     }
 
-    navigate("/principal/tipo_material", { replace: true, state: { params: { cursoId, profesorId, aulaId } } });
+    navigate("/principal/tipo_material", { replace: true, state: { params: { curso_id, profesor_id, aula_id, curso_nombre } } });
   };
 
   return (
@@ -105,7 +105,7 @@ export default function Horario() {
                     <HorarioTablaFila
                       key={index}
                       row={row}
-                      callback={verTipoMaterial}
+                      callback={ver_tipo_material}
                     />
                   ))}
                 </TableBody>

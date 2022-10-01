@@ -57,13 +57,14 @@ LinkItem.propTypes = {
 };
 
 function LinkItem({ link }) {
-  const { href, name, icon } = link;
+  const { href, name, icon, state } = link;
   return (
     <Link
       key={name}
       variant="body2"
       component={RouterLink}
       to={href || '#'}
+      state={state}
       sx={{
         lineHeight: 2,
         display: 'flex',
@@ -74,6 +75,6 @@ function LinkItem({ link }) {
     >
       {icon && <Box sx={{ mr: 1, '& svg': { width: 20, height: 20 } }}>{icon}</Box>}
       {name}
-    </Link>
+    </Link >
   );
 }

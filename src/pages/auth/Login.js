@@ -1,30 +1,17 @@
-import { capitalCase } from 'change-case';
-import { Link as RouterLink } from 'react-router-dom';
+// react
+import { useCallback } from 'react';
 // @mui
 import { styled } from '@mui/material/styles';
-import { Box, Button, Card, Stack, Link, Alert, Tooltip, Container, Typography, Avatar } from '@mui/material';
-
-import GoogleIcon from '@mui/icons-material/Google';
-// routes
-import { PATH_AUTH } from '../../routes/paths';
+import { Box, Button, Card, Stack, Link, Container, Typography } from '@mui/material';
 // hooks
 import useAuth from '../../hooks/useAuth';
 import useResponsive from '../../hooks/useResponsive';
 // components
 import Page from '../../components/Page';
-import Logo from '../../components/Logo';
-import Image from '../../components/Image';
 // sections
 import { LoginForm } from '../../sections/auth/login';
 import Particles from 'react-particles';
 import { loadFull } from "tsparticles";
-import { useCallback, useEffect } from 'react';
-
-
-import { GoogleLogin } from 'react-google-login';
-import { gapi } from 'gapi-script';
-
-import './Login.css';
 
 // ----------------------------------------------------------------------
 
@@ -72,9 +59,6 @@ const ContentStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function Login() {
-  const { login, method } = useAuth();
-
-
   const smUp = useResponsive('up', 'sm');
 
   const mdUp = useResponsive('up', 'md');
@@ -87,32 +71,7 @@ export default function Login() {
   }, []);
 
   const particlesLoaded = useCallback(async (container) => {
-    await console.log(container);
   }, []);
-
-  useEffect(() => {
-    const initClient = () => {
-      gapi.client.init({
-        clientId: process.env.REACT_APP_GOOGLE_CLIENT_ID,
-        scope: ""
-      });
-    };
-    gapi.load('client:auth2', initClient);
-  });
-
-  const onSuccessGoogle = async (res) => {
-    const perfil = res.profileObj;
-
-    try {
-      await login(perfil.email);
-    } catch (error) {
-      alert("No se pudo iniciar sesión: ", error);
-    }
-  };
-
-  const onFailureGoogle = (err) => {
-    alert("No se pudo iniciar sesión. Vuelva a intentarlo!");
-  };
 
   return (
     <Page title="Login">
@@ -663,7 +622,7 @@ export default function Login() {
               <img
                 src={`/assets/images/logo-saco.png?w=164&h=164&fit=crop&auto=format`}
                 srcSet={`/assets/images/logo-saco.png?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                alt={'asdasdasd'}
+                alt={'Saco oliveros'}
               />
 
               <Box sx={{ flexGrow: 1 }}>
@@ -674,19 +633,6 @@ export default function Login() {
             </Stack>
 
             <LoginForm />
-
-            <div className="text-line">O</div>
-
-            <GoogleLogin
-              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-              render={renderProps => (
-                <Button onClick={renderProps.onClick} variant="outlined" startIcon={<GoogleIcon />}>
-                  Iniciar sesión con google
-                </Button>
-              )}
-              onSuccess={onSuccessGoogle}
-              onFailure={onFailureGoogle}
-            />
           </ContentStyle>
         </Container>
       </RootStyle>

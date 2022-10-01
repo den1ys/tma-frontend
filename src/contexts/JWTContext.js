@@ -69,13 +69,13 @@ function AuthProvider({ children }) {
   useEffect(() => {
     const initialize = async () => {
       try {
-        const accessToken = localStorage.getItem('accessToken');
+        const access_token = localStorage.getItem('access_token');
 
-        if (accessToken && isValidToken(accessToken)) {
-          setSession(accessToken);
+        if (access_token && isValidToken(access_token)) {
+          setSession(access_token);
 
           const response = await axios.get('/api/auth/account');
-          const { user } = response.data;
+          const { data: user } = response.data;
 
           dispatch({
             type: 'INITIALIZE',
@@ -113,9 +113,9 @@ function AuthProvider({ children }) {
       email,
       password,
     });
-    const { accessToken, user } = response.data;
+    const { data: user } = response.data;
 
-    setSession(accessToken);
+    setSession(user.access_token);
 
     dispatch({
       type: 'LOGIN',
@@ -132,9 +132,9 @@ function AuthProvider({ children }) {
       firstName,
       lastName,
     });
-    const { accessToken, user } = response.data;
+    const { access_token, user } = response.data;
 
-    localStorage.setItem('accessToken', accessToken);
+    localStorage.setItem('access_token', access_token);
 
     dispatch({
       type: 'REGISTER',

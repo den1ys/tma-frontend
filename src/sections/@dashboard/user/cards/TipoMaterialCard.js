@@ -1,17 +1,11 @@
-import { Link } from 'react-router-dom';
-
 // @mui
 import { styled } from '@mui/material/styles';
 import { Box, Card, Avatar, Divider, Typography, Stack, Button } from '@mui/material';
 // utils
 import cssStyles from '../../../../utils/cssStyles';
-import { fShortenNumber } from '../../../../utils/formatNumber';
 // components
 import Image from '../../../../components/Image';
-import SocialsButton from '../../../../components/SocialsButton';
 import SvgIconStyle from '../../../../components/SvgIconStyle';
-
-// ----------------------------------------------------------------------
 
 const OverlayStyle = styled('div')(({ theme }) => ({
   ...cssStyles().bgBlur({ blur: 2, color: theme.palette.primary.darker }),
@@ -25,8 +19,8 @@ const OverlayStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-export default function VolumeCard({ volume }) {
-  const { id, volumeName, volumeLevel, volumeCover, companyName, companyLogo, buttonText, callback } = volume;
+export default function TipoMaterialCard({ tipo_material }) {
+  const { id, nombre, empresa, empresa_logo, imagen, callback } = tipo_material;
 
   return (
     <Card sx={{ textAlign: 'center' }}>
@@ -46,8 +40,8 @@ export default function VolumeCard({ volume }) {
           }}
         />
         <Avatar
-          alt={volumeName}
-          src={companyLogo}
+          alt={nombre}
+          src={empresa_logo}
           sx={{
             width: 64,
             height: 64,
@@ -60,21 +54,23 @@ export default function VolumeCard({ volume }) {
           }}
         />
         <OverlayStyle />
-        <Image src={volumeCover} alt={volumeCover} ratio="16/9" />
+        <Image src={imagen} alt="Imagen de fondo" />
       </Box>
 
       <Typography variant="subtitle1" sx={{ mt: 6 }}>
-        {volumeName}
+        {nombre}
       </Typography>
 
       <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>
-        {companyName}
+        {empresa}
       </Typography>
 
       <Divider sx={{ borderStyle: 'dashed' }} />
 
       <Stack direction="row" justifyContent="center" sx={{ my: 2 }}>
-        <Button variant="contained" onClick={() => { callback(id); }}>{buttonText}</Button>
+        <Button variant="contained" onClick={() => { callback({ id, nombre }); }}>
+          Ver material
+        </Button>
       </Stack>
     </Card>
   );

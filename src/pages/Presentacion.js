@@ -1,7 +1,7 @@
 // external
 import { Viewer, Worker } from '@react-pdf-viewer/core';
 // @mui
-import { Container } from '@mui/material';
+import { Alert, CircularProgress, Container } from '@mui/material';
 // hooks
 import { useEffect, useState } from 'react';
 // router
@@ -14,6 +14,13 @@ import axios from '../utils/axios';
 
 import useSettings from '../hooks/useSettings';
 
+import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
+import { toolbarPlugin, ToolbarSlot } from "@react-pdf-viewer/toolbar";
+
+import "@react-pdf-viewer/core/lib/styles/index.css";
+import "@react-pdf-viewer/default-layout/lib/styles/index.css";
+
+
 // ----------------------------------------------------------------------
 
 export default function Presentacion() {
@@ -21,15 +28,24 @@ export default function Presentacion() {
 
   const location = useLocation();
 
+  const [parametro, set_parametro] = useState(location.state.params);
+
   const [materiales, setMateriales] = useState([]);
 
   const [contrasenia, setContrasenia] = useState('');
 
   const [url, setUrl] = useState('');
 
+  const [loader, setLoader] = useState(true);
+
+  const [error, setError] = useState(false);
+
+  const defaultLayoutPluginInstance = defaultLayoutPlugin();
+  const { toggleTab } = defaultLayoutPluginInstance;
+  toggleTab(1);
   const { params } = location.state;
 
-  const { cursoId, profesorId, aulaId, tipoMaterialId, periodoId } = params;
+  const { curso_id, profesor_id, aula_id, tipo_material_id, periodo_id } = params;
 
   useEffect(async () => {
     const materiales = JSON.parse(localStorage.getItem("materiales"));
@@ -37,11 +53,11 @@ export default function Presentacion() {
     if (materiales) {
       setMateriales(materiales);
 
-      const material = materiales.find(e => e.curso_id === cursoId && e.aula_id === aulaId
-        && e.tipo_material_id === tipoMaterialId && e.periodo_id === periodoId);
+      const material = materiales.find(e => e.curso_id === curso_id && e.aula_id === aula_id
+        && e.tipo_material_id === tipo_material_id && e.periodo_id === periodo_id);
 
       if (!material) {
-        alert("No hay material para este curso");
+        setError(true);
       } else {
         const { material_drive_id, material_drive_encriptado } = material;
 
@@ -62,14 +78,16 @@ export default function Presentacion() {
     <Page title="TMA: Presentación">
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <HeaderBreadcrumbs
-          heading="Horario"
+          heading="Presentación"
           links={[
-            { name: 'Horario', href: '/principal/horario' },
-            { name: 'Tipo Material', href: '/principal/tipo_material' },
-            { name: 'Periodo', href: '/principal/periodo' },
+            { name: parametro.curso_nombre, href: '/principal/horario' },
+            { name: parametro.tipo_material_nombre, href: '/principal/tipo_material', state: { params: parametro } },
+            { name: parametro.periodo_nombre, href: '/principal/periodo', state: { params: parametro } },
+            parametro.curso_id && { name: parametro.grupo_nombre, href: '/principal/grupo', state: { params: parametro } },
             { name: 'Presentación', href: '/principal/presentacion' }
           ]}
         />
+        {error && <Alert severity="error">No hay material para este curso</Alert>}
 
         {url &&
           <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.14.305/build/pdf.worker.min.js">
@@ -77,6 +95,8 @@ export default function Presentacion() {
               <Viewer
                 fileUrl={url}
                 onDocumentAskPassword={handleAskPassword}
+                onDocumentLoad={() => { setLoader(false); }}
+                plugins={[defaultLayoutPluginInstance]}
               />
             </div>
           </Worker>

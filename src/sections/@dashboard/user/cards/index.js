@@ -1,3 +1,2 @@
-export { default as UserCard } from './UserCard';
-export { default as VolumeCard } from './VolumeCard';
+export { default as TipoMaterialCard } from './TipoMaterialCard';
 

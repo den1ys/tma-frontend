@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import { Box, Link, Typography, Avatar } from '@mui/material';
 import useAuth from 'src/hooks/useAuth';
+import AccountPopover from '../header/AccountPopover';
 
 // ----------------------------------------------------------------------
 
@@ -35,8 +36,7 @@ export default function NavbarAccount({ isCollapse }) {
           }),
         }}
       >
-        <Avatar src={user?.photoURL} alt={user?.nombre} />
-
+        <AccountPopover />
         <Box
           sx={{
             ml: 2,

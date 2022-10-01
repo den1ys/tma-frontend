@@ -36,6 +36,7 @@ export default function Router() {
         { path: 'horario', element: <PageHorario /> },
         { path: 'tipo_material', element: <PageMaterial /> },
         { path: 'periodo', element: <PagePeriodo /> },
+        { path: 'grupo', element: <PageGrupo /> },
         { path: 'presentacion', element: <PagePresentacion /> }
       ],
     },
@@ -77,7 +78,6 @@ const Login = Loadable(lazy(() => import('../pages/auth/Login')));
 const PageHorario = Loadable(lazy(() => import('../pages/Horario')));
 const PageMaterial = Loadable(lazy(() => import('../pages/TipoMaterial')));
 const PagePeriodo = Loadable(lazy(() => import('../pages/Periodo')));
+const PageGrupo = Loadable(lazy(() => import('../pages/Grupo')));
 const PagePresentacion = Loadable(lazy(() => import('../pages/Presentacion')));
-const PageSix = Loadable(lazy(() => import('../pages/PageSix')));
-const NotFound = Loadable(lazy(() => import('../pages/Page404')));
 const Page404 = Loadable(lazy(() => import('../pages/Page404')));

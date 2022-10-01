@@ -1,3 +1,5 @@
+// react
+import { useState, useEffect } from 'react';
 // @mui
 import { Container, Box } from '@mui/material';
 // router
@@ -8,7 +10,9 @@ import useSettings from '../hooks/useSettings';
 import Page from '../components/Page';
 import HeaderBreadcrumbs from '../components/HeaderBreadcrumbs';
 // sections
-import { VolumeCard } from '../sections/@dashboard/user/cards';
+import { TipoMaterialCard } from '../sections/@dashboard/user/cards';
+// data
+import { tipo_material } from '../_mock/tipo_material';
 
 export default function Material() {
   const { themeStretch } = useSettings();
@@ -17,64 +21,31 @@ export default function Material() {
 
   const navigate = useNavigate();
 
-  const { params } = location.state;
+  const [parametro, set_parametro] = useState(location.state.params);
 
-  const verPeriodo = (id) => {
-    params.tipoMaterialId = id;
+  const [lista_tipo_material, set_lista_tipo_material] = useState([]);
 
-    navigate("/principal/periodo", { replace: true, state: { params } });
-  }
+  const ver_periodo = ({ id, nombre }) => {
+    set_parametro(actual => ({ ...actual, tipo_material_id: id, tipo_material_nombre: nombre }));
 
-  const tipoMateriales = [
-    {
-      "id": 1,
-      "volumeName": "COMPENDIO",
-      "volumeLevel": "Secundaria",
-      "companyName": "Saco Oliveros",
-      "companyLogo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-      "volumeCover": "https://picsum.photos/id/3/300/400",
-      "buttonText": "Ver tomos",
-      "callback": verPeriodo
-    },
-    {
-      "id": 2,
-      "volumeName": "HELICODIAPOSITIVA",
-      "volumeLevel": "Secundaria",
-      "companyName": "Saco Oliveros",
-      "companyLogo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-      "volumeCover": "https://picsum.photos/id/13/300/400",
-      "buttonText": "Ver helicodiapositivas",
-      "callback": verPeriodo
-    },
-    {
-      "id": 3,
-      "volumeName": "BALOTARIO",
-      "volumeLevel": "Secundaria",
-      "companyName": "Saco Oliveros",
-      "companyLogo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-      "volumeCover": "https://picsum.photos/id/33/300/400",
-      "buttonText": "Ver balotario",
-      "callback": verPeriodo
-    },
-    {
-      "id": 4,
-      "volumeName": "SOLUCIONARIO DE BALOTARIO",
-      "volumeLevel": "Secundaria",
-      "companyName": "Saco Oliveros",
-      "companyLogo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-      "volumeCover": "https://picsum.photos/id/43/300/400",
-      "buttonText": "Ver solucionario",
-      "callback": verPeriodo
-    }
-  ];
+    navigate("/principal/periodo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
+  };
+
+  useEffect(() => {
+    let lista = tipo_material.filter(e => e.id_tipo === 1);
+
+    lista = lista.map(e => ({ ...e, callback: ver_periodo }));
+
+    set_lista_tipo_material(actual => [...actual, ...lista]);
+  }, []);
 
   return (
-    <Page title="TMA: Materiales">
+    <Page title="TMA: Tipo material">
       <Container maxWidth={themeStretch ? false : 'lg'}>
-      <HeaderBreadcrumbs
+        <HeaderBreadcrumbs
           heading="Tipo material"
           links={[
-            { name: 'Horario', href: '/principal/horario' },
+            { name: parametro.curso_nombre, href: '/principal/horario' },
             { name: 'Tipo Material', href: '/principal/tipo_material' }
           ]}
         />
@@ -90,9 +61,11 @@ export default function Material() {
             },
           }}
         >
-          {tipoMateriales.map((volume) => (
-            <VolumeCard key={volume.id} volume={volume} />
-          ))}
+          {
+            lista_tipo_material.map((e, i) => (
+              <TipoMaterialCard key={i} tipo_material={e} />
+            ))
+          }
         </Box>
       </Container>
     </Page>

@@ -6,11 +6,11 @@ import axios from './axios';
 
 // ----------------------------------------------------------------------
 
-const isValidToken = (accessToken) => {
-  if (!accessToken) {
+const isValidToken = (access_token) => {
+  if (!access_token) {
     return false;
   }
-  const decoded = jwtDecode(accessToken);
+  const decoded = jwtDecode(access_token);
 
   const currentTime = Date.now() / 1000;
 
@@ -32,23 +32,23 @@ const handleTokenExpired = (exp) => {
     // eslint-disable-next-line no-alert
     alert('Token expired');
 
-    localStorage.removeItem('accessToken');
+    localStorage.removeItem('access_token');
 
     window.location.href = PATH_AUTH.login;
   }, timeLeft);
 };
 
-const setSession = (accessToken) => {
-  if (accessToken) {
-    localStorage.setItem('accessToken', accessToken);
-    axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+const setSession = (access_token) => {
+  if (access_token) {
+    localStorage.setItem('access_token', access_token);
+    axios.defaults.headers.common.Authorization = `Bearer ${access_token}`;
 
     // This function below will handle when token is expired
-    const { exp } = jwtDecode(accessToken); // ~5 days by minimals server
+    const { exp } = jwtDecode(access_token); // ~5 days by minimals server
     handleTokenExpired(exp);
   } else {
     localStorage.removeItem('materiales');
-    localStorage.removeItem('accessToken');
+    localStorage.removeItem('access_token');
     delete axios.defaults.headers.common.Authorization;
   }
 };
