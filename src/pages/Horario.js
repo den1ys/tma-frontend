@@ -1,5 +1,5 @@
 // @mui
-import { Card, Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Alert, Card, Container, Snackbar, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 // hooks
 import { useEffect, useState } from 'react';
 import useSettings from '../hooks/useSettings';
@@ -26,6 +26,8 @@ export default function Horario() {
   const [horarioManiana, setHorarioManiana] = useState([]);
 
   const [horarioTarde, setHorarioTarde] = useState([]);
+
+  const [open, setOpen] = useState(false);
 
   const { user, logout } = useAuth();
 
@@ -72,7 +74,21 @@ export default function Horario() {
       ); */
     }
 
+    if (materiales.length > 0) {
+      setOpen(true);
+
+      //return false;
+    }
+
     navigate("/principal/tipo_material", { replace: true, state: { params: { curso_id, profesor_id, aula_id, curso_nombre } } });
+  };
+
+  const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
   };
 
   return (
@@ -86,6 +102,12 @@ export default function Horario() {
         />
 
         <Card>
+          <Snackbar anchorOrigin={{ vertical: "bottom", horizontal: "center" }} open={open} autoHideDuration={6000} onClose={handleClose}>
+            <Alert onClose={handleClose} severity="warning" sx={{ width: '100%' }}>
+              No hay materiales para este aula!
+            </Alert>
+          </Snackbar>
+
           <Scrollbar>
             <TableContainer sx={{ minWidth: 800, position: 'relative' }}>
               <Table>

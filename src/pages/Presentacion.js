@@ -83,9 +83,9 @@ export default function Presentacion() {
             { name: parametro.curso_nombre, href: '/principal/horario' },
             { name: parametro.tipo_material_nombre, href: '/principal/tipo_material', state: { params: parametro } },
             { name: parametro.periodo_nombre, href: '/principal/periodo', state: { params: parametro } },
-            parametro.curso_id && { name: parametro.grupo_nombre, href: '/principal/grupo', state: { params: parametro } },
+            parametro.grupo_id ? { name: parametro.grupo_nombre, href: '/principal/grupo', state: { params: parametro } } : null,
             { name: 'Presentación', href: '/principal/presentacion' }
-          ]}
+          ].filter(e => e !== null)}
         />
         {error && <Alert severity="error">No hay material para este curso</Alert>}
 
