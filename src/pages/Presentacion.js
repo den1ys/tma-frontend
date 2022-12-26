@@ -19,6 +19,7 @@ import { toolbarPlugin, ToolbarSlot } from "@react-pdf-viewer/toolbar";
 
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
+import PdfViewer from 'src/components/PdfViewer';
 
 
 // ----------------------------------------------------------------------
@@ -87,19 +88,11 @@ export default function Presentacion() {
             { name: 'Presentación', href: '/principal/presentacion' }
           ].filter(e => e !== null)}
         />
+        
         {error && <Alert severity="error">No hay material para este curso</Alert>}
 
         {url &&
-          <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.14.305/build/pdf.worker.min.js">
-            <div style={{ height: '750px' }}>
-              <Viewer
-                fileUrl={url}
-                onDocumentAskPassword={handleAskPassword}
-                onDocumentLoad={() => { setLoader(false); }}
-                plugins={[defaultLayoutPluginInstance]}
-              />
-            </div>
-          </Worker>
+          <PdfViewer url={url} />
         }
       </Container>
     </Page>

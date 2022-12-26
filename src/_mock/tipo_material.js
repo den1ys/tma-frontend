@@ -1,4 +1,4 @@
-export const tipo_material = [
+/*export const tipo_material = [
   {
     "id": 1,
     "id_tipo": 1,
@@ -249,4 +249,97 @@ export const tipo_material = [
     "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
     "imagen": "https://picsum.photos/id/3/200/100"
   }
+];*/
+
+export const tipo_material = [
+  {
+    "id": 2,
+    "id_tipo": 1,
+    "id_padre": null,
+    "nombre": "HELICODIAPOSITIVA",
+    "nivel": "Secundaria",
+    "empresa": "Saco Oliveros",
+    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
+    "imagen": "https://picsum.photos/id/13/200/100"
+  },
+  {
+    "id": 5,
+    "id_tipo": 1,
+    "id_padre": null,
+    "nombre": "BOLETINES",
+    "nivel": "Secundaria",
+    "empresa": "Saco Oliveros",
+    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
+    "imagen": "https://picsum.photos/id/13/200/100"
+  },
+  {
+    "id": 3146,
+    "id_tipo": 2,
+    "id_padre": [2, 5],
+    "nombre": "INTRODUCTORIO",
+    "nivel": "Secundaria",
+    "empresa": "Saco Oliveros",
+    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
+    "imagen": "https://picsum.photos/id/3/200/100"
+  },
+  {
+    "id": 3217,
+    "id_tipo": 2,
+    "id_padre": [2, 5],
+    "nombre": "SEMANA 1",
+    "nivel": "Secundaria",
+    "empresa": "Saco Oliveros",
+    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
+    "imagen": "https://picsum.photos/id/3/200/100"
+  },
+  {
+    "id": 3218,
+    "id_tipo": 2,
+    "id_padre": [2, 5],
+    "nombre": "SEMANA 2",
+    "nivel": "Secundaria",
+    "empresa": "Saco Oliveros",
+    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
+    "imagen": "https://picsum.photos/id/3/200/100"
+  },
+  {
+    "id": 3219,
+    "id_tipo": 2,
+    "id_padre": [2, 5],
+    "nombre": "SEMANA 3",
+    "nivel": "Secundaria",
+    "empresa": "Saco Oliveros",
+    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
+    "imagen": "https://picsum.photos/id/3/200/100"
+  },
+  {
+    "id": 3220,
+    "id_tipo": 2,
+    "id_padre": [2, 5],
+    "nombre": "SEMANA 4",
+    "nivel": "Secundaria",
+    "empresa": "Saco Oliveros",
+    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
+    "imagen": "https://picsum.photos/id/3/200/100"
+  },
+  {
+    "id": 3221,
+    "id_tipo": 2,
+    "id_padre": [2, 5],
+    "nombre": "SEMANA 5",
+    "nivel": "Secundaria",
+    "empresa": "Saco Oliveros",
+    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
+    "imagen": "https://picsum.photos/id/3/200/100"
+  },
+  {
+    "id": 3222,
+    "id_tipo": 2,
+    "id_padre": [2, 5],
+    "nombre": "SEMANA 6",
+    "nivel": "Secundaria",
+    "empresa": "Saco Oliveros",
+    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
+    "imagen": "https://picsum.photos/id/3/200/100"
+  },
 ];

@@ -13,6 +13,7 @@ import { HorarioTablaFila } from '../sections/@dashboard/invoice/list';
 import axios from '../utils/axios';
 // router
 import { useNavigate } from 'react-router';
+import { textAlign } from '@mui/system';
 
 // ----------------------------------------------------------------------
 
@@ -47,9 +48,12 @@ export default function Horario() {
     async function getHorario() {
       const { documento } = user;
       const response = await axios.get(`/api/horarios/${documento}`);
-      const { json: [{ data: morningList }] } = await response.data;
+      const { json: [{ data: morningList }, { data: afternoonList }] } = await response.data;
 
       setHorarioManiana(morningList);
+      setHorarioTarde(afternoonList);
+
+      console.log(horarioTarde)
     }
 
     getHorario();
@@ -123,7 +127,21 @@ export default function Horario() {
                 </TableHead>
 
                 <TableBody>
+                  <TableRow>
+                    <TableCell colSpan={6} align="center" size="small" sx={{ bgcolor: 'primary.' }}>Turno mañana</TableCell>
+                  </TableRow>
                   {horarioManiana.map((row, index) => (
+                    <HorarioTablaFila
+                      key={index}
+                      row={row}
+                      callback={ver_tipo_material}
+                    />
+                  ))}
+
+                  <TableRow>
+                    <TableCell colSpan={6} align="center" size="small" sx={{ bgcolor: 'primary.lighter' }}>Turno tarde</TableCell>
+                  </TableRow>
+                  {horarioTarde.map((row, index) => (
                     <HorarioTablaFila
                       key={index}
                       row={row}
@@ -136,6 +154,6 @@ export default function Horario() {
           </Scrollbar>
         </Card>
       </Container>
-    </Page>
+    </Page >
   );
 }
