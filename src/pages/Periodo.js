@@ -28,13 +28,15 @@ export default function Periodo() {
   const ver_grupo_o_presentacion = ({ id, nombre }) => {
     set_parametro(actual => ({ ...actual, periodo_id: id, periodo_nombre: nombre }));
 
-    navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
+    //navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
 
     /*if ([3146, 3147, 3164, 3165, 3166, 3167, 3168, 3169].includes(id) && parametro.tipo_material_id === 2) {
       navigate("/principal/grupo", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
     } else {
       navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
     }*/
+
+    navigate("/principal/grupo", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
   };
 
   useEffect(() => {

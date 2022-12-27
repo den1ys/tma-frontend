@@ -52,8 +52,6 @@ export default function Horario() {
 
       setHorarioManiana(morningList);
       setHorarioTarde(afternoonList);
-
-      console.log(horarioTarde)
     }
 
     getHorario();
@@ -128,7 +126,7 @@ export default function Horario() {
 
                 <TableBody>
                   <TableRow>
-                    <TableCell colSpan={6} align="center" size="small" sx={{ bgcolor: 'primary.' }}>Turno mañana</TableCell>
+                    <TableCell colSpan={6} align="center" size="small">Turno mañana</TableCell>
                   </TableRow>
                   {horarioManiana.map((row, index) => (
                     <HorarioTablaFila
@@ -139,7 +137,7 @@ export default function Horario() {
                   ))}
 
                   <TableRow>
-                    <TableCell colSpan={6} align="center" size="small" sx={{ bgcolor: 'primary.lighter' }}>Turno tarde</TableCell>
+                    <TableCell colSpan={6} align="center" size="small">Turno tarde</TableCell>
                   </TableRow>
                   {horarioTarde.map((row, index) => (
                     <HorarioTablaFila

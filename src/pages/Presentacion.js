@@ -46,7 +46,7 @@ export default function Presentacion() {
   toggleTab(1);
   const { params } = location.state;
 
-  const { curso_id, profesor_id, aula_id, tipo_material_id, periodo_id } = params;
+  const { curso_id, profesor_id, aula_id, tipo_material_id, periodo_id, grupo_id } = params;
 
   useEffect(async () => {
     const materiales = JSON.parse(localStorage.getItem("materiales"));
@@ -55,7 +55,7 @@ export default function Presentacion() {
       setMateriales(materiales);
 
       const material = materiales.find(e => e.curso_id === curso_id && e.aula_id === aula_id
-        && e.tipo_material_id === tipo_material_id && e.periodo_id === periodo_id);
+        && e.tipo_material_id === tipo_material_id && e.periodo_id === periodo_id && (grupo_id ? e.grupo_id === grupo_id : true));
 
       if (!material) {
         setError(true);
@@ -88,7 +88,7 @@ export default function Presentacion() {
             { name: 'Presentación', href: '/principal/presentacion' }
           ].filter(e => e !== null)}
         />
-        
+
         {error && <Alert severity="error">No hay material para este curso</Alert>}
 
         {url &&

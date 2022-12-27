@@ -342,4 +342,24 @@ export const tipo_material = [
     "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
     "imagen": "https://picsum.photos/id/3/200/100"
   },
+  {
+    "id": 6,
+    "id_tipo": 3,
+    "id_padre": [3146, 3217, 3218, 3219, 3220, 3221, 3222],
+    "nombre": "SESIÓN",
+    "nivel": "Secundaria",
+    "empresa": "Saco Oliveros",
+    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
+    "imagen": "https://picsum.photos/id/3/200/100"
+  },
+  {
+    "id": 7,
+    "id_tipo": 3,
+    "id_padre": [3146, 3217, 3218, 3219, 3220, 3221, 3222],
+    "nombre": "HELICOMOTIVACIÓN",
+    "nivel": "Secundaria",
+    "empresa": "Saco Oliveros",
+    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
+    "imagen": "https://picsum.photos/id/3/200/100"
+  },
 ];
