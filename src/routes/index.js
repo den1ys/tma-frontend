@@ -76,7 +76,7 @@ const Login = Loadable(lazy(() => import('../pages/auth/Login')));
 // MAIN
 // const PageOne = Loadable(lazy(() => import('../pages/PageOne')));
 const PageHorario = Loadable(lazy(() => import('../pages/Horario')));
-const PageMaterial = Loadable(lazy(() => import('../pages/TipoMaterial')));
+const PageMaterial = Loadable(lazy(() => import('../pages/Material')));
 const PagePeriodo = Loadable(lazy(() => import('../pages/Periodo')));
 const PageGrupo = Loadable(lazy(() => import('../pages/Grupo')));
 const PagePresentacion = Loadable(lazy(() => import('../pages/Presentacion')));

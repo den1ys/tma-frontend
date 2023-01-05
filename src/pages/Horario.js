@@ -13,7 +13,6 @@ import { HorarioTablaFila } from '../sections/@dashboard/invoice/list';
 import axios from '../utils/axios';
 // router
 import { useNavigate } from 'react-router';
-import { textAlign } from '@mui/system';
 
 // ----------------------------------------------------------------------
 
@@ -30,7 +29,7 @@ export default function Horario() {
 
   const [open, setOpen] = useState(false);
 
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
 
   useEffect(() => {
     const materiales = JSON.parse(localStorage.getItem("materiales") || "[]");
@@ -49,7 +48,7 @@ export default function Horario() {
       const { documento } = user;
       const response = await axios.get(`/api/horarios/${documento}`);
       const { json: [{ data: morningList }, { data: afternoonList }] } = await response.data;
-
+console.log(afternoonList);
       setHorarioManiana(morningList);
       setHorarioTarde(afternoonList);
     }
@@ -57,7 +56,7 @@ export default function Horario() {
     getHorario();
   }, []);
 
-  const ver_tipo_material = async ({ curso_id, profesor_id, aula_id, curso_nombre }) => {
+  const ver_tipo_material = async ({ curso_id, profesor_id, aula_id, curso_nombre, material_id }) => {
     if (!materiales.some(e => e.curso_id === curso_id && e.aula_id === aula_id)) {
       const response = await axios.get(`/api/materiales?curso_id=${curso_id}&profesor_id=${profesor_id}&aula_id=${aula_id}`);
       const { json: { data } } = await response.data;
@@ -82,7 +81,7 @@ export default function Horario() {
       //return false;
     }
 
-    navigate("/principal/tipo_material", { replace: true, state: { params: { curso_id, profesor_id, aula_id, curso_nombre } } });
+    navigate("/principal/tipo_material", { replace: true, state: { params: { curso_id, profesor_id, aula_id, curso_nombre, material_id } } });
   };
 
   const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
@@ -125,9 +124,11 @@ export default function Horario() {
                 </TableHead>
 
                 <TableBody>
-                  <TableRow>
-                    <TableCell colSpan={6} align="center" size="small">Turno mañana</TableCell>
-                  </TableRow>
+                  {horarioManiana.length > 0 &&
+                    <TableRow>
+                      <TableCell colSpan={6} align="center" size="small">Turno mañana</TableCell>
+                    </TableRow>}
+
                   {horarioManiana.map((row, index) => (
                     <HorarioTablaFila
                       key={index}
@@ -136,9 +137,11 @@ export default function Horario() {
                     />
                   ))}
 
-                  <TableRow>
-                    <TableCell colSpan={6} align="center" size="small">Turno tarde</TableCell>
-                  </TableRow>
+                  {horarioTarde.length > 0 &&
+                    <TableRow>
+                      <TableCell colSpan={6} align="center" size="small">Turno tarde</TableCell>
+                    </TableRow>}
+
                   {horarioTarde.map((row, index) => (
                     <HorarioTablaFila
                       key={index}

@@ -20,7 +20,7 @@ const OverlayStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function TipoMaterialCard({ tipo_material }) {
-  const { id, nombre, empresa, empresa_logo, imagen, callback } = tipo_material;
+  const { id, nombre, callback } = tipo_material;
 
   return (
     <Card sx={{ textAlign: 'center' }}>
@@ -41,7 +41,7 @@ export default function TipoMaterialCard({ tipo_material }) {
         />
         <Avatar
           alt={nombre}
-          src={empresa_logo}
+          src={`./assets/images/logo.jpg`}
           sx={{
             width: 64,
             height: 64,
@@ -54,7 +54,7 @@ export default function TipoMaterialCard({ tipo_material }) {
           }}
         />
         <OverlayStyle />
-        <Image src={imagen} alt="Imagen de fondo" />
+        <Image src={`https://picsum.photos/id/3/200/100`} alt="Imagen de fondo" />
       </Box>
 
       <Typography variant="subtitle1" sx={{ mt: 6 }}>
@@ -62,7 +62,7 @@ export default function TipoMaterialCard({ tipo_material }) {
       </Typography>
 
       <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>
-        {empresa}
+        Saco Oliveros
       </Typography>
 
       <Divider sx={{ borderStyle: 'dashed' }} />

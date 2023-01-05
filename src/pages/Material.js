@@ -1,7 +1,7 @@
 // react
 import { useState, useEffect } from 'react';
 // @mui
-import { Container, Box } from '@mui/material';
+import { Container, Box, Alert } from '@mui/material';
 // router
 import { useLocation, useNavigate } from 'react-router';
 // hooks
@@ -21,7 +21,10 @@ export default function Material() {
 
   const navigate = useNavigate();
 
-  const [parametro, set_parametro] = useState(location.state.params);
+  // Limpiar parametros posteriores
+  const { curso_id, profesor_id, aula_id, curso_nombre, material_id } = location.state.params;
+
+  const [parametro, set_parametro] = useState({ curso_id, profesor_id, aula_id, curso_nombre, material_id });
 
   const [lista_tipo_material, set_lista_tipo_material] = useState([]);
 
@@ -32,7 +35,7 @@ export default function Material() {
   };
 
   useEffect(() => {
-    let lista = tipo_material.filter(e => e.id_tipo === 1);
+    let lista = tipo_material.filter(e => e.id_tipo === 1 && e.material_id.includes(material_id));
 
     lista = lista.map(e => ({ ...e, callback: ver_periodo }));
 
@@ -50,23 +53,25 @@ export default function Material() {
           ]}
         />
 
-        <Box
-          sx={{
-            display: 'grid',
-            gap: 3,
-            gridTemplateColumns: {
-              xs: 'repeat(1, 1fr)',
-              sm: 'repeat(2, 1fr)',
-              md: 'repeat(3, 1fr)',
-            },
-          }}
-        >
-          {
-            lista_tipo_material.map((e, i) => (
-              <TipoMaterialCard key={i} tipo_material={e} />
-            ))
-          }
-        </Box>
+        {lista_tipo_material.length === 0 ? <Alert severity="error">El aula no tiene material asignado</Alert> :
+          <Box
+            sx={{
+              display: 'grid',
+              gap: 3,
+              gridTemplateColumns: {
+                xs: 'repeat(1, 1fr)',
+                sm: 'repeat(2, 1fr)',
+                md: 'repeat(3, 1fr)',
+              },
+            }}
+          >
+            {
+              lista_tipo_material.map((e, i) => (
+                <TipoMaterialCard key={i} tipo_material={e} />
+              ))
+            }
+          </Box>
+        }
       </Container>
     </Page>
   );

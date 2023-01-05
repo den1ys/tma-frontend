@@ -21,7 +21,10 @@ export default function Grupo() {
 
   const navigate = useNavigate();
 
-  const [parametro, set_parametro] = useState(location.state.params);
+
+  // Limpiar parametros posteriores
+  const { curso_id, profesor_id, aula_id, curso_nombre, material_id, tipo_material_id, tipo_material_nombre, periodo_id, periodo_nombre } = location.state.params;
+  const [parametro, set_parametro] = useState({ curso_id, profesor_id, aula_id, curso_nombre, material_id, tipo_material_id, tipo_material_nombre, periodo_id, periodo_nombre });
 
   const [lista_tipo_material, set_lista_tipo_material] = useState([]);
 
@@ -32,9 +35,7 @@ export default function Grupo() {
   };
 
   useEffect(() => {
-    const { periodo_id } = parametro;
-
-    let lista = tipo_material.filter(e => e.id_tipo === 3);
+    let lista = tipo_material.filter(e => e.id_tipo === 3 && e.id_padre.includes(periodo_id) && e.material_id.includes(material_id));
 
     lista = lista.map(e => ({ ...e, callback: ver_presentacion }));
 

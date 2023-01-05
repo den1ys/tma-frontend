@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 // form
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -15,7 +15,6 @@ import Iconify from '../../../components/Iconify';
 import { FormProvider, RHFTextField } from '../../../components/hook-form';
 // anothers
 import { GoogleLogin } from 'react-google-login';
-import { gapi } from 'gapi-script';
 // css
 import './LoginForm.css';
 
@@ -74,8 +73,12 @@ export default function LoginForm() {
   };
 
   const onFailureGoogle = (error) => {
+    console.log("Autosuccess 2s : " + JSON.stringify(error))
+
     setError('afterSubmit', { message: error.message });
   };
+
+  console.log(errors)
 
   return (
     <>
