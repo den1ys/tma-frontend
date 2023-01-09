@@ -15,20 +15,25 @@ import { CollapseDrawerProvider } from './contexts/CollapseDrawerContext';
 //
 import App from './App';
 import { AuthProvider } from './contexts/JWTContext';
+// Components
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 // ----------------------------------------------------------------------
 
 ReactDOM.render(
-  <AuthProvider>
-    <HelmetProvider>
-      <SettingsProvider>
-        <CollapseDrawerProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </CollapseDrawerProvider>
-      </SettingsProvider>
-    </HelmetProvider>
-  </AuthProvider>,
+  <GoogleOAuthProvider clientId="764758912941-5n0l0pfih1urfgd2i2kkrhtjbaoufe6v.apps.googleusercontent.com">
+    <AuthProvider>
+      <HelmetProvider>
+        <SettingsProvider>
+          <CollapseDrawerProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </CollapseDrawerProvider>
+        </SettingsProvider>
+      </HelmetProvider>
+    </AuthProvider>
+  </GoogleOAuthProvider>
+  ,
   document.getElementById('root')
 );

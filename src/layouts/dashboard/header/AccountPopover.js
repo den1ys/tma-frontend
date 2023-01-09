@@ -13,7 +13,6 @@ import useIsMountedRef from '../../../hooks/useIsMountedRef';
 import MyAvatar from '../../../components/MyAvatar';
 import MenuPopover from '../../../components/MenuPopover';
 import { IconButtonAnimate } from '../../../components/animate';
-import { GoogleLogout } from 'react-google-login';
 
 // ----------------------------------------------------------------------
 
@@ -116,16 +115,9 @@ export default function AccountPopover() {
 
         <Divider sx={{ borderStyle: 'dashed' }} />
 
-        <GoogleLogout
-          clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-          render={renderProps => (
-            <MenuItem onClick={renderProps.onClick} sx={{ m: 1 }}>
-              Cerrar sesión
-            </MenuItem>
-          )}
-          onLogoutSuccess={handleLogout}
-        />
-
+        <MenuItem onClick={() => handleLogout()} sx={{ m: 1 }}>
+          Cerrar sesión
+        </MenuItem>
       </MenuPopover>
     </>
   );

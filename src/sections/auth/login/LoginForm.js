@@ -14,9 +14,10 @@ import useIsMountedRef from '../../../hooks/useIsMountedRef';
 import Iconify from '../../../components/Iconify';
 import { FormProvider, RHFTextField } from '../../../components/hook-form';
 // anothers
-import { GoogleLogin } from 'react-google-login';
+import { useGoogleLogin } from '@react-oauth/google';
 // css
 import './LoginForm.css';
+import axios from 'axios';
 
 // ----------------------------------------------------------------------
 
@@ -61,24 +62,24 @@ export default function LoginForm() {
     }
   };
 
+  const onSuccessGoogle = useGoogleLogin({
+    onSuccess: async (tokenResponse) => {
+      const userInfo = await axios.get(
+        'https://www.googleapis.com/oauth2/v3/userinfo',
+        { headers: { Authorization: `Bearer ${tokenResponse.access_token}` } },
+      );
 
-  const onSuccessGoogle = async (res) => {
-    const perfil = res.profileObj;
-
-    try {
-      await login(perfil.email);
-    } catch (error) {
-      setError('afterSubmit', { message: error.message });
+      try {
+        await login(userInfo.data.email);
+      } catch (error) {
+        setError('afterSubmit', { message: error.message });
+      }
+    },
+    onError: errorResponse => {
+      setError('afterSubmit', { message: errorResponse });
     }
-  };
+  });
 
-  const onFailureGoogle = (error) => {
-    console.log("Autosuccess 2s : " + JSON.stringify(error))
-
-    setError('afterSubmit', { message: error.message });
-  };
-
-  console.log(errors)
 
   return (
     <>
@@ -111,17 +112,9 @@ export default function LoginForm() {
 
       <div className="text-line">O</div>
 
-      <GoogleLogin
-        clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-        hostedDomain={process.env.REACT_APP_GOOGLE_WORKSPACE_DOMAIN}
-        render={renderProps => (
-          <Button onClick={renderProps.onClick} variant="outlined" startIcon={<GoogleIcon />}>
-            Iniciar sesión con google
-          </Button>
-        )}
-        onSuccess={onSuccessGoogle}
-        onFailure={onFailureGoogle}
-      />
+      <Button onClick={() => onSuccessGoogle()} variant="outlined" startIcon={<GoogleIcon />}>
+        Iniciar sesión con google
+      </Button>
     </>
   );
 }
