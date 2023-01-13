@@ -39,6 +39,8 @@ export default function Periodo() {
       // Si tiene el material_id de ANUAL, redirige a la presentación
     } else if ([14].includes(material_id)) {
       navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
+    } else if ([6, 12].includes(material_id) && [3268, 3269, 3270, 3271, 3272, 3273, 3274, 3275].includes(id)) {
+      navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
     } else {
       navigate("/principal/grupo", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
     }
