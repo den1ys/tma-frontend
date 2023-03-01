@@ -35,7 +35,12 @@ export default function Material() {
   };
 
   useEffect(() => {
-    let lista = tipo_material.filter(e => e.id_tipo === 1 && e.material_id.includes(material_id));
+    // CICLO VACACIONAL
+    /*let lista = tipo_material.filter(e => e.id_tipo === 1 && e.material_id.includes(material_id));*/
+    //
+
+    // CICLO REGULAR
+    let lista = tipo_material.filter(e => e.id_tipo === 1);
 
     lista = lista.map(e => ({ ...e, callback: ver_periodo }));
 

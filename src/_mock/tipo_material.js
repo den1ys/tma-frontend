@@ -1,4 +1,5 @@
-/*export const tipo_material = [
+// CICLO REGULAR
+export const tipo_material = [
   {
     "id": 1,
     "id_tipo": 1,
@@ -200,58 +201,33 @@
     "imagen": "https://picsum.photos/id/3/200/100",
   },
   {
-    "id": 3196,
+    "id": 11,
     "id_tipo": 3,
     "id_padre": [3146, 3147, 3164, 3165, 3166, 3167, 3168, 3169],
-    "nombre": "CAPÍTULO 1",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/3/200/100"
+    "nombre": "CAPÍTULO 1"
   },
   {
-    "id": 3197,
+    "id": 12,
     "id_tipo": 3,
     "id_padre": [3146, 3147, 3164, 3165, 3166, 3167, 3168, 3169],
-    "nombre": "CAPÍTULO 2",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/3/200/100"
+    "nombre": "CAPÍTULO 2"
   },
   {
-    "id": 3198,
+    "id": 13,
     "id_tipo": 3,
     "id_padre": [3146, 3147, 3164, 3165, 3166, 3167, 3168, 3169],
-    "nombre": "CAPÍTULO 3",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/3/200/100"
+    "nombre": "CAPÍTULO 3"
   },
   {
-    "id": 3199,
+    "id": 14,
     "id_tipo": 3,
     "id_padre": [3146, 3147, 3164, 3165, 3166, 3167, 3168, 3169],
-    "nombre": "ASESORÍA",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/3/200/100"
-  },
-  {
-    "id": 3200,
-    "id_tipo": 3,
-    "id_padre": [3146, 3147, 3164, 3165, 3166, 3167, 3168, 3169],
-    "nombre": "REFORZAMIENTO",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/3/200/100"
+    "nombre": "RETROALIMENTACIÓN"
   }
-];*/
+];
 
-export const tipo_material = [
+// CICLO VACACIONAL
+/*export const tipo_material = [
   { "id": 1, "id_tipo": 1, "id_padre": [], "material_id": [6, 7, 11, 12, 13], "nombre": "COMPENDIO" },
   { "id": 2, "id_tipo": 1, "id_padre": [], "material_id": [2, 3, 4, 5, 9, 10, 15, 16, 17, 18], "nombre": "HELICODIAPOSITIVA" },
   { "id": 5, "id_tipo": 1, "id_padre": [], "material_id": [2, 3, 4, 5, 9, 10, 14, 15, 16, 17, 18], "nombre": "BOLETINES" },
@@ -314,4 +290,4 @@ export const tipo_material = [
   { "id": 7, "id_tipo": 3, "id_padre": [3146, 3217, 3218, 3219, 3220, 3221, 3222, 3223], "material_id": [2, 3, 4, 5, 9, 10], "nombre": "HELICOMOTIVACIÓN" },
   { "id": 8, "id_tipo": 3, "id_padre": [3217, 3218, 3219, 3220, 3221, 3222, 3235, 3236], "material_id": [6, 7, 11, 12, 13], "nombre": "TOMO 1" },
   { "id": 9, "id_tipo": 3, "id_padre": [3217, 3218, 3219, 3220, 3221, 3222, 3235, 3236], "material_id": [6, 7, 11, 12, 13], "nombre": "TOMO 2" }
-];
+];*/

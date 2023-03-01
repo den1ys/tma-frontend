@@ -48,7 +48,7 @@ export default function Horario() {
       const { documento } = user;
       const response = await axios.get(`/api/horarios/${documento}`);
       const { json: [{ data: morningList }, { data: afternoonList }] } = await response.data;
-console.log(afternoonList);
+
       setHorarioManiana(morningList);
       setHorarioTarde(afternoonList);
     }
