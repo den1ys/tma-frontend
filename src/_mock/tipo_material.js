@@ -4,201 +4,139 @@ export const tipo_material = [
     "id": 1,
     "id_tipo": 1,
     "id_padre": null,
-    "nombre": "COMPENDIO",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/3/200/100"
+    "nombre": "COMPENDIO"
   },
   {
     "id": 2,
     "id_tipo": 1,
     "id_padre": null,
-    "nombre": "HELICODIAPOSITIVA",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/13/200/100"
+    "nombre": "HELICODIAPOSITIVA"
   },
   {
     "id": 3,
     "id_tipo": 1,
     "id_padre": null,
-    "nombre": "BALOTARIO",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/33/200/100"
+    "nombre": "BALOTARIO"
   },
   {
     "id": 4,
     "id_tipo": 1,
     "id_padre": null,
-    "nombre": "SOLUCIONARIO DE BALOTARIO",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/43/200/100"
+    "nombre": "SOLUCIONARIO DE BALOTARIO"
+  },
+  {
+    "id": 15,
+    "id_tipo": 1,
+    "id_padre": null,
+    "nombre": "INTRODUCTORIO"
+  },
+  {
+    "id": 16,
+    "id_tipo": 1,
+    "id_padre": null,
+    "nombre": "CARPETA HELICOIDAL"
+  },
+  {
+    "id": 6,
+    "id_tipo": 1,
+    "id_padre": null,
+    "nombre": "SESIÓN"
   },
   {
     "id": 3146,
     "id_tipo": 2,
     "id_padre": [1, 2],
-    "nombre": "TOMO 1",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/3/200/100"
+    "nombre": "TOMO 1"
   },
   {
     "id": 3147,
     "id_tipo": 2,
     "id_padre": [1, 2],
-    "nombre": "TOMO 2",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/3/200/100"
+    "nombre": "TOMO 2"
   },
   {
     "id": 3164,
     "id_tipo": 2,
     "id_padre": [1, 2],
-    "nombre": "TOMO 3",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/3/200/100"
+    "nombre": "TOMO 3"
   },
   {
     "id": 3165,
     "id_tipo": 2,
     "id_padre": [1, 2],
-    "nombre": "TOMO 4",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/3/200/100"
+    "nombre": "TOMO 4"
   },
   {
     "id": 3166,
     "id_tipo": 2,
     "id_padre": [1, 2],
-    "nombre": "TOMO 5",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/3/200/100"
+    "nombre": "TOMO 5"
   },
   {
     "id": 3167,
     "id_tipo": 2,
     "id_padre": [1, 2],
-    "nombre": "TOMO 6",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/3/200/100"
+    "nombre": "TOMO 6"
   },
   {
     "id": 3168,
     "id_tipo": 2,
     "id_padre": [1, 2],
-    "nombre": "TOMO 7",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/3/200/100"
+    "nombre": "TOMO 7"
   },
   {
     "id": 3169,
     "id_tipo": 2,
     "id_padre": [1, 2],
-    "nombre": "TOMO 8",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/3/200/100"
+    "nombre": "TOMO 8"
   },
   {
     "id": 3170,
     "id_tipo": 2,
     "id_padre": [3, 4],
     "nombre": "MENSUAL 1",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/3/200/100",
   },
   {
     "id": 3171,
     "id_tipo": 2,
     "id_padre": [3, 4],
     "nombre": "MENSUAL 2",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/3/200/100",
   },
   {
     "id": 3172,
     "id_tipo": 2,
     "id_padre": [3, 4],
     "nombre": "MENSUAL 3",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/3/200/100",
   },
   {
     "id": 3173,
     "id_tipo": 2,
     "id_padre": [3, 4],
     "nombre": "MENSUAL 4",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/3/200/100",
   },
   {
     "id": 3174,
     "id_tipo": 2,
     "id_padre": [3, 4],
     "nombre": "BIMESTRAL 1",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/3/200/100",
   },
   {
     "id": 3175,
     "id_tipo": 2,
     "id_padre": [3, 4],
     "nombre": "BIMESTRAL 2",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/3/200/100",
   },
   {
     "id": 3176,
     "id_tipo": 2,
     "id_padre": [3, 4],
     "nombre": "BIMESTRAL 3",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/3/200/100",
   },
   {
     "id": 3177,
     "id_tipo": 2,
     "id_padre": [3, 4],
     "nombre": "BIMESTRAL 4",
-    "nivel": "Secundaria",
-    "empresa": "Saco Oliveros",
-    "empresa_logo": "https://trismegisto.sacooliveros.edu.pe/logo.jpg",
-    "imagen": "https://picsum.photos/id/3/200/100",
   },
   {
     "id": 11,

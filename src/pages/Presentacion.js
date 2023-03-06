@@ -55,7 +55,7 @@ export default function Presentacion() {
       setMateriales(materiales);
 
       const material = materiales.find(e => e.curso_id === curso_id && e.aula_id === aula_id
-        && e.tipo_material_id === tipo_material_id && e.periodo_id === periodo_id && (grupo_id ? e.grupo_id === grupo_id : true));
+        && e.tipo_material_id === tipo_material_id && (periodo_id ? e.periodo_id === periodo_id : true) && (grupo_id ? e.grupo_id === grupo_id : true));
 
       if (!material) {
         setError(true);
@@ -82,8 +82,8 @@ export default function Presentacion() {
           heading="Presentación"
           links={[
             { name: parametro.curso_nombre, href: '/principal/horario' },
-            { name: parametro.tipo_material_nombre, href: '/principal/tipo_material', state: { params: parametro } },
-            { name: parametro.periodo_nombre, href: '/principal/periodo', state: { params: parametro } },
+            parametro.tipo_material_id ? { name: parametro.tipo_material_nombre, href: '/principal/tipo_material', state: { params: parametro } } : null,
+            parametro.periodo_id ? { name: parametro.periodo_nombre, href: '/principal/periodo', state: { params: parametro } } : null,
             parametro.grupo_id ? { name: parametro.grupo_nombre, href: '/principal/grupo', state: { params: parametro } } : null,
             { name: 'Presentación', href: '/principal/presentacion' }
           ].filter(e => e !== null)}

@@ -31,7 +31,17 @@ export default function Material() {
   const ver_periodo = ({ id, nombre }) => {
     set_parametro(actual => ({ ...actual, tipo_material_id: id, tipo_material_nombre: nombre }));
 
-    navigate("/principal/periodo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
+    // CICLO VACACIONAL
+    /*navigate("/principal/periodo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });*/
+
+    // CICLO REGULAR
+    if ([6, 15, 16].includes(id)) {
+      navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
+
+    } else {
+      navigate("/principal/periodo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
+    }
+
   };
 
   useEffect(() => {
