@@ -13,6 +13,9 @@ import { HorarioTablaFila } from '../sections/@dashboard/invoice/list';
 import axios from '../utils/axios';
 // router
 import { useNavigate } from 'react-router';
+import DialogRadio from 'src/components/DialogRadio';
+// data
+import { curso_grupos } from '../_mock/tipo_material';
 
 // ----------------------------------------------------------------------
 
@@ -27,7 +30,13 @@ export default function Horario() {
 
   const [horarioTarde, setHorarioTarde] = useState([]);
 
+  const [parametro, set_parametro] = useState({});
+
   const [open, setOpen] = useState(false);
+
+  const [openDialog, setOpenDialog] = useState(false);
+
+  const [cursos, setCursos] = useState([]);
 
   const { user } = useAuth();
 
@@ -74,11 +83,15 @@ export default function Horario() {
         }, [])
       ); */
     }
+    
+    set_parametro(actual => ({ ...actual, curso_id, profesor_id, aula_id, curso_nombre, material_id }));
 
-    if (materiales.length > 0) {
-      setOpen(true);
+    if (curso_grupos.find(e => e.group_id === curso_id)) {
+      setCursos(actual => [...actual, ...curso_grupos.filter(e => e.group_id === curso_id)]);
 
-      //return false;
+      setOpenDialog(true);
+
+      return false;
     }
 
     navigate("/principal/tipo_material", { replace: true, state: { params: { curso_id, profesor_id, aula_id, curso_nombre, material_id } } });
@@ -90,6 +103,18 @@ export default function Horario() {
     }
 
     setOpen(false);
+  };
+
+  const onCloseDialog = (value) => {
+    setOpenDialog(false);
+
+    if (!value) {
+      return false;
+    }
+
+    const { id: curso_id, text: curso_nombre } = curso_grupos.find(e => e.id === value);
+
+    navigate("/principal/tipo_material", { replace: true, state: { params: { ...parametro, curso_id, curso_nombre } } });
   };
 
   return (
@@ -154,6 +179,8 @@ export default function Horario() {
             </TableContainer>
           </Scrollbar>
         </Card>
+
+        <DialogRadio open={openDialog} onClose={onCloseDialog} title="Seleccionar curso" options={cursos} />
       </Container>
     </Page >
   );

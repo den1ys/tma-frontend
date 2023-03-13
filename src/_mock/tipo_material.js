@@ -229,3 +229,16 @@ export const tipo_material = [
   { "id": 8, "id_tipo": 3, "id_padre": [3217, 3218, 3219, 3220, 3221, 3222, 3235, 3236], "material_id": [6, 7, 11, 12, 13], "nombre": "TOMO 1" },
   { "id": 9, "id_tipo": 3, "id_padre": [3217, 3218, 3219, 3220, 3221, 3222, 3235, 3236], "material_id": [6, 7, 11, 12, 13], "nombre": "TOMO 2" }
 ];*/
+
+export const curso_grupos = [
+  { group_id: 105, id: 75, text: "PLAN LECTOR" },
+  { group_id: 105, id: 48, text: "TUTORIA" },
+  { group_id: 136, id: 106, text: "FORTALECIENDO MI FE" },
+  { group_id: 136, id: 46, text: "VALORES Y LIDERAZGO" },
+  { group_id: 137, id: 106, text: "FORTALECIENDO MI FE" },
+  { group_id: 137, id: 23, text: "INGLÉS SESIÓN 2" },
+  { group_id: 138, id: 75, text: "PLAN LECTOR" },
+  { group_id: 138, id: 40, text: "RAZ. VERBAL SESIÓN 2" },
+  { group_id: 139, id: 23, text: "INGLÉS SESIÓN 2" },
+  { group_id: 139, id: 48, text: "TUTORIA" }
+];

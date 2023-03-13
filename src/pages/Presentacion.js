@@ -20,6 +20,7 @@ import { toolbarPlugin, ToolbarSlot } from "@react-pdf-viewer/toolbar";
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 import PdfViewer from 'src/components/PdfViewer';
+import PdfViewerComponent from 'src/components/PdfViewerComponent';
 
 
 // ----------------------------------------------------------------------
@@ -92,7 +93,7 @@ export default function Presentacion() {
         {error && <Alert severity="error">No hay material para este curso</Alert>}
 
         {url &&
-          <PdfViewer url={url} />
+          <PdfViewerComponent url={url} />
         }
       </Container>
     </Page>
