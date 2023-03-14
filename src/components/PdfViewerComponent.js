@@ -1,4 +1,4 @@
-import WebViewer from '@pdftron/pdfjs-express';
+import WebViewer from '@pdftron/pdfjs-express-viewer';
 import { useEffect, useRef } from 'react';
 
 const container_css = {
@@ -33,15 +33,16 @@ export default function PdfViewerComponent({ url }) {
     useEffect(() => {
         WebViewer(
             {
+                licenseKey: "Y6Hwv7hyEFaeqq3V1MM1",
                 path: '/webviewer/lib',
                 initialDoc: url,
                 disabledElements: [
                     'ribbons',
                     'toggleNotesButton',
                     'printButton',
+                    'downloadButton',
                     'toolsHeader'
-                ],
-                licenseKey: "7Xon256uCcAGl2SjOmZW"
+                ]
             },
             viewer.current
         ).then((ins) => {
@@ -50,11 +51,11 @@ export default function PdfViewerComponent({ url }) {
         });
     }, []);
 
-  useEffect(() => {
-    if (instance.current) {
-      instance.current.loadDocument(url);
-    }
-  }, [url])
+    useEffect(() => {
+        if (instance.current) {
+            instance.current.loadDocument(url);
+        }
+    }, [url])
 
     return (
         <div style={container_css}>

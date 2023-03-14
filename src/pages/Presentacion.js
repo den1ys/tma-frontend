@@ -1,28 +1,16 @@
-// external
-import { Viewer, Worker } from '@react-pdf-viewer/core';
 // @mui
 import { Alert, CircularProgress, Container } from '@mui/material';
 // hooks
 import { useEffect, useState } from 'react';
+import useSettings from '../hooks/useSettings';
 // router
 import { useLocation } from 'react-router';
 // components
 import Page from '../components/Page';
 import HeaderBreadcrumbs from '../components/HeaderBreadcrumbs';
+import PdfViewerComponent from 'src/components/PdfViewerComponent';
 // axios
 import axios from '../utils/axios';
-
-import useSettings from '../hooks/useSettings';
-
-import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
-import { toolbarPlugin, ToolbarSlot } from "@react-pdf-viewer/toolbar";
-
-import "@react-pdf-viewer/core/lib/styles/index.css";
-import "@react-pdf-viewer/default-layout/lib/styles/index.css";
-import PdfViewer from 'src/components/PdfViewer';
-import PdfViewerComponent from 'src/components/PdfViewerComponent';
-
-
 // ----------------------------------------------------------------------
 
 export default function Presentacion() {
@@ -42,9 +30,6 @@ export default function Presentacion() {
 
   const [error, setError] = useState(false);
 
-  const defaultLayoutPluginInstance = defaultLayoutPlugin();
-  const { toggleTab } = defaultLayoutPluginInstance;
-  toggleTab(1);
   const { params } = location.state;
 
   const { curso_id, profesor_id, aula_id, tipo_material_id, periodo_id, grupo_id } = params;
@@ -54,7 +39,7 @@ export default function Presentacion() {
 
     if (materiales) {
       setMateriales(materiales);
-      
+
       const material = materiales.find(e => (curso_id && ![6, 16].includes(tipo_material_id) ? e.curso_id === curso_id : true ) && e.aula_id === aula_id
         && e.tipo_material_id === tipo_material_id && (periodo_id ? e.periodo_id === periodo_id : true) && (grupo_id ? e.grupo_id === grupo_id : true));
 
@@ -71,10 +56,6 @@ export default function Presentacion() {
       }
     }
   }, []);
-
-  const handleAskPassword = (e) => {
-    e.verifyPassword(contrasenia);
-  };
 
   return (
     <Page title="TMA: Presentación">
