@@ -39,7 +39,7 @@ export default function Grupo() {
     /*let lista = tipo_material.filter(e => e.id_tipo === 3 && e.id_padre.includes(periodo_id) && e.material_id.includes(material_id));*/
 
     // CICLO REGULAR
-    let lista = tipo_material.filter(e => e.id_tipo === 3 && e.id_padre.includes(periodo_id));
+    let lista = tipo_material.filter(e => e.id_tipo === 3 && e.id_padre.includes(periodo_id) && e.material_id.includes(material_id));
 
     lista = lista.map(e => ({ ...e, callback: ver_presentacion }));
 

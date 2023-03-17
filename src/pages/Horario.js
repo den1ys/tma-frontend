@@ -97,7 +97,7 @@ export default function Horario() {
     navigate("/principal/tipo_material", { replace: true, state: { params: { curso_id, profesor_id, aula_id, curso_nombre, material_id } } });
   };
 
-  const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+  const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
     }

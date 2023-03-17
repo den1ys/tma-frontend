@@ -37,7 +37,9 @@ export default function Material() {
     // CICLO REGULAR
     if ([6, 15, 16].includes(id)) {
       navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
-
+    } else if ([2].includes(id) && [7, 8].includes(material_id)) {
+      const { id: periodo_id, nombre: periodo_nombre } = tipo_material.find(e => e.id_tipo === 2 && e.id_padre.includes(id) && e.material_id.includes(material_id));
+      navigate("/principal/grupo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre, periodo_id, periodo_nombre } } });
     } else {
       navigate("/principal/periodo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
     }
@@ -50,7 +52,7 @@ export default function Material() {
     //
 
     // CICLO REGULAR
-    let lista = tipo_material.filter(e => e.id_tipo === 1);
+    let lista = tipo_material.filter(e => e.id_tipo === 1 && e.material_id.includes(material_id));
 
     lista = lista.map(e => ({ ...e, callback: ver_periodo }));
 
