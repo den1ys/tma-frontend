@@ -23,8 +23,8 @@ export default function Grupo() {
 
 
   // Limpiar parametros posteriores
-  const { curso_id, profesor_id, aula_id, curso_nombre, material_id, tipo_material_id, tipo_material_nombre, periodo_id, periodo_nombre } = location.state.params;
-  const [parametro, set_parametro] = useState({ curso_id, profesor_id, aula_id, curso_nombre, material_id, tipo_material_id, tipo_material_nombre, periodo_id, periodo_nombre });
+  const { curso_id, aula_id, curso_nombre, material_id, tipo_material_id, tipo_material_nombre, periodo_id, periodo_nombre } = location.state.params;
+  const [parametro, set_parametro] = useState({ curso_id, aula_id, curso_nombre, material_id, tipo_material_id, tipo_material_nombre, periodo_id, periodo_nombre });
 
   const [lista_tipo_material, set_lista_tipo_material] = useState([]);
 

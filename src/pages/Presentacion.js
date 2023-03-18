@@ -32,7 +32,7 @@ export default function Presentacion() {
 
   const { params } = location.state;
 
-  const { curso_id, profesor_id, aula_id, tipo_material_id, periodo_id, grupo_id } = params;
+  const { curso_id, aula_id, tipo_material_id, periodo_id, grupo_id } = params;
 
   useEffect(async () => {
     const materiales = JSON.parse(localStorage.getItem("materiales"));

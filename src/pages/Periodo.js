@@ -22,9 +22,9 @@ export default function Periodo() {
   const navigate = useNavigate();
 
   // Limpiar parametros posteriores
-  const { curso_id, profesor_id, aula_id, curso_nombre, material_id, tipo_material_id, tipo_material_nombre } = location.state.params;
+  const { curso_id, aula_id, curso_nombre, material_id, tipo_material_id, tipo_material_nombre } = location.state.params;
 
-  const [parametro, set_parametro] = useState({ curso_id, profesor_id, aula_id, curso_nombre, material_id, tipo_material_id, tipo_material_nombre });
+  const [parametro, set_parametro] = useState({ curso_id, aula_id, curso_nombre, material_id, tipo_material_id, tipo_material_nombre });
 
   const [lista_tipo_material, set_lista_tipo_material] = useState([]);
 

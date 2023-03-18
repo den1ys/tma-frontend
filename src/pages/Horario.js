@@ -1,5 +1,5 @@
 // @mui
-import { Alert, Card, Container, Snackbar, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Alert, Card, Container, Snackbar, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 // hooks
 import { useEffect, useState } from 'react';
 import useSettings from '../hooks/useSettings';
@@ -16,6 +16,7 @@ import { useNavigate } from 'react-router';
 import DialogRadio from 'src/components/DialogRadio';
 // data
 import { curso_grupos } from '../_mock/tipo_material';
+import AulaSearch from 'src/sections/@dashboard/horario/AulaSearch';
 
 // ----------------------------------------------------------------------
 
@@ -53,21 +54,28 @@ export default function Horario() {
   }, [materiales]);
 
   useEffect(() => {
-    async function getHorario() {
-      const { documento } = user;
-      const response = await axios.get(`/api/horarios/${documento}`);
-      const { json: [{ data: morningList }, { data: afternoonList }] } = await response.data;
+    const { es_profesor, documento } = user;
 
-      setHorarioManiana(morningList);
-      setHorarioTarde(afternoonList);
+    if (es_profesor) {
+      obtener_horario(`?documento=${documento}`);
     }
-
-    getHorario();
   }, []);
 
-  const ver_tipo_material = async ({ curso_id, profesor_id, aula_id, curso_nombre, material_id }) => {
+  const obtener_horario = async (query_param) => {
+    const response = await axios.get(`/api/horarios${query_param}`);
+    const { json: [{ data: morningList }, { data: afternoonList }] } = await response.data;
+
+    setHorarioManiana(morningList);
+    setHorarioTarde(afternoonList);
+  }
+
+  useEffect(() => {
+    console.log(horarioManiana)
+  }, [horarioManiana]);
+
+  const ver_tipo_material = async ({ curso_id, aula_id, curso_nombre, material_id }) => {
     if (!materiales.some(e => e.curso_id === curso_id && e.aula_id === aula_id)) {
-      const response = await axios.get(`/api/materiales?curso_id=${curso_id}&profesor_id=${profesor_id}&aula_id=${aula_id}`);
+      const response = await axios.get(`/api/materiales?curso_id=${curso_id}&aula_id=${aula_id}`);
       const { json: { data } } = await response.data;
 
       setMateriales(materiales => [...materiales, ...data]);
@@ -83,8 +91,8 @@ export default function Horario() {
         }, [])
       ); */
     }
-    
-    set_parametro(actual => ({ ...actual, curso_id, profesor_id, aula_id, curso_nombre, material_id }));
+
+    set_parametro(actual => ({ ...actual, curso_id, aula_id, curso_nombre, material_id }));
 
     if (curso_grupos.find(e => e.group_id === curso_id)) {
       setCursos(actual => [...actual, ...curso_grupos.filter(e => e.group_id === curso_id)]);
@@ -94,7 +102,7 @@ export default function Horario() {
       return false;
     }
 
-    navigate("/principal/tipo_material", { replace: true, state: { params: { curso_id, profesor_id, aula_id, curso_nombre, material_id } } });
+    navigate("/principal/tipo_material", { replace: true, state: { params: { curso_id, aula_id, curso_nombre, material_id } } });
   };
 
   const handleClose = (event, reason) => {
@@ -126,6 +134,18 @@ export default function Horario() {
             { name: 'Horario', href: '/principal/horario' }
           ]}
         />
+
+        {user.es_director &&
+          <Stack
+            spacing={2}
+            direction={{ xs: 'column', sm: 'row' }}
+            alignItems={{ sm: 'center' }}
+            justifyContent="space-between"
+            sx={{ mb: 2 }}
+          >
+            <AulaSearch callback={obtener_horario} />
+          </Stack>
+        }
 
         <Card>
           <Snackbar anchorOrigin={{ vertical: "bottom", horizontal: "center" }} open={open} autoHideDuration={6000} onClose={handleClose}>

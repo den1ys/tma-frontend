@@ -16,7 +16,7 @@ export default function HorarioTablaFila({ row, callback }) {
   const [fila, setFila] = useState([]);
 
   useEffect(() => {
-    setFila(actual => [...actual, ...[1, 2, 3, 4, 5, 6].map((valor, index) => {
+    setFila([...[1, 2, 3, 4, 5, 6].map((valor, index) => {
       let obj = row.find(e => e.dia === valor);
 
       if (obj) {
@@ -26,7 +26,7 @@ export default function HorarioTablaFila({ row, callback }) {
       }
     })]
     );
-  }, []);
+  }, [row]);
 
   return (
     <TableRow>
