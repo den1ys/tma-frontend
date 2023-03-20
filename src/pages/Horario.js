@@ -1,5 +1,5 @@
 // @mui
-import { Alert, Card, Container, Snackbar, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Alert, Button, Card, CircularProgress, Container, Snackbar, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 // hooks
 import { useEffect, useState } from 'react';
 import useSettings from '../hooks/useSettings';
@@ -17,6 +17,7 @@ import DialogRadio from 'src/components/DialogRadio';
 // data
 import { curso_grupos } from '../_mock/tipo_material';
 import AulaSearch from 'src/sections/@dashboard/horario/AulaSearch';
+import { Box } from '@mui/system';
 
 // ----------------------------------------------------------------------
 
@@ -34,6 +35,10 @@ export default function Horario() {
   const [parametro, set_parametro] = useState({});
 
   const [open, setOpen] = useState(false);
+
+  const [aulaId, setAulaId] = useState(0);
+
+  const [cargarHorario, setCargarHorario] = useState(false);
 
   const [openDialog, setOpenDialog] = useState(false);
 
@@ -61,19 +66,24 @@ export default function Horario() {
     }
   }, []);
 
+  const handleAulaIdChange = (aula_id) => {
+    setAulaId(aula_id);
+  };
+
   const obtener_horario = async (query_param) => {
+    setHorarioManiana([]);
+    setHorarioTarde([]);
+    setCargarHorario(true);
+
     const response = await axios.get(`/api/horarios${query_param}`);
     const { json: [{ data: morningList }, { data: afternoonList }] } = await response.data;
 
     setHorarioManiana(morningList);
     setHorarioTarde(afternoonList);
+    setCargarHorario(false);
   }
 
-  useEffect(() => {
-    console.log(horarioManiana)
-  }, [horarioManiana]);
-
-  const ver_tipo_material = async ({ curso_id, aula_id, curso_nombre, material_id }) => {
+  const ver_tipo_material = async ({ curso_id, aula_id, aula, curso_nombre, material_id }) => {
     if (!materiales.some(e => e.curso_id === curso_id && e.aula_id === aula_id)) {
       const response = await axios.get(`/api/materiales?curso_id=${curso_id}&aula_id=${aula_id}`);
       const { json: { data } } = await response.data;
@@ -92,7 +102,7 @@ export default function Horario() {
       ); */
     }
 
-    set_parametro(actual => ({ ...actual, curso_id, aula_id, curso_nombre, material_id }));
+    set_parametro(actual => ({ ...actual, curso_id, aula_id, aula_nombre: aula, curso_nombre, material_id }));
 
     if (curso_grupos.find(e => e.group_id === curso_id)) {
       setCursos(actual => [...actual, ...curso_grupos.filter(e => e.group_id === curso_id)]);
@@ -102,7 +112,7 @@ export default function Horario() {
       return false;
     }
 
-    navigate("/principal/tipo_material", { replace: true, state: { params: { curso_id, aula_id, curso_nombre, material_id } } });
+    navigate("/principal/tipo_material", { replace: true, state: { params: { curso_id, aula_id, aula_nombre: aula, curso_nombre, material_id } } });
   };
 
   const handleClose = (event, reason) => {
@@ -126,7 +136,7 @@ export default function Horario() {
   };
 
   return (
-    <Page title="TMA: Horario">
+    <Page title="TMA - Saco Oliveros (Horario)">
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <HeaderBreadcrumbs
           heading="Horario"
@@ -137,13 +147,14 @@ export default function Horario() {
 
         {user.es_director &&
           <Stack
-            spacing={2}
             direction={{ xs: 'column', sm: 'row' }}
             alignItems={{ sm: 'center' }}
-            justifyContent="space-between"
             sx={{ mb: 2 }}
+            spacing={2}
           >
-            <AulaSearch callback={obtener_horario} />
+            <AulaSearch onAulaIdChange={handleAulaIdChange} />
+
+            <Button variant="contained" onClick={() => { obtener_horario(`?aula_id=${aulaId}`) }}>Buscar horario</Button>
           </Stack>
         }
 
@@ -154,50 +165,60 @@ export default function Horario() {
             </Alert>
           </Snackbar>
 
-          <Scrollbar>
-            <TableContainer sx={{ minWidth: 800, position: 'relative' }}>
-              <Table>
-                <TableHead>
-                  <TableRow>
-                    <TableCell align="center">Lunes</TableCell>
-                    <TableCell align="center">Martes</TableCell>
-                    <TableCell align="center">Miércoles</TableCell>
-                    <TableCell align="center">Jueves</TableCell>
-                    <TableCell align="center">Viernes</TableCell>
-                    <TableCell align="center">Sábado</TableCell>
-                  </TableRow>
-                </TableHead>
 
-                <TableBody>
-                  {horarioManiana.length > 0 &&
+          {cargarHorario &&
+            <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", width: 300, height: 300, marginX: "auto" }}>
+              <CircularProgress />
+            </Box>
+          }
+
+          {horarioManiana.length || horarioTarde.length ?
+            <Scrollbar>
+              <TableContainer sx={{ minWidth: 800, position: 'relative' }}>
+                <Table>
+                  <TableHead>
                     <TableRow>
-                      <TableCell colSpan={6} align="center" size="small">Turno mañana</TableCell>
-                    </TableRow>}
+                      <TableCell align="center">Lunes</TableCell>
+                      <TableCell align="center">Martes</TableCell>
+                      <TableCell align="center">Miércoles</TableCell>
+                      <TableCell align="center">Jueves</TableCell>
+                      <TableCell align="center">Viernes</TableCell>
+                      <TableCell align="center">Sábado</TableCell>
+                    </TableRow>
+                  </TableHead>
 
-                  {horarioManiana.map((row, index) => (
-                    <HorarioTablaFila
-                      key={index}
-                      row={row}
-                      callback={ver_tipo_material}
-                    />
-                  ))}
+                  <TableBody>
+                    {horarioManiana.length > 0 &&
+                      <TableRow>
+                        <TableCell colSpan={6} align="center" size="small">Turno mañana</TableCell>
+                      </TableRow>}
 
-                  {horarioTarde.length > 0 &&
-                    <TableRow>
-                      <TableCell colSpan={6} align="center" size="small">Turno tarde</TableCell>
-                    </TableRow>}
+                    {horarioManiana.map((row, index) => (
+                      <HorarioTablaFila
+                        key={index}
+                        row={row}
+                        callback={ver_tipo_material}
+                      />
+                    ))}
 
-                  {horarioTarde.map((row, index) => (
-                    <HorarioTablaFila
-                      key={index}
-                      row={row}
-                      callback={ver_tipo_material}
-                    />
-                  ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
-          </Scrollbar>
+                    {horarioTarde.length > 0 &&
+                      <TableRow>
+                        <TableCell colSpan={6} align="center" size="small">Turno tarde</TableCell>
+                      </TableRow>}
+
+                    {horarioTarde.map((row, index) => (
+                      <HorarioTablaFila
+                        key={index}
+                        row={row}
+                        callback={ver_tipo_material}
+                      />
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Scrollbar>
+            : ""
+          }
         </Card>
 
         <DialogRadio open={openDialog} onClose={onCloseDialog} title="Seleccionar curso" options={cursos} />

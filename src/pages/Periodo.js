@@ -22,9 +22,9 @@ export default function Periodo() {
   const navigate = useNavigate();
 
   // Limpiar parametros posteriores
-  const { curso_id, aula_id, curso_nombre, material_id, tipo_material_id, tipo_material_nombre } = location.state.params;
+  const { curso_id, aula_id, aula_nombre, curso_nombre, material_id, tipo_material_id, tipo_material_nombre } = location.state.params;
 
-  const [parametro, set_parametro] = useState({ curso_id, aula_id, curso_nombre, material_id, tipo_material_id, tipo_material_nombre });
+  const [parametro, set_parametro] = useState({ curso_id, aula_id, aula_nombre, curso_nombre, material_id, tipo_material_id, tipo_material_nombre });
 
   const [lista_tipo_material, set_lista_tipo_material] = useState([]);
 
@@ -88,7 +88,7 @@ export default function Periodo() {
   }, []);
 
   return (
-    <Page title="TMA: Periodo">
+    <Page title="TMA - Saco Oliveros (Periodo)">
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <HeaderBreadcrumbs
           heading="Periodo"

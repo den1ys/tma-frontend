@@ -23,8 +23,8 @@ export default function Grupo() {
 
 
   // Limpiar parametros posteriores
-  const { curso_id, aula_id, curso_nombre, material_id, tipo_material_id, tipo_material_nombre, periodo_id, periodo_nombre } = location.state.params;
-  const [parametro, set_parametro] = useState({ curso_id, aula_id, curso_nombre, material_id, tipo_material_id, tipo_material_nombre, periodo_id, periodo_nombre });
+  const { curso_id, aula_id, aula_nombre, curso_nombre, material_id, tipo_material_id, tipo_material_nombre, periodo_id, periodo_nombre } = location.state.params;
+  const [parametro, set_parametro] = useState({ curso_id, aula_id, aula_nombre, curso_nombre, material_id, tipo_material_id, tipo_material_nombre, periodo_id, periodo_nombre });
 
   const [lista_tipo_material, set_lista_tipo_material] = useState([]);
 
@@ -47,7 +47,7 @@ export default function Grupo() {
   }, []);
 
   return (
-    <Page title="TMA: Grupo">
+    <Page title="TMA - Saco Oliveros (Grupo)">
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <HeaderBreadcrumbs
           heading="Grupo"

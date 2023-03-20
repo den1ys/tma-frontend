@@ -1,5 +1,5 @@
 // @mui
-import { Alert, CircularProgress, Container } from '@mui/material';
+import { Alert, Box, CircularProgress, Container } from '@mui/material';
 // hooks
 import { useEffect, useState } from 'react';
 import useSettings from '../hooks/useSettings';
@@ -32,7 +32,7 @@ export default function Presentacion() {
 
   const { params } = location.state;
 
-  const { curso_id, aula_id, tipo_material_id, periodo_id, grupo_id } = params;
+  const { curso_id, aula_id, aula_nombre, tipo_material_id, periodo_id, grupo_id } = params;
 
   useEffect(async () => {
     const materiales = JSON.parse(localStorage.getItem("materiales"));
@@ -40,7 +40,7 @@ export default function Presentacion() {
     if (materiales) {
       setMateriales(materiales);
 
-      const material = materiales.find(e => (curso_id && ![6, 16].includes(tipo_material_id) ? e.curso_id === curso_id : true ) && e.aula_id === aula_id
+      const material = materiales.find(e => (curso_id && ![6, 16].includes(tipo_material_id) ? e.curso_id === curso_id : true) && e.aula_id === aula_id
         && e.tipo_material_id === tipo_material_id && (periodo_id ? e.periodo_id === periodo_id : true) && (grupo_id ? e.grupo_id === grupo_id : true));
 
       if (!material) {
@@ -58,7 +58,7 @@ export default function Presentacion() {
   }, []);
 
   return (
-    <Page title="TMA: Presentación">
+    <Page title="TMA - Saco Oliveros (Presentación)">
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <HeaderBreadcrumbs
           heading="Presentación"
@@ -72,6 +72,13 @@ export default function Presentacion() {
         />
 
         {error && <Alert severity="error">No hay material para este curso</Alert>}
+
+        {!url && !error ?
+          <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", width: 300, height: 300, marginX: "auto" }}>
+            <CircularProgress />
+          </Box>
+          : ""
+        }
 
         {url &&
           <PdfViewerComponent url={url} />

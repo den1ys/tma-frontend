@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
 import { useNavigate } from 'react-router-dom';
@@ -16,12 +16,12 @@ import useAuth from 'src/hooks/useAuth';
 // ----------------------------------------------------------------------
 
 const PopperStyle = styled((props) => <Popper placement="bottom-start" {...props} />)({
-  width: '280px !important',
+  maxWidth: '380px !important',
 });
 
 // ----------------------------------------------------------------------
 
-export default function AulaSearch({ callback }) {
+export default function AulaSearch({ onAulaIdChange }) {
   const { user } = useAuth();
 
   const navigate = useNavigate();
@@ -32,16 +32,19 @@ export default function AulaSearch({ callback }) {
 
   const [searchResults, setSearchResults] = useState([]);
 
+  useEffect(() => {
+    const { aulas } = user;
+    setSearchResults([...aulas]);
+  }, []);
+
   const handleChangeSearch = async (value) => {
     try {
       setSearchQuery(value);
-      if (value) {
-        const { aulas } = user;
-        const response = aulas.filter(e => e.aula_nombre.toLowerCase().includes(value.toLowerCase()));
+      const { aulas } = user;
+      const response = aulas.filter(e => !value ? true : e.aula_nombre.toLowerCase().includes(value.toLowerCase()));
 
-        if (isMountedRef.current) {
-          setSearchResults(response);
-        }
+      if (isMountedRef.current) {
+        setSearchResults(response);
       }
     } catch (error) {
       console.error(error);
@@ -49,15 +52,7 @@ export default function AulaSearch({ callback }) {
   };
 
   const handleClick = (aula_id) => {
-    callback(`?aula_id=${aula_id}`);
-  };
-
-  const handleKeyUp = (event) => {
-    if (event.key === 'Enter') {
-      const { aulas } = user;
-      const aula_id = aulas.find(e => e.aula_nombre.toLowerCase().includes(event.target.value.toLowerCase()))?.aula_id;
-      callback(`?aula_id=${aula_id}`);
-    }
+    onAulaIdChange(aula_id);
   };
 
   return (
@@ -70,13 +65,11 @@ export default function AulaSearch({ callback }) {
       onInputChange={(event, value) => handleChangeSearch(value)}
       getOptionLabel={(option) => option.aula_nombre}
       noOptionsText={<SearchNotFound searchQuery={searchQuery} />}
-      isOptionEqualToValue={(option, value) => option.aula_nombre === value.aula_id}
       renderInput={(params) => (
         <InputStyle
           {...params}
-          stretchStart={200}
+          stretchStart={380}
           placeholder="Buscar aula..."
-          onKeyUp={handleKeyUp}
           InputProps={{
             ...params.InputProps,
             startAdornment: (
@@ -94,7 +87,7 @@ export default function AulaSearch({ callback }) {
 
         return (
           <li {...props}>
-            <Link underline="none" onClick={() => handleClick(aula_id)}>
+            <Link sx={{width: "100%"}} underline="none" onClick={() => handleClick(aula_id)}>
               {parts.map((part, index) => (
                 <Typography
                   key={index}

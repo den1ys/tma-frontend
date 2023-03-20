@@ -47,6 +47,7 @@ export default function PdfViewerComponent({ url }) {
             viewer.current
         ).then((ins) => {
             ins.UI.setLanguage('es');
+            ins.UI.setTheme('dark');
             instance.current = ins;
         });
     }, []);
