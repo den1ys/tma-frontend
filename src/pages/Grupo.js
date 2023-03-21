@@ -50,7 +50,7 @@ export default function Grupo() {
     <Page title="TMA - Saco Oliveros (Grupo)">
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <HeaderBreadcrumbs
-          heading="Grupo"
+          heading={`Material para ${aula_nombre}`}
           links={[
             { name: parametro.curso_nombre, href: '/principal/horario' },
             { name: parametro.tipo_material_nombre, href: '/principal/tipo_material', state: { params: parametro } },

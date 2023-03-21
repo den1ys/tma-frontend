@@ -91,7 +91,7 @@ export default function Periodo() {
     <Page title="TMA - Saco Oliveros (Periodo)">
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <HeaderBreadcrumbs
-          heading="Periodo"
+          heading={`Material para ${aula_nombre}`}
           links={[
             { name: parametro.curso_nombre, href: '/principal/horario' },
             { name: parametro.tipo_material_nombre, href: '/principal/tipo_material', state: { params: parametro } },

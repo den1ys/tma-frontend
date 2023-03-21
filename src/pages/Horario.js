@@ -1,5 +1,5 @@
 // @mui
-import { Alert, Button, Card, CircularProgress, Container, Snackbar, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Alert, Button, Card, CircularProgress, Container, FormControl, InputLabel, MenuItem, Select, Snackbar, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 // hooks
 import { useEffect, useState } from 'react';
 import useSettings from '../hooks/useSettings';
@@ -36,7 +36,7 @@ export default function Horario() {
 
   const [open, setOpen] = useState(false);
 
-  const [aulaId, setAulaId] = useState(0);
+  const [aulaId, setAulaId] = useState("");
 
   const [cargarHorario, setCargarHorario] = useState(false);
 
@@ -66,8 +66,8 @@ export default function Horario() {
     }
   }, []);
 
-  const handleAulaIdChange = (aula_id) => {
-    setAulaId(aula_id);
+  const handleAulaIdChange = (event) => {
+    setAulaId(event.target.value);
   };
 
   const obtener_horario = async (query_param) => {
@@ -152,7 +152,17 @@ export default function Horario() {
             sx={{ mb: 2 }}
             spacing={2}
           >
-            <AulaSearch onAulaIdChange={handleAulaIdChange} />
+            <FormControl style={{ minWidth: 400 }}>
+              <InputLabel id="test-select-label">Aula</InputLabel>
+              <Select
+                value={aulaId}
+                onChange={handleAulaIdChange}
+                labelId="test-select-label"
+                label="Label"
+              >
+                {user.aulas.map(e => <MenuItem key={e.aula_id} value={e.aula_id}>{e.aula_nombre}</MenuItem>)}
+              </Select>
+            </FormControl>
 
             <Button variant="contained" onClick={() => { obtener_horario(`?aula_id=${aulaId}`) }}>Buscar horario</Button>
           </Stack>

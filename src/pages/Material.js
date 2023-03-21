@@ -63,7 +63,7 @@ export default function Material() {
     <Page title="TMA - Saco Oliveros (Tipo material)">
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <HeaderBreadcrumbs
-          heading={`Tipo material (${aula_nombre})`} 
+          heading={`Material para ${aula_nombre}`} 
           links={[
             { name: parametro.curso_nombre, href: '/principal/horario' },
             { name: 'Tipo Material', href: '/principal/tipo_material' }

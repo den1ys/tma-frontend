@@ -45,33 +45,45 @@ export default function HorarioTablaFila({ row, callback }) {
               </Stack>
             </Card>
             :
-            <Card sx={{ display: "flex" }}>
+            !obj.curso_id ?
+              <Card sx={{ display: "flex", position: "absolute", top: "8px", right: "8px", bottom: "8px", left: "8px" }}>
+                <Stack sx={{ justifyContent: "center", alignItems: "center", flex: "1 1 auto", margin: 1 }}>
+                  <Typography sx={{ fontSize: 11, fontWeight: "bold", textAlign: "center" }}>
+                    SIN CURSO
+                  </Typography>
 
-              <Stack sx={{ alignItems: "center", flex: "1 1 auto", margin: 1 }}>
-                <Typography noWrap sx={{ fontSize: 11, fontWeight: "bold", textAlign: "center" }}>
-                  {obj.curso_nombre}
-                </Typography>
+                  <Typography sx={{ fontSize: 9, fontWeight: "bold", textAlign: "center" }}>
+                    --:--:-- - --:--:--
+                  </Typography>
+                </Stack>
+              </Card>
+              :
+              <Card sx={{ display: "flex" }}>
 
-                <Typography noWrap sx={{ color: 'text.disabled', fontSize: 10, textAlign: "center", whiteSpace: "initial", marginTop: 1 }}>
-                  {obj.aula}
-                </Typography>
+                <Stack sx={{ alignItems: "center", flex: "1 1 auto", margin: 1 }}>
+                  <Typography noWrap sx={{ fontSize: 11, fontWeight: "bold", textAlign: "center" }}>
+                    {obj.curso_nombre}
+                  </Typography>
 
-                <Typography noWrap sx={{ color: 'text.disabled', fontSize: 10, textAlign: "center", whiteSpace: "initial", marginBottom: 1 }}>
-                  {obj.sede}
-                </Typography>
+                  <Typography noWrap sx={{ color: 'text.disabled', fontSize: 10, textAlign: "center", whiteSpace: "initial", marginTop: 1 }}>
+                    {obj.aula}
+                  </Typography>
 
-                <Typography sx={{ fontSize: 9, fontWeight: "bold", textAlign: "center" }}>
-                  {obj.hora_inicio} - {obj.hora_fin}
-                </Typography>
+                  <Typography noWrap sx={{ color: 'text.disabled', fontSize: 10, textAlign: "center", whiteSpace: "initial", marginBottom: 1 }}>
+                    {obj.sede}
+                  </Typography>
 
+                  <Typography sx={{ fontSize: 9, fontWeight: "bold", textAlign: "center" }}>
+                    {obj.hora_inicio} - {obj.hora_fin}
+                  </Typography>
 
-                <Button variant="outlined" sx={{ marginTop: .5, padding: .5, fontSize: 11 }} onClick={(e) => {
-                  callback(obj);
-                }}>
-                  Ver material
-                </Button>
-              </Stack>
-            </Card>
+                  <Button variant="outlined" sx={{ marginTop: .5, padding: .5, fontSize: 11 }} onClick={(e) => {
+                    callback(obj);
+                  }}>
+                    Ver material
+                  </Button>
+                </Stack>
+              </Card>
           }
         </TableCell>
       ))

@@ -61,7 +61,7 @@ export default function Presentacion() {
     <Page title="TMA - Saco Oliveros (Presentación)">
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <HeaderBreadcrumbs
-          heading="Presentación"
+          heading={`Material para ${aula_nombre}`}
           links={[
             { name: parametro.curso_nombre, href: '/principal/horario' },
             parametro.tipo_material_id ? { name: parametro.tipo_material_nombre, href: '/principal/tipo_material', state: { params: parametro } } : null,
