@@ -325,13 +325,13 @@ export const tipo_material = [
   { "id": 15, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24], "nombre": "INTRODUCTORIO" },
   { "id": 46, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24], "nombre": "EXPLORATORIO" },
   { "id": 47, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24], "nombre": "PPT" },
-  { "id": 3223, "id_tipo": 2, "id_padre": [5, 15, 46, 47], "material_id": [20, 21, 22, 23, 24], "nombre": "INTRODUCTORIO" },
-  { "id": 3217, "id_tipo": 2, "id_padre": [5, 15, 46, 47], "material_id": [20, 21, 22, 23, 24], "nombre": "SEMANA 1" },
-  { "id": 3218, "id_tipo": 2, "id_padre": [5, 15, 46, 47], "material_id": [20, 21, 22, 23, 24], "nombre": "SEMANA 2" },
-  { "id": 3219, "id_tipo": 2, "id_padre": [5, 15, 46, 47], "material_id": [20, 21, 22, 23, 24], "nombre": "SEMANA 3" },
-  { "id": 3220, "id_tipo": 2, "id_padre": [5, 15, 46, 47], "material_id": [20, 21, 22, 23, 24], "nombre": "SEMANA 4" },
-  { "id": 3221, "id_tipo": 2, "id_padre": [5, 15, 46, 47], "material_id": [20, 21, 22, 23, 24], "nombre": "SEMANA 5" },
-  { "id": 3222, "id_tipo": 2, "id_padre": [5, 15, 46, 47], "material_id": [20, 21, 22, 23, 24], "nombre": "SEMANA 6" }
+  { "id": 3223, "id_tipo": 2, "id_padre": [47], "material_id": [20, 21, 22, 23, 24], "nombre": "INTRODUCTORIO" },
+  { "id": 3217, "id_tipo": 2, "id_padre": [47], "material_id": [20, 21, 22, 23, 24], "nombre": "SEMANA 1" },
+  { "id": 3218, "id_tipo": 2, "id_padre": [47], "material_id": [20, 21, 22, 23, 24], "nombre": "SEMANA 2" },
+  { "id": 3219, "id_tipo": 2, "id_padre": [47], "material_id": [20, 21, 22, 23, 24], "nombre": "SEMANA 3" },
+  { "id": 3220, "id_tipo": 2, "id_padre": [47], "material_id": [20, 21, 22, 23, 24], "nombre": "SEMANA 4" },
+  { "id": 3221, "id_tipo": 2, "id_padre": [47], "material_id": [20, 21, 22, 23, 24], "nombre": "SEMANA 5" },
+  { "id": 3222, "id_tipo": 2, "id_padre": [47], "material_id": [20, 21, 22, 23, 24], "nombre": "SEMANA 6" }
 ];
 
 export const curso_grupos = [
