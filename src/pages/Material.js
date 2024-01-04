@@ -33,7 +33,7 @@ export default function Material() {
 
     // CICLO VACACIONAL
     /*navigate("/principal/periodo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });*/
-    if ([47].includes(id)) {
+    if ([47, 1].includes(id)) {
       navigate("/principal/periodo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
     } else {
       navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
