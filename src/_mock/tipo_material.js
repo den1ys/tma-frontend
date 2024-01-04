@@ -333,12 +333,12 @@ export const tipo_material = [
   { "id": 3220, "id_tipo": 2, "id_padre": [47], "material_id": [20, 21, 22, 23, 24], "nombre": "SEMANA 4" },
   { "id": 3221, "id_tipo": 2, "id_padre": [47], "material_id": [20, 21, 22, 23, 24], "nombre": "SEMANA 5" },
   { "id": 3222, "id_tipo": 2, "id_padre": [47], "material_id": [20, 21, 22, 23, 24], "nombre": "SEMANA 6" },
-  { "id": 3196, "id_tipo": 2, "id_padre": [1], "material_id": [12], "nombre": "CAPITULO 1" },
-  { "id": 3197, "id_tipo": 2, "id_padre": [1], "material_id": [12], "nombre": "CAPITULO 2" },
-  { "id": 3198, "id_tipo": 2, "id_padre": [1], "material_id": [12], "nombre": "CAPITULO 3" },
-  { "id": 3399, "id_tipo": 2, "id_padre": [1], "material_id": [12], "nombre": "CAPITULO 4" },
-  { "id": 3400, "id_tipo": 2, "id_padre": [1], "material_id": [12], "nombre": "CAPITULO 5" },
-  { "id": 3401, "id_tipo": 2, "id_padre": [1], "material_id": [12], "nombre": "CAPITULO 6" }
+  { "id": 3196, "id_tipo": 2, "id_padre": [1, 47], "material_id": [12], "nombre": "CAPITULO 1" },
+  { "id": 3197, "id_tipo": 2, "id_padre": [1, 47], "material_id": [12], "nombre": "CAPITULO 2" },
+  { "id": 3198, "id_tipo": 2, "id_padre": [1, 47], "material_id": [12], "nombre": "CAPITULO 3" },
+  { "id": 3399, "id_tipo": 2, "id_padre": [1, 47], "material_id": [12], "nombre": "CAPITULO 4" },
+  { "id": 3400, "id_tipo": 2, "id_padre": [1, 47], "material_id": [12], "nombre": "CAPITULO 5" },
+  { "id": 3401, "id_tipo": 2, "id_padre": [1, 47], "material_id": [12], "nombre": "CAPITULO 6" }
 ];
 
 export const curso_grupos = [
