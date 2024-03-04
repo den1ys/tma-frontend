@@ -33,22 +33,21 @@ export default function Material() {
 
     // CICLO VACACIONAL
     /*navigate("/principal/periodo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });*/
-    if ([47, 1].includes(id)) {
+    /*if ([47, 1].includes(id)) {
       navigate("/principal/periodo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
     } else {
       navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
-    }
-
-    // CICLO REGULAR
-    /*if ([6, 15, 16].includes(id)) {
-      navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
-    } else if ([2].includes(id) && [7, 8].includes(material_id)) {
-      const { id: periodo_id, nombre: periodo_nombre } = tipo_material.find(e => e.id_tipo === 2 && e.id_padre.includes(id) && e.material_id.includes(material_id));
-      navigate("/principal/grupo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre, periodo_id, periodo_nombre } } });
-    } else {
-      navigate("/principal/periodo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
     }*/
 
+    // CICLO REGULAR
+    if ([15, 16, 48, 49].includes(id)) {
+      navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
+    } /*else if ([1, 2].includes(id) && [7, 8].includes(material_id)) {
+      const { id: periodo_id, nombre: periodo_nombre } = tipo_material.find(e => e.id_tipo === 2 && e.id_padre.includes(id) && e.material_id.includes(material_id));
+      navigate("/principal/grupo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre, periodo_id, periodo_nombre } } });
+    }*/ else {
+      navigate("/principal/periodo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
+    }
   };
 
   useEffect(() => {
@@ -63,7 +62,7 @@ export default function Material() {
     <Page title="TMA - Saco Oliveros (Tipo material)">
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <HeaderBreadcrumbs
-          heading={`Material para ${aula_nombre}`} 
+          heading={`Material para ${aula_nombre}`}
           links={[
             { name: parametro.curso_nombre, href: '/principal/horario' },
             { name: 'Tipo Material', href: '/principal/tipo_material' }

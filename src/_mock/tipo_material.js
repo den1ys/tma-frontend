@@ -4,101 +4,101 @@ export const tipo_material = [
     "id": 1,
     "id_tipo": 1,
     "id_padre": null,
-    "material_id": [1, 2, 3, 4, 5],
+    "material_id": [1, 2, 3, 4, 5, 19],
     "nombre": "COMPENDIO"
   },
   {
     "id": 2,
     "id_tipo": 1,
     "id_padre": null,
-    "material_id": [1, 2, 3, 4, 5],
+    "material_id": [1, 2, 3, 4, 5, 19],
     "nombre": "HELICODIAPOSITIVA"
   },
   {
     "id": 15,
     "id_tipo": 1,
     "id_padre": null,
-    "material_id": [1, 2, 3, 4, 5],
+    "material_id": [1, 2, 3, 4, 5, 19],
     "nombre": "INTRODUCTORIO"
   },
   {
     "id": 16,
     "id_tipo": 1,
     "id_padre": null,
-    "material_id": [1, 2, 3, 4, 5],
+    "material_id": [1, 2, 3, 4, 5, 19],
     "nombre": "CARPETA HELICOIDAL"
   },
   {
     "id": 48,
     "id_tipo": 1,
     "id_padre": null,
-    "material_id": [1, 2, 3, 4, 5],
+    "material_id": [1, 2, 3, 4, 5, 19],
     "nombre": "SYLLABUS"
   },
   {
     "id": 49,
     "id_tipo": 1,
     "id_padre": null,
-    "material_id": [1, 2, 3, 4, 5],
+    "material_id": [1, 2, 3, 4, 5, 19],
     "nombre": "CALENDARIZACION"
   },
   {
     "id": 3146,
     "id_tipo": 2,
     "id_padre": [1, 2],
-    "material_id": [1, 2, 3, 4, 5],
+    "material_id": [1, 2, 3, 4, 5, 19],
     "nombre": "TOMO 1"
   },
   {
     "id": 3147,
     "id_tipo": 2,
     "id_padre": [1, 2],
-    "material_id": [1, 2, 3, 4, 5],
+    "material_id": [1, 2, 3, 4, 5, 19],
     "nombre": "TOMO 2"
   },
   {
     "id": 3164,
     "id_tipo": 2,
     "id_padre": [1, 2],
-    "material_id": [1, 2, 3, 4, 5],
+    "material_id": [1, 2, 3, 4, 5, 19],
     "nombre": "TOMO 3"
   },
   {
     "id": 3165,
     "id_tipo": 2,
     "id_padre": [1, 2],
-    "material_id": [1, 2, 3, 4, 5],
+    "material_id": [1, 2, 3, 4, 5, 19],
     "nombre": "TOMO 4"
   },
   {
     "id": 3166,
     "id_tipo": 2,
     "id_padre": [1, 2],
-    "material_id": [1, 2, 3, 4, 5],
+    "material_id": [1, 2, 3, 4, 5, 19],
     "nombre": "TOMO 5"
   },
   {
     "id": 3167,
     "id_tipo": 2,
     "id_padre": [1, 2],
-    "material_id": [1, 2, 3, 4, 5],
+    "material_id": [1, 2, 3, 4, 5, 19],
     "nombre": "TOMO 6"
   },
   {
     "id": 3168,
     "id_tipo": 2,
     "id_padre": [1, 2],
-    "material_id": [1, 2, 3, 4, 5],
+    "material_id": [1, 2, 3, 4, 5, 19],
     "nombre": "TOMO 7"
   },
   {
     "id": 3169,
     "id_tipo": 2,
     "id_padre": [1, 2],
-    "material_id": [1, 2, 3, 4, 5],
+    "material_id": [1, 2, 3, 4, 5, 19],
     "nombre": "TOMO 8"
   },
-  { "id": 3326, "id_tipo": 2, "id_padre": [15, 16, 48, 49], "material_id": [1, 2, 3, 4, 5], "nombre": "SIN PERIODO" },
+  { "id": 3326, "id_tipo": 2, "id_padre": [15, 16, 48, 49], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "SIN PERIODO" },
   /*{
     "id": 3327,
     "id_tipo": 2,
@@ -120,31 +120,31 @@ export const tipo_material = [
     "material_id": [6],
     "nombre": "INTENSIVO 3"
   },*/
-  { "id": 11, "id_tipo": 3, "id_padre": [3146], "material_id": [1, 2, 3, 4, 5], "nombre": "CAPÍTULO 1" },
-  { "id": 12, "id_tipo": 3, "id_padre": [3146], "material_id": [1, 2, 3, 4, 5], "nombre": "CAPÍTULO 2" },
-  { "id": 13, "id_tipo": 3, "id_padre": [3146], "material_id": [1, 2, 3, 4, 5], "nombre": "CAPÍTULO 3" },
-  { "id": 17, "id_tipo": 3, "id_padre": [3147], "material_id": [6, 7, 8], "nombre": "CAPÍTULO 4" },
-  { "id": 18, "id_tipo": 3, "id_padre": [3147], "material_id": [1, 2, 3, 4, 5], "nombre": "CAPITULO 5" },
-  { "id": 19, "id_tipo": 3, "id_padre": [3147], "material_id": [1, 2, 3, 4, 5], "nombre": "CAPITULO 6" },
-  { "id": 20, "id_tipo": 3, "id_padre": [3164], "material_id": [1, 2, 3, 4, 5], "nombre": "CAPITULO 7" },
-  { "id": 21, "id_tipo": 3, "id_padre": [3164], "material_id": [1, 2, 3, 4, 5], "nombre": "CAPITULO 8" },
-  { "id": 22, "id_tipo": 3, "id_padre": [3164], "material_id": [1, 2, 3, 4, 5], "nombre": "CAPITULO 9" },
-  { "id": 23, "id_tipo": 3, "id_padre": [3165], "material_id": [1, 2, 3, 4, 5], "nombre": "CAPITULO 10" },
-  { "id": 24, "id_tipo": 3, "id_padre": [3165], "material_id": [1, 2, 3, 4, 5], "nombre": "CAPITULO 11" },
-  { "id": 25, "id_tipo": 3, "id_padre": [3165], "material_id": [1, 2, 3, 4, 5], "nombre": "CAPITULO 12" },
-  { "id": 26, "id_tipo": 3, "id_padre": [3166], "material_id": [1, 2, 3, 4, 5], "nombre": "CAPITULO 13" },
-  { "id": 27, "id_tipo": 3, "id_padre": [3166], "material_id": [1, 2, 3, 4, 5], "nombre": "CAPITULO 14" },
-  { "id": 28, "id_tipo": 3, "id_padre": [3166], "material_id": [1, 2, 3, 4, 5], "nombre": "CAPITULO 15" },
-  { "id": 29, "id_tipo": 3, "id_padre": [3167], "material_id": [1, 2, 3, 4, 5], "nombre": "CAPITULO 16" },
-  { "id": 30, "id_tipo": 3, "id_padre": [3167], "material_id": [1, 2, 3, 4, 5], "nombre": "CAPITULO 17" },
-  { "id": 31, "id_tipo": 3, "id_padre": [3167], "material_id": [1, 2, 3, 4, 5], "nombre": "CAPITULO 18" },
-  { "id": 32, "id_tipo": 3, "id_padre": [3168], "material_id": [1, 2, 3, 4, 5], "nombre": "CAPITULO 19" },
-  { "id": 33, "id_tipo": 3, "id_padre": [3168], "material_id": [1, 2, 3, 4, 5], "nombre": "CAPITULO 20" },
-  { "id": 34, "id_tipo": 3, "id_padre": [3168], "material_id": [1, 2, 3, 4, 5], "nombre": "CAPITULO 21" },
-  { "id": 35, "id_tipo": 3, "id_padre": [3169], "material_id": [1, 2, 3, 4, 5], "nombre": "CAPITULO 22" },
-  { "id": 36, "id_tipo": 3, "id_padre": [3169], "material_id": [1, 2, 3, 4, 5], "nombre": "CAPITULO 23" },
-  { "id": 37, "id_tipo": 3, "id_padre": [3169], "material_id": [1, 2, 3, 4, 5], "nombre": "CAPITULO 24" },
-  { "id": 14, "id_tipo": 3, "id_padre": [3146, 3147, 3164, 3165, 3166, 3167, 3168, 3169], "material_id": [1, 2, 3, 4, 5], "nombre": "RETROALIMENTACIÓN" }
+  { "id": 11, "id_tipo": 3, "id_padre": [3146], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPÍTULO 1" },
+  { "id": 12, "id_tipo": 3, "id_padre": [3146], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPÍTULO 2" },
+  { "id": 13, "id_tipo": 3, "id_padre": [3146], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPÍTULO 3" },
+  { "id": 17, "id_tipo": 3, "id_padre": [3147], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPÍTULO 4" },
+  { "id": 18, "id_tipo": 3, "id_padre": [3147], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPITULO 5" },
+  { "id": 19, "id_tipo": 3, "id_padre": [3147], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPITULO 6" },
+  { "id": 20, "id_tipo": 3, "id_padre": [3164], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPITULO 7" },
+  { "id": 21, "id_tipo": 3, "id_padre": [3164], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPITULO 8" },
+  { "id": 22, "id_tipo": 3, "id_padre": [3164], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPITULO 9" },
+  { "id": 23, "id_tipo": 3, "id_padre": [3165], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPITULO 10" },
+  { "id": 24, "id_tipo": 3, "id_padre": [3165], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPITULO 11" },
+  { "id": 25, "id_tipo": 3, "id_padre": [3165], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPITULO 12" },
+  { "id": 26, "id_tipo": 3, "id_padre": [3166], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPITULO 13" },
+  { "id": 27, "id_tipo": 3, "id_padre": [3166], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPITULO 14" },
+  { "id": 28, "id_tipo": 3, "id_padre": [3166], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPITULO 15" },
+  { "id": 29, "id_tipo": 3, "id_padre": [3167], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPITULO 16" },
+  { "id": 30, "id_tipo": 3, "id_padre": [3167], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPITULO 17" },
+  { "id": 31, "id_tipo": 3, "id_padre": [3167], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPITULO 18" },
+  { "id": 32, "id_tipo": 3, "id_padre": [3168], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPITULO 19" },
+  { "id": 33, "id_tipo": 3, "id_padre": [3168], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPITULO 20" },
+  { "id": 34, "id_tipo": 3, "id_padre": [3168], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPITULO 21" },
+  { "id": 35, "id_tipo": 3, "id_padre": [3169], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPITULO 22" },
+  { "id": 36, "id_tipo": 3, "id_padre": [3169], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPITULO 23" },
+  { "id": 37, "id_tipo": 3, "id_padre": [3169], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "CAPITULO 24" },
+  { "id": 14, "id_tipo": 3, "id_padre": [3146, 3147, 3164, 3165, 3166, 3167, 3168, 3169], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "RETROALIMENTACIÓN" }
   /*{ "id": 38, "id_tipo": 3, "id_padre": [3326], "material_id": [7, 8], "nombre": "CAPITULO 25" },
   { "id": 39, "id_tipo": 3, "id_padre": [3326], "material_id": [7, 8], "nombre": "CAPITULO 26" },
   { "id": 40, "id_tipo": 3, "id_padre": [3326], "material_id": [7, 8], "nombre": "CAPITULO 27" },

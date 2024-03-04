@@ -31,16 +31,17 @@ export default function Periodo() {
   const ver_grupo_o_presentacion = ({ id, nombre }) => {
     set_parametro(actual => ({ ...actual, periodo_id: id, periodo_nombre: nombre }));
 
-    navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
+    //navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
 
     // CICLO REGULAR
     /*if ([3170, 3171, 3172, 3173, 3174, 3175, 3176, 3177].includes(id) && [1, 2, 3, 4, 5].includes(material_id)) {
       navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
-    } else if ([3146, 3147, 3164, 3165, 3166, 3167, 3168, 3169].includes(id) && [1].includes(tipo_material_id) && [1, 2, 3, 4, 5, 6, 19].includes(material_id)) {
+    } else */
+    if ([3146, 3147, 3164, 3165, 3166, 3167, 3168, 3169].includes(id) && [1].includes(tipo_material_id) && [1, 2, 3, 4, 5, 19].includes(material_id)) {
       navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
     } else {
       navigate("/principal/grupo", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
-    }*/
+    }
   };
 
   useEffect(() => {
@@ -60,7 +61,7 @@ export default function Periodo() {
         lista = lista.filter(e => [3146, 3147, 3164, 3165, 3166, 3167, 3168, 3169, 3237].includes(e.id));
       }
     }*/
-    
+
     let lista = tipo_material.filter(e => e.id_tipo === 2 && e.id_padre.includes(tipo_material_id) && e.material_id.includes(material_id));
 
     lista = lista.map(e => ({ ...e, callback: ver_grupo_o_presentacion }));
