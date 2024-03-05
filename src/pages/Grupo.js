@@ -37,6 +37,47 @@ export default function Grupo() {
   useEffect(() => {
     let lista = tipo_material.filter(e => e.id_tipo === 3 && e.id_padre.includes(periodo_id) && e.material_id.includes(material_id));
 
+    if ([1, 2, 3, 4, 5, 19].includes(material_id) && tipo_material_id === 2) {
+      if (periodo_id === 3146) {
+        lista = lista.filter(e => [11, 12, 13].includes(e.id));
+      } else if (periodo_id === 3147) {
+        lista = lista.filter(e => [17, 18, 19, 14].includes(e.id));
+      } else if (periodo_id === 3164) {
+        lista = lista.filter(e => [20, 21, 22, 14].includes(e.id));
+      } else if (periodo_id === 3165) {
+        lista = lista.filter(e => [23, 24, 25, 14].includes(e.id));
+      } else if (periodo_id === 3166) {
+        lista = lista.filter(e => [26, 27, 28, 14].includes(e.id));
+      } else if (periodo_id === 3167) {
+        lista = lista.filter(e => [29, 30, 31, 14].includes(e.id));
+      } else if (periodo_id === 3168) {
+        lista = lista.filter(e => [32, 33, 34, 14].includes(e.id));
+      } else if (periodo_id === 3169) {
+        lista = lista.filter(e => [35, 36, 37, 14].includes(e.id));
+      }
+    } else if (material_id === 6 && tipo_material_id === 2) {
+      if (periodo_id === 3146) {
+        lista = lista.filter(e => [11, 12, 13, 17].includes(e.id));
+      } else if (periodo_id === 3147) {
+        lista = lista.filter(e => [18, 19, 20, 21].includes(e.id));
+      } else if (periodo_id === 3164) {
+        lista = lista.filter(e => [22, 23, 24, 25].includes(e.id));
+      } else if (periodo_id === 3165) {
+        lista = lista.filter(e => [26, 27, 28, 29].includes(e.id));
+      } else if (periodo_id === 3166) {
+        lista = lista.filter(e => [30, 31, 32, 33].includes(e.id));
+      } else if (periodo_id === 3167) {
+        lista = lista.filter(e => [34, 35, 36, 37].includes(e.id));
+      } else if (periodo_id === 3327) {
+        lista = lista.filter(e => [11, 12, 13, 17].includes(e.id));
+      } else if (periodo_id === 3328) {
+        lista = lista.filter(e => [18, 19, 20, 21].includes(e.id));
+      } else if (periodo_id === 3329) {
+        lista = lista.filter(e => [22, 23, 24, 25].includes(e.id));
+      }
+    }
+
+
     lista = lista.map(e => ({ ...e, callback: ver_presentacion }));
 
     set_lista_tipo_material(actual => [...actual, ...lista]);
