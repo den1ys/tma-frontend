@@ -42,10 +42,7 @@ export default function Material() {
     // CICLO REGULAR
     if ([15, 16, 48, 49].includes(id)) {
       navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
-    } /*else if ([1, 2].includes(id) && [7, 8].includes(material_id)) {
-      const { id: periodo_id, nombre: periodo_nombre } = tipo_material.find(e => e.id_tipo === 2 && e.id_padre.includes(id) && e.material_id.includes(material_id));
-      navigate("/principal/grupo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre, periodo_id, periodo_nombre } } });
-    }*/ else {
+    } else {
       navigate("/principal/periodo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
     }
   };

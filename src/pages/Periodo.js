@@ -37,7 +37,11 @@ export default function Periodo() {
     /*if ([3170, 3171, 3172, 3173, 3174, 3175, 3176, 3177].includes(id) && [1, 2, 3, 4, 5].includes(material_id)) {
       navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
     } else */
-    if ([3146, 3147, 3164, 3165, 3166, 3167, 3168, 3169].includes(id) && [1].includes(tipo_material_id) && [1, 2, 3, 4, 5, 19].includes(material_id)) {
+    if ([7, 8].includes(material_id)) {
+      navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
+    } else if ([6].includes(material_id) && [1].includes(tipo_material_id)) {
+      navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
+    } else if ([1, 2, 3, 4, 5, 19].includes(material_id) && [1].includes(tipo_material_id)) {
       navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
     } else {
       navigate("/principal/grupo", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
@@ -63,6 +67,10 @@ export default function Periodo() {
     }*/
 
     let lista = tipo_material.filter(e => e.id_tipo === 2 && e.id_padre.includes(tipo_material_id) && e.material_id.includes(material_id));
+
+    if (material_id === 7 && tipo_material_id === 1) {
+      lista = lista.map(e => ({ ...e, nombre: e.nombre_uni }));
+    }
 
     lista = lista.map(e => ({ ...e, callback: ver_grupo_o_presentacion }));
 
