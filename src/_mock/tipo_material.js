@@ -249,6 +249,7 @@ export const tipo_material = [
   { "id": 3401, "id_tipo": 2, "id_padre": [1, 47], "material_id": [12], "nombre": "CAPITULO 6" }
 ];*/
 
+/*
 export const curso_grupos = [
   { group_id: 105, id: 75, text: "PLAN LECTOR" },
   { group_id: 105, id: 48, text: "TUTORIA" },
@@ -260,4 +261,15 @@ export const curso_grupos = [
   { group_id: 138, id: 40, text: "RAZ. VERBAL SESIÓN 2" },
   { group_id: 139, id: 23, text: "INGLÉS SESIÓN 2" },
   { group_id: 139, id: 48, text: "TUTORIA" }
+];
+*/
+export const curso_grupos = [
+  { group_id: 173, id: 106, text: "FORTALECIENDO MI FE" },
+  { group_id: 173, id: 48, text: "TUTORIA" },
+  { group_id: 39, id: 39, text: "RAZ. VERBAL SESIÓN 1" },
+  { group_id: 39, id: 40, text: "RAZ. VERBAL SESIÓN 2" },
+  { group_id: 40, id: 39, text: "RAZ. VERBAL SESIÓN 1" },
+  { group_id: 40, id: 40, text: "RAZ. VERBAL SESIÓN 2" },
+  { group_id: 175, id: 21, text: "HISTORIA UNIVERSAL" },
+  { group_id: 175, id: 48, text: "TUTORIA" }
 ];
