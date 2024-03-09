@@ -264,6 +264,20 @@ export const curso_grupos = [
 ];
 */
 export const curso_grupos = [
+  { group_id: 6, id: 6, text: "ARITMÉTICA SESIÓN 1" },
+  { group_id: 6, id: 7, text: "ARITMÉTICA SESIÓN 2" },
+  { group_id: 7, id: 6, text: "ARITMÉTICA SESIÓN 1" },
+  { group_id: 7, id: 7, text: "ARITMÉTICA SESIÓN 2" },
+
+  { group_id: 3, id: 3, text: "ÁLGEBRA SESIÓN 1" },
+  { group_id: 3, id: 4, text: "ÁLGEBRA SESIÓN 2" },
+  { group_id: 4, id: 3, text: "ÁLGEBRA SESIÓN 1" },
+  { group_id: 4, id: 4, text: "ÁLGEBRA SESIÓN 2" },
+
+  { group_id: 174, id: 40, text: "RAZ. VERBAL SESIÓN 2" },
+  { group_id: 174, id: 48, text: "TUTORIA" },
+  { group_id: 174, id: 106, text: "FORTALECIENDO MI FE" },
+
   { group_id: 173, id: 106, text: "FORTALECIENDO MI FE" },
   { group_id: 173, id: 48, text: "TUTORIA" },
   { group_id: 39, id: 39, text: "RAZ. VERBAL SESIÓN 1" },
