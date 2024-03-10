@@ -40,7 +40,7 @@ export default function Presentacion() {
     if (materiales) {
       setMateriales(materiales);
 
-      const material = materiales.find(e => (curso_id && ![6, 16].includes(tipo_material_id) ? e.curso_id === curso_id : true) && e.aula_id === aula_id
+      const material = materiales.find(e => e.curso_id === curso_id && e.aula_id === aula_id
         && e.tipo_material_id === tipo_material_id && (periodo_id ? e.periodo_id === periodo_id : true) && (grupo_id ? e.grupo_id === grupo_id : true));
 
       if (!material) {
