@@ -104,8 +104,8 @@ export default function Horario() {
 
     set_parametro(actual => ({ ...actual, curso_id, aula_id, aula_nombre: aula, curso_nombre, material_id }));
 
-    if (curso_grupos.find(e => e.group_id === curso_id || (e.group_id === curso_id && [1, 2, 5].includes(material_id)))) {
-      setCursos([...curso_grupos.filter(e => e.group_id === curso_id && [6, 19].includes(material_id) ? e.id !== 12 : true)]);
+    if (curso_grupos.find(e => e.group_id === curso_id)) {
+      setCursos([...curso_grupos.filter(e => e.group_id === curso_id)]);
 
       setOpenDialog(true);
 
