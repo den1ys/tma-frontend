@@ -274,16 +274,31 @@ export const curso_grupos = [
   { group_id: 4, id: 3, text: "ÁLGEBRA SESIÓN 1" },
   { group_id: 4, id: 4, text: "ÁLGEBRA SESIÓN 2" },
 
-  { group_id: 174, id: 40, text: "RAZ. VERBAL SESIÓN 2" },
-  { group_id: 174, id: 48, text: "TUTORIA" },
-  { group_id: 174, id: 106, text: "FORTALECIENDO MI FE" },
-
-  { group_id: 173, id: 106, text: "FORTALECIENDO MI FE" },
-  { group_id: 173, id: 48, text: "TUTORIA" },
   { group_id: 39, id: 39, text: "RAZ. VERBAL SESIÓN 1" },
   { group_id: 39, id: 40, text: "RAZ. VERBAL SESIÓN 2" },
   { group_id: 40, id: 39, text: "RAZ. VERBAL SESIÓN 1" },
   { group_id: 40, id: 40, text: "RAZ. VERBAL SESIÓN 2" },
+
+  { group_id: 22, id: 22, text: "INGLÉS" },
+  { group_id: 22, id: 24, text: "INGLÉS SESIÓN 1" },
+  { group_id: 22, id: 23, text: "INGLÉS SESIÓN 2" },
+  { group_id: 24, id: 22, text: "INGLÉS" },
+  { group_id: 24, id: 24, text: "INGLÉS SESIÓN 1" },
+  { group_id: 24, id: 23, text: "INGLÉS SESIÓN 2" },
+  { group_id: 23, id: 22, text: "INGLÉS" },
+  { group_id: 23, id: 24, text: "INGLÉS SESIÓN 1" },
+  { group_id: 23, id: 23, text: "INGLÉS SESIÓN 2" },
+
+  { group_id: 174, id: 40, text: "RAZ. VERBAL SESIÓN 2" },
+  { group_id: 174, id: 48, text: "TUTORIA" },
+  { group_id: 174, id: 106, text: "FORTALECIENDO MI FE" },
+
+ 
+
+
+  { group_id: 173, id: 106, text: "FORTALECIENDO MI FE" },
+  { group_id: 173, id: 48, text: "TUTORIA" },
+ 
   { group_id: 175, id: 21, text: "HISTORIA UNIVERSAL" },
   { group_id: 175, id: 48, text: "TUTORIA" }
 ];
