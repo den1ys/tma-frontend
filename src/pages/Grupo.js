@@ -39,7 +39,7 @@ export default function Grupo() {
 
     if ([1, 2, 3, 4, 5, 19].includes(material_id) && tipo_material_id === 2) {
       if (periodo_id === 3146) {
-        lista = lista.filter(e => [11, 12, 13].includes(e.id));
+        lista = lista.filter(e => [11, 12, 13, 14].includes(e.id));
       } else if (periodo_id === 3147) {
         lista = lista.filter(e => [17, 18, 19, 14].includes(e.id));
       } else if (periodo_id === 3164) {
