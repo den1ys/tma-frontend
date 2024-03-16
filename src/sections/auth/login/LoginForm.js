@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 // @mui
-import { Stack, Alert, IconButton, InputAdornment, Button } from '@mui/material';
+import { Stack, Alert, IconButton, InputAdornment, Button, Grid, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions, Snackbar } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import GoogleIcon from '@mui/icons-material/Google';
 // hooks
@@ -27,6 +27,30 @@ export default function LoginForm() {
   const isMountedRef = useIsMountedRef();
 
   const [showPassword, setShowPassword] = useState(false);
+
+  const [openDialogGenerarUsuario, setOpenDialogGenerarUsuario] = useState(false);
+
+  const [correoInstitucional, setCorreoInstitucional] = useState('');
+
+  const [alertaGU, setAlertaGU] = useState(false);
+
+  const [alertaGUColor, setAlertaGUColor] = useState('error');
+
+  const [alertaGUMensaje, setAlertaGUMensaje] = useState('');
+
+  const [isSubmittingGU, setIsSubmittingGU] = useState(false);
+
+  const handleCorreoInstitucionalChange = (event) => {
+    setCorreoInstitucional(event.target.value);
+  };
+
+  const handleAlertaGUClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setAlertaGU(false);
+  };
 
   const LoginSchema = Yup.object().shape({
     email: Yup.string().required('Usuario es requerido'),
@@ -80,6 +104,36 @@ export default function LoginForm() {
     }
   });
 
+  const onCloseDialogGenerarUsuario = () => {
+    setOpenDialogGenerarUsuario(false);
+    setCorreoInstitucional("");
+  };
+
+  const onSubmitGenerarUsuario = async (event) => {
+    event.preventDefault();
+    setIsSubmittingGU(true);
+
+    try {
+      const entrada = JSON.stringify({ tipo_operacion: "generar_usuario_tutor_profesor", perfil: "profesor_secundaria", correo: correoInstitucional });
+      const response = await fetch("http://localhost:3000/api/auth/generar_usuario", { headers: { "Content-Type": "application/json" }, method: "POST", body: entrada });
+      const { status, message } = await response.json();
+
+      if (!status) {
+        setAlertaGUMensaje(message);
+        setAlertaGUColor("error");
+      } else {
+        setAlertaGUMensaje("Se envió un mensaje a su correo institucional!");
+        setAlertaGUColor("success");
+        setOpenDialogGenerarUsuario(false);
+        setCorreoInstitucional("");
+      }
+
+      setAlertaGU(true);
+      setIsSubmittingGU(false);
+    } catch (error) {
+
+    }
+  };
 
   return (
     <>
@@ -112,9 +166,58 @@ export default function LoginForm() {
 
       <div className="text-line">O</div>
 
-      <Button onClick={() => onSuccessGoogle()} variant="outlined" startIcon={<GoogleIcon />}>
+      <Button sx={{ mb: 2 }} onClick={() => onSuccessGoogle()} variant="outlined" startIcon={<GoogleIcon />}>
         Iniciar sesión con google
       </Button>
+
+      <Grid container justifyContent={"center"}>
+        <Grid item>
+          <Button onClick={() => setOpenDialogGenerarUsuario(true)}>¿Problemas con tu usuario de profesor?</Button>
+        </Grid>
+      </Grid>
+
+      <Dialog
+        open={openDialogGenerarUsuario}
+      >
+        <form onSubmit={onSubmitGenerarUsuario}>
+          <DialogTitle sx={{ mb: 2 }}>Generar usuario</DialogTitle>
+          <DialogContent>
+            <DialogContentText sx={{ mb: 2 }}>
+              Si es profesor y tiene problemas con su contraseña o no tiene una cuenta, se enviará un mensaje a su correo institucional.
+            </DialogContentText>
+            <TextField
+              autoFocus
+              required
+              margin="dense"
+              id="correo_institucional"
+              name="correo_institucional"
+              label="Correo institucional"
+              type="email"
+              fullWidth
+              variant="standard"
+              value={correoInstitucional}
+              onChange={handleCorreoInstitucionalChange}
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button color="error" onClick={onCloseDialogGenerarUsuario}>Cancelar</Button>
+            <LoadingButton type="submit" loading={isSubmittingGU}>
+              Generar usuario
+            </LoadingButton>
+          </DialogActions>
+        </form>
+      </Dialog>
+
+      <Snackbar anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }} open={alertaGU} autoHideDuration={6000} onClose={handleAlertaGUClose}>
+        <Alert
+          onClose={handleAlertaGUClose}
+          severity={alertaGUColor}
+          variant="filled"
+          sx={{ width: '100%' }}
+        >
+          {alertaGUMensaje}
+        </Alert>
+      </Snackbar >
     </>
   );
 }
