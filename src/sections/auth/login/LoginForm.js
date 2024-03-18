@@ -115,7 +115,7 @@ export default function LoginForm() {
 
     try {
       const entrada = JSON.stringify({ tipo_operacion: "generar_usuario_tutor_profesor", perfil: "profesor_secundaria", correo: correoInstitucional });
-      const response = await fetch("http://localhost:3000/api/auth/generar_usuario", { headers: { "Content-Type": "application/json" }, method: "POST", body: entrada });
+      const response = await fetch("http://fichaonline.sacooliveros.edu.pe:4010/api/auth/generar_usuario", { headers: { "Content-Type": "application/json" }, method: "POST", body: entrada });
       const { status, message } = await response.json();
 
       if (!status) {
