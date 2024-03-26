@@ -32,7 +32,7 @@ export const tipo_material = [
     "id": 48,
     "id_tipo": 1,
     "id_padre": null,
-    "material_id": [1, 2, 3, 4, 5, 6, 7, 8, 19],
+    "material_id": [1, 2, 3, 4, 5],
     "nombre": "SYLLABUS"
   },
   {
