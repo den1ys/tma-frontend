@@ -43,6 +43,13 @@ export const tipo_material = [
     "nombre": "CALENDARIZACIÓN"
   },
   {
+    "id": 3,
+    "id_tipo": 1,
+    "id_padre": null,
+    "material_id": [1, 2, 3, 4, 5],
+    "nombre": "BALOTARIO"
+  },
+  {
     "id": 3146,
     "id_tipo": 2,
     "id_padre": [1, 2],
@@ -134,6 +141,14 @@ export const tipo_material = [
   { "id": 3327, "id_tipo": 2, "id_padre": [1, 2], "material_id": [6], "nombre": "INTENSIVO 1" },
   { "id": 3328, "id_tipo": 2, "id_padre": [1, 2], "material_id": [6], "nombre": "INTENSIVO 2" },
   { "id": 3329, "id_tipo": 2, "id_padre": [1, 2], "material_id": [6], "nombre": "INTENSIVO 3" },
+  { "id": 3170, "id_tipo": 2, "id_padre": [3], "material_id": [1, 2, 3, 4, 5], "nombre": "MENSUAL 1" },
+  { "id": 3171, "id_tipo": 2, "id_padre": [3], "material_id": [1, 2, 3, 4, 5], "nombre": "MENSUAL 2" },
+  { "id": 3172, "id_tipo": 2, "id_padre": [3], "material_id": [1, 2, 3, 4, 5], "nombre": "MENSUAL 3" },
+  { "id": 3173, "id_tipo": 2, "id_padre": [3], "material_id": [1, 2, 3, 4, 5], "nombre": "MENSUAL 4" },
+  { "id": 3174, "id_tipo": 2, "id_padre": [3], "material_id": [1, 2, 3, 4, 5], "nombre": "BIMESTRAL 1" },
+  { "id": 3175, "id_tipo": 2, "id_padre": [3], "material_id": [1, 2, 3, 4, 5], "nombre": "BIMESTRAL 2" },
+  { "id": 3176, "id_tipo": 2, "id_padre": [3], "material_id": [1, 2, 3, 4, 5], "nombre": "BIMESTRAL 3" },
+  { "id": 3177, "id_tipo": 2, "id_padre": [3], "material_id": [1, 2, 3, 4, 5], "nombre": "BIMESTRAL 4" },
   { "id": 11, "id_tipo": 3, "id_padre": [3146, 3327], "material_id": [1, 2, 3, 4, 5, 6, 19], "nombre": "CAPÍTULO 1" },
   { "id": 12, "id_tipo": 3, "id_padre": [3146, 3327], "material_id": [1, 2, 3, 4, 5, 6, 19], "nombre": "CAPÍTULO 2" },
   { "id": 13, "id_tipo": 3, "id_padre": [3146, 3327], "material_id": [1, 2, 3, 4, 5, 6, 19], "nombre": "CAPÍTULO 3" },
@@ -293,12 +308,12 @@ export const curso_grupos = [
   { group_id: 174, id: 48, text: "TUTORIA" },
   { group_id: 174, id: 106, text: "FORTALECIENDO MI FE" },
 
- 
+
 
 
   { group_id: 173, id: 106, text: "FORTALECIENDO MI FE" },
   { group_id: 173, id: 48, text: "TUTORIA" },
- 
+
   { group_id: 175, id: 21, text: "HISTORIA UNIVERSAL" },
   { group_id: 175, id: 48, text: "TUTORIA" }
 ];

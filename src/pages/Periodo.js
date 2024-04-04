@@ -41,7 +41,7 @@ export default function Periodo() {
       navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
     } else if ([6].includes(material_id) && [1].includes(tipo_material_id)) {
       navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
-    } else if ([1, 2, 3, 4, 5, 19].includes(material_id) && [1].includes(tipo_material_id)) {
+    } else if ([1, 2, 3, 4, 5, 19].includes(material_id) && [1, 3].includes(tipo_material_id)) {
       navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
     } else {
       navigate("/principal/grupo", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
