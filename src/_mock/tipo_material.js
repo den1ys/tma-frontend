@@ -4,7 +4,7 @@ export const tipo_material = [
     "id": 1,
     "id_tipo": 1,
     "id_padre": null,
-    "material_id": [1, 2, 3, 4, 5, 6, 7, 8, 19],
+    "material_id": [1, 2, 3, 4, 5, 6, 7, 8, 19, 25, 26],
     "nombre": "COMPENDIO"
   },
   {
@@ -53,14 +53,14 @@ export const tipo_material = [
     "id": 3146,
     "id_tipo": 2,
     "id_padre": [1, 2],
-    "material_id": [1, 2, 3, 4, 5, 6, 19],
+    "material_id": [1, 2, 3, 4, 5, 6, 19, 25, 26],
     "nombre": "TOMO 1"
   },
   {
     "id": 3147,
     "id_tipo": 2,
     "id_padre": [1, 2],
-    "material_id": [1, 2, 3, 4, 5, 6, 19],
+    "material_id": [1, 2, 3, 4, 5, 6, 19, 25, 26],
     "nombre": "TOMO 2"
   },
   {
@@ -307,6 +307,12 @@ export const curso_grupos = [
   { group_id: 174, id: 40, text: "RAZ. VERBAL SESIÓN 2" },
   { group_id: 174, id: 48, text: "TUTORIA" },
   { group_id: 174, id: 106, text: "FORTALECIENDO MI FE" },
+
+  { group_id: 20, id: 19, text: "HISTORIA DEL PERÚ", material_id: [25, 26] },
+  { group_id: 20, id: 21, text: "HISTORIA UNIVERSAL", material_id: [25, 26] },
+
+  { group_id: 58, id: 11, text: "ECONOMÍA", material_id: [25, 26] },
+  { group_id: 58, id: 12, text: "EDUCACIÓN CÍVICA", material_id: [25, 26] },
 
 
 
