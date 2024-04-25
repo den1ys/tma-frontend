@@ -314,7 +314,8 @@ export const curso_grupos = [
   { group_id: 58, id: 11, text: "ECONOMÍA", material_id: [25, 26] },
   { group_id: 58, id: 12, text: "EDUCACIÓN CÍVICA", material_id: [25, 26] },
 
-
+  { group_id: 15, id: 161, text: "GEOGRAFÍA DEL MUNDO", material_id: [25, 26] },
+  { group_id: 15, id: 162, text: "GEOGRAFÍA DEL PERÚ", material_id: [25, 26] },
 
 
   { group_id: 173, id: 106, text: "FORTALECIENDO MI FE" },
