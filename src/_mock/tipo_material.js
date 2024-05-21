@@ -304,7 +304,7 @@ export const curso_grupos = [
   { group_id: 23, id: 24, text: "INGLÉS SESIÓN 1" },
   { group_id: 23, id: 23, text: "INGLÉS SESIÓN 2" },
 
-  { group_id: 174, id: 40, text: "RAZ. VERBAL SESIÓN 2" },
+  { group_id: 174, id: 38, text: "RAZ. VERBAL" },
   { group_id: 174, id: 48, text: "TUTORIA" },
   { group_id: 174, id: 106, text: "FORTALECIENDO MI FE" },
 
