@@ -37,7 +37,12 @@ export default function Router() {
         { path: 'tipo_material', element: <PageMaterial /> },
         { path: 'periodo', element: <PagePeriodo /> },
         { path: 'grupo', element: <PageGrupo /> },
-        { path: 'presentacion', element: <PagePresentacion /> }
+        { path: 'presentacion', element: <PagePresentacion /> },
+        { path: 'psicologia', element: <PagePsicologia /> },
+        { path: 'archivo', element: <PageArchivo /> },
+        { path: 'periodo2', element: <PagePeriodo2 /> },
+        { path: 'presentacion2', element: <PagePresentacion2 /> },
+        { path: 'video', element: <PageVideo /> }
       ],
     },
     {
@@ -80,4 +85,9 @@ const PageMaterial = Loadable(lazy(() => import('../pages/Material')));
 const PagePeriodo = Loadable(lazy(() => import('../pages/Periodo')));
 const PageGrupo = Loadable(lazy(() => import('../pages/Grupo')));
 const PagePresentacion = Loadable(lazy(() => import('../pages/Presentacion')));
+const PagePsicologia = Loadable(lazy(() => import('../pages/Psicologia')));
+const PagePeriodo2 = Loadable(lazy(() => import('../pages/Periodo2')))
+const PageArchivo = Loadable(lazy(() => import('../pages/Archivo')));
+const PagePresentacion2 = Loadable(lazy(() => import('../pages/Presentacion2')));
+const PageVideo = Loadable(lazy(() => import('../pages/Video')));
 const Page404 = Loadable(lazy(() => import('../pages/Page404')));

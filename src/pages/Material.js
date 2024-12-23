@@ -32,22 +32,22 @@ export default function Material() {
     set_parametro(actual => ({ ...actual, tipo_material_id: id, tipo_material_nombre: nombre }));
 
     // CICLO VACACIONAL
-    /*navigate("/principal/periodo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });*/
-    /*if ([47, 1].includes(id)) {
+    if ([1, 2].includes(id)) {
       navigate("/principal/periodo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
     } else {
       navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
-    }*/
+    }
 
     // CICLO REGULAR
-    if ([15, 16, 48, 49].includes(id)) {
+    /*if ([15, 16, 48, 49].includes(id)) {
       navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
     } else {
       navigate("/principal/periodo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
-    }
+    }*/
   };
 
   useEffect(() => {
+    console.log(tipo_material)
     let lista = tipo_material.filter(e => e.id_tipo === 1 && e.material_id.includes(material_id));
 
     lista = lista.map(e => ({ ...e, callback: ver_periodo }));

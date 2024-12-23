@@ -20,7 +20,11 @@ const OverlayStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function TipoMaterialCard({ tipo_material }) {
-  const { id, nombre, callback } = tipo_material;
+  const { id, nombre, tipo_archivo_id, callback } = tipo_material;
+
+  const numeroRandom = (min, max) => { 
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
 
   return (
     <Card sx={{ textAlign: 'center' }}>
@@ -54,7 +58,7 @@ export default function TipoMaterialCard({ tipo_material }) {
           }}
         />
         <OverlayStyle />
-        <Image src={`https://picsum.photos/id/3/200/100`} alt="Imagen de fondo" />
+        <Image src={`https://picsum.photos/id/${numeroRandom(1, 30)}/200/100`} alt="Imagen de fondo" />
       </Box>
 
       <Typography variant="subtitle1" sx={{ mt: 6 }}>
@@ -68,7 +72,7 @@ export default function TipoMaterialCard({ tipo_material }) {
       <Divider sx={{ borderStyle: 'dashed' }} />
 
       <Stack direction="row" justifyContent="center" sx={{ my: 2 }}>
-        <Button variant="contained" onClick={() => { callback({ id, nombre }); }}>
+        <Button variant="contained" onClick={() => { callback({ id, nombre, tipo_archivo_id }); }}>
           Ver material
         </Button>
       </Stack>

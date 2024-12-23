@@ -1,5 +1,5 @@
 // CICLO REGULAR
-export const tipo_material = [
+/*export const tipo_material = [
   {
     "id": 1,
     "id_tipo": 1,
@@ -174,7 +174,7 @@ export const tipo_material = [
   { "id": 36, "id_tipo": 3, "id_padre": [3167, 3169], "material_id": [1, 2, 3, 4, 5, 6, 19], "nombre": "CAPÍTULO 23" },
   { "id": 37, "id_tipo": 3, "id_padre": [3167, 3169], "material_id": [1, 2, 3, 4, 5, 6, 19], "nombre": "CAPÍTULO 24" },
   { "id": 14, "id_tipo": 3, "id_padre": [3146, 3147, 3164, 3165, 3166, 3167, 3168, 3169], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "RETROALIMENTACIÓN" }
-];
+];*/
 
 // CICLO VACACIONAL
 /*export const tipo_material = [
@@ -242,27 +242,47 @@ export const tipo_material = [
   { "id": 9, "id_tipo": 3, "id_padre": [3217, 3218, 3219, 3220, 3221, 3222, 3235, 3236], "material_id": [6, 7, 11, 12, 13], "nombre": "TOMO 2" }
 ];*/
 
-/*
+// PSICOLOGIA
+export const tipo_material_psicologia = [
+  {"id" : 51, "id_tipo" : 1, "id_padre" : null, "material_id" : 27, "nombre" : "ANSIEDAD"},
+  {"id" : 52, "id_tipo" : 1, "id_padre" : null, "material_id" : 27, "nombre" : "ASPEREGER"},
+  {"id" : 53, "id_tipo" : 1, "id_padre" : null, "material_id" : 27, "nombre" : "DEFICIT DE ATENCIÓN E HIPERACTIVIDAD"},
+  {"id" : 54, "id_tipo" : 1, "id_padre" : null, "material_id" : 27, "nombre" : "DEPRESIÓN"},
+  {"id" : 55, "id_tipo" : 1, "id_padre" : null, "material_id" : 27, "nombre" : "INFOGRAFIAS"},
+  {"id" : 56, "id_tipo" : 1, "id_padre" : null, "material_id" : 27, "nombre" : "VIDEOS SOBRE NEURODIVERSIDAD"},
+  {
+    "id": 3146,
+    "id_tipo": 2,
+    "id_padre": [51, 52, 53, 54, 55, 56],
+    "material_id": [27],
+    "nombre": "TOMO 1"
+  },
+  {
+    "id": 3147,
+    "id_tipo": 2,
+    "id_padre": [51, 52, 53, 54, 55, 56],
+    "material_id": [27],
+    "nombre": "TOMO 2"
+  }
+];
+
+
 export const tipo_material = [
+  { "id": 1, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24], "nombre": "COMPENDIOS" },
+  { "id": 2, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24], "nombre": "HELICODIAPOSITIVA" },
   { "id": 5, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24], "nombre": "BOLETINES" },
-  { "id": 15, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24], "nombre": "INTRODUCTORIO" },
   { "id": 46, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24], "nombre": "EXPLORATORIO" },
-  { "id": 47, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24, 12], "nombre": "PPT" },
-  { "id": 1, "id_tipo": 1, "id_padre": [], "material_id": [12], "nombre": "COMPENDIOS" },
-  { "id": 3223, "id_tipo": 2, "id_padre": [47], "material_id": [20, 21, 22, 23, 24], "nombre": "INTRODUCTORIO" },
-  { "id": 3217, "id_tipo": 2, "id_padre": [47], "material_id": [20, 21, 22, 23, 24], "nombre": "SEMANA 1" },
-  { "id": 3218, "id_tipo": 2, "id_padre": [47], "material_id": [20, 21, 22, 23, 24], "nombre": "SEMANA 2" },
-  { "id": 3219, "id_tipo": 2, "id_padre": [47], "material_id": [20, 21, 22, 23, 24], "nombre": "SEMANA 3" },
-  { "id": 3220, "id_tipo": 2, "id_padre": [47], "material_id": [20, 21, 22, 23, 24], "nombre": "SEMANA 4" },
-  { "id": 3221, "id_tipo": 2, "id_padre": [47], "material_id": [20, 21, 22, 23, 24], "nombre": "SEMANA 5" },
-  { "id": 3222, "id_tipo": 2, "id_padre": [47], "material_id": [20, 21, 22, 23, 24], "nombre": "SEMANA 6" },
-  { "id": 3196, "id_tipo": 2, "id_padre": [1, 47], "material_id": [12], "nombre": "CAPITULO 1" },
-  { "id": 3197, "id_tipo": 2, "id_padre": [1, 47], "material_id": [12], "nombre": "CAPITULO 2" },
-  { "id": 3198, "id_tipo": 2, "id_padre": [1, 47], "material_id": [12], "nombre": "CAPITULO 3" },
-  { "id": 3399, "id_tipo": 2, "id_padre": [1, 47], "material_id": [12], "nombre": "CAPITULO 4" },
-  { "id": 3400, "id_tipo": 2, "id_padre": [1, 47], "material_id": [12], "nombre": "CAPITULO 5" },
-  { "id": 3401, "id_tipo": 2, "id_padre": [1, 47], "material_id": [12], "nombre": "CAPITULO 6" }
-];*/
+  { "id": 16, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24], "nombre": "CARPETA HELICOIDAL" },
+  { "id": 48, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24], "nombre": "SYLLABUS" },
+  { "id": 49, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24], "nombre": "CALENDARIZACIÓN" },
+  { "id": 3146, "id_tipo": 2, "id_padre": [1], "material_id": [20, 21, 22, 23, 24], "nombre": "TOMO 1" },
+  { "id": 3196, "id_tipo": 2, "id_padre": [2], "material_id": [20, 21, 22, 23, 24], "nombre": "CAPITULO 1" },
+  { "id": 3197, "id_tipo": 2, "id_padre": [2], "material_id": [20, 21, 22, 23, 24], "nombre": "CAPITULO 2" },
+  { "id": 3198, "id_tipo": 2, "id_padre": [2], "material_id": [20, 21, 22, 23, 24], "nombre": "CAPITULO 3" },
+  { "id": 3399, "id_tipo": 2, "id_padre": [2], "material_id": [20, 21, 22, 23, 24], "nombre": "CAPITULO 4" },
+  { "id": 3400, "id_tipo": 2, "id_padre": [2], "material_id": [20, 21, 22, 23, 24], "nombre": "CAPITULO 5" },
+  { "id": 3401, "id_tipo": 2, "id_padre": [2], "material_id": [20, 21, 22, 23, 24], "nombre": "CAPITULO 6" }
+];
 
 /*
 export const curso_grupos = [
