@@ -1,5 +1,7 @@
 // @mui
-import { Alert, Button, Card, CircularProgress, Container, FormControl, InputLabel, MenuItem, Select, Snackbar, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Alert, Button, Card, CardActions, CardContent, CircularProgress, Container, FormControl, IconButton, InputLabel, List, ListItem, ListItemSecondaryAction, ListItemText, MenuItem, Paper, Select, Snackbar, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 // hooks
 import { useEffect, useState } from 'react';
 import useSettings from '../hooks/useSettings';
@@ -17,11 +19,15 @@ import DialogRadio from 'src/components/DialogRadio';
 // data
 import { curso_grupos } from '../_mock/tipo_material';
 import AulaSearch from 'src/sections/@dashboard/horario/AulaSearch';
-import { Box } from '@mui/system';
+import { Box, padding } from '@mui/system';
+
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 // ----------------------------------------------------------------------
 
 export default function Horario() {
+  const matches = useMediaQuery('(max-width:750px)');
+
   const { themeStretch } = useSettings();
 
   const navigate = useNavigate();
@@ -168,69 +174,109 @@ export default function Horario() {
           </Stack>
         }
 
-        <Card>
-          <Snackbar anchorOrigin={{ vertical: "bottom", horizontal: "center" }} open={open} autoHideDuration={6000} onClose={handleClose}>
-            <Alert onClose={handleClose} severity="warning" sx={{ width: '100%' }}>
-              No hay materiales para este aula!
-            </Alert>
-          </Snackbar>
+        {
+          !matches && 
+          <Card>
+            <Snackbar anchorOrigin={{ vertical: "bottom", horizontal: "center" }} open={open} autoHideDuration={6000} onClose={handleClose}>
+              <Alert onClose={handleClose} severity="warning" sx={{ width: '100%' }}>
+                No hay materiales para este aula!
+              </Alert>
+            </Snackbar>
 
 
-          {cargarHorario &&
-            <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", width: 300, height: 300, marginX: "auto" }}>
-              <CircularProgress />
-            </Box>
-          }
+            {cargarHorario &&
+              <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", width: 300, height: 300, marginX: "auto" }}>
+                <CircularProgress />
+              </Box>
+            }
 
-          {horarioManiana.length || horarioTarde.length ?
-            <Scrollbar>
-              <TableContainer sx={{ minWidth: 800, position: 'relative' }}>
-                <Table>
-                  <TableHead>
-                    <TableRow>
-                      <TableCell align="center">Lunes</TableCell>
-                      <TableCell align="center">Martes</TableCell>
-                      <TableCell align="center">Miércoles</TableCell>
-                      <TableCell align="center">Jueves</TableCell>
-                      <TableCell align="center">Viernes</TableCell>
-                      <TableCell align="center">Sábado</TableCell>
-                    </TableRow>
-                  </TableHead>
-
-                  <TableBody>
-                    {horarioManiana.length > 0 &&
+            {horarioManiana.length || horarioTarde.length ?
+              <Scrollbar>
+                <TableContainer sx={{ minWidth: 800, position: 'relative' }}>
+                  <Table>
+                    <TableHead>
                       <TableRow>
-                        <TableCell colSpan={6} align="center" size="small">Turno mañana</TableCell>
-                      </TableRow>}
+                        <TableCell align="center">Lunes</TableCell>
+                        <TableCell align="center">Martes</TableCell>
+                        <TableCell align="center">Miércoles</TableCell>
+                        <TableCell align="center">Jueves</TableCell>
+                        <TableCell align="center">Viernes</TableCell>
+                        <TableCell align="center">Sábado</TableCell>
+                      </TableRow>
+                    </TableHead>
 
-                    {horarioManiana.map((row, index) => (
-                      <HorarioTablaFila
-                        key={index}
-                        row={row}
-                        callback={ver_tipo_material}
-                      />
-                    ))}
+                    <TableBody>
+                      {horarioManiana.length > 0 &&
+                        <TableRow>
+                          <TableCell colSpan={6} align="center" size="small">Turno mañana</TableCell>
+                        </TableRow>}
 
-                    {horarioTarde.length > 0 &&
-                      <TableRow>
-                        <TableCell colSpan={6} align="center" size="small">Turno tarde</TableCell>
-                      </TableRow>}
+                      {horarioManiana.map((row, index) => (
+                        <HorarioTablaFila
+                          key={index}
+                          row={row}
+                          callback={ver_tipo_material}
+                        />
+                      ))}
 
-                    {horarioTarde.map((row, index) => (
-                      <HorarioTablaFila
-                        key={index}
-                        row={row}
-                        callback={ver_tipo_material}
-                      />
-                    ))}
-                  </TableBody>
-                </Table>
-              </TableContainer>
-            </Scrollbar>
-            : ""
-          }
-        </Card>
+                      {horarioTarde.length > 0 &&
+                        <TableRow>
+                          <TableCell colSpan={6} align="center" size="small">Turno tarde</TableCell>
+                        </TableRow>}
 
+                      {horarioTarde.map((row, index) => (
+                        <HorarioTablaFila
+                          key={index}
+                          row={row}
+                          callback={ver_tipo_material}
+                        />
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </Scrollbar>
+              : ""
+            }
+          </Card>
+        }
+
+        {
+          matches && 
+          <Card sx={{ maxWidth: 750 }}>
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Horario
+              </Typography>
+
+
+              <List
+                sx={{ width: '100%', maxWidth: 650, bgcolor: 'background.paper' }}
+                component="nav"
+              >
+                {
+                  horarioManiana.map((row) => {
+                    return row
+                      .filter(x => !x.libre || x.curso_id)
+                      .map((x, i) => {
+                        const { dia, hora_inicio, hora_fin, curso_nombre, aula, sede } = x;
+                        const dia_nombre = dia == 1 ? "LUNES" : dia == 2 ? "MARTES" : dia == 3 ? "MIÉRCOLES" : dia == 4 ? "JUEVES" : dia == 5 ? "VIERNES" : "SÁBADO";
+
+                        return (
+                          <ListItem key={i} sx={{ padding: 2 }}>
+                            <ListItemText primary={`${dia_nombre} ${hora_inicio} - ${hora_fin} / ${curso_nombre}`} secondary={<><div>{aula}</div> <div>{sede}</div></>} />
+
+                            <ListItemSecondaryAction sx={{ display: 'flex', alignItems: 'flex-start', top: 15, transform: "none" }}>
+                              <Button variant="outlined" endIcon={<RemoveRedEyeIcon />}> Ver material</Button>
+                            </ListItemSecondaryAction>
+                          </ListItem>
+                        );
+                      });
+                  })
+                }
+              </List>
+            </CardContent>
+          </Card>
+        }
         <DialogRadio open={openDialog} onClose={onCloseDialog} title="Seleccionar curso" options={cursos} />
       </Container>
     </Page >
