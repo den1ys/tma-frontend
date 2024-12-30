@@ -266,11 +266,11 @@ export const tipo_material_psicologia = [
   }
 ];
 
-
+// CICLO VACACIONAL V2
 export const tipo_material = [
   { "id": 1, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24, 28, 29], "nombre": "COMPENDIOS" },
   { "id": 2, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24, 28, 29], "nombre": "HELICODIAPOSITIVA" },
-  { "id": 15, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24], "nombre": "INTRODUCTORIO" },
+  { "id": 15, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24, 28, 29], "nombre": "INTRODUCTORIO" },
   { "id": 5, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24], "nombre": "BOLETINES" },
   { "id": 46, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24], "nombre": "EXPLORATORIO" },
   { "id": 16, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24], "nombre": "CARPETA HELICOIDAL" },

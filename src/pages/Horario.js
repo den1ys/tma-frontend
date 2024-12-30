@@ -266,7 +266,7 @@ export default function Horario() {
                             <ListItemText primary={`${dia_nombre} ${hora_inicio} - ${hora_fin} / ${curso_nombre}`} secondary={<><div>{aula}</div> <div>{sede}</div></>} />
 
                             <ListItemSecondaryAction sx={{ display: 'flex', alignItems: 'flex-start', top: 15, transform: "none" }}>
-                              <Button variant="outlined" endIcon={<RemoveRedEyeIcon />}> Ver material</Button>
+                              <Button variant="outlined" endIcon={<RemoveRedEyeIcon />} onClick={(e) => {ver_tipo_material(x)}}> Ver</Button>
                             </ListItemSecondaryAction>
                           </ListItem>
                         );
