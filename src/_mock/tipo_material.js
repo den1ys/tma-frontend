@@ -275,8 +275,20 @@ export const tipo_material = [
   { "id": 46, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24], "nombre": "EXPLORATORIO" },
   { "id": 16, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24], "nombre": "CARPETA HELICOIDAL" },
   { "id": 48, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24], "nombre": "SYLLABUS" },
-  { "id": 49, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24], "nombre": "CALENDARIZACIÓN" },
-  { "id": 47, "id_tipo": 1, "id_padre": [], "material_id": [11, 12, 36], "nombre": "DIAPOSITIVA" },
+  { "id": 49, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24, 30, 31, 32, 33, 34, 35], "nombre": "CALENDARIZACIÓN" },
+  { "id": 47, "id_tipo": 1, "id_padre": [], "material_id": [11, 12, 30, 31, 32, 33, 34, 35, 36], "nombre": "DIAPOSITIVA" },
+
+
+  {"id" : 57, "id_tipo" : 1, "id_padre" : [], "material_id" : [30, 31, 32, 33, 34, 35], "nombre" : "CARTEL DE COMPETENCIAS Y CONTENIDOS TEMÁTICOS"},
+  {"id" : 58, "id_tipo" : 1, "id_padre" : [], "material_id" : [30, 31, 32, 33, 34, 35], "nombre" : "REGISTROS AUXILIARES"},
+  {"id" : 59, "id_tipo" : 1, "id_padre" : [], "material_id" : [30, 31, 32, 33, 34, 35], "nombre" : "PLAN DE ÁREA"},
+  {"id" : 60, "id_tipo" : 1, "id_padre" : [], "material_id" : [30, 31, 32, 33, 34, 35], "nombre" : "CARPETA PEDAGÓGICA"},
+  {"id" : 61, "id_tipo" : 1, "id_padre" : [], "material_id" : [30, 31, 32, 33, 34, 35], "nombre" : "REGLAMENTO INTERNO"},
+  {"id" : 62, "id_tipo" : 1, "id_padre" : [], "material_id" : [30, 31, 32, 33, 34, 35], "nombre" : "FORMATO DE SESION"},
+  {"id" : 63, "id_tipo" : 1, "id_padre" : [], "material_id" : [30, 31, 32, 33, 34, 35], "nombre" : "ACOMPAÑAMIENTO DOCENTE"},
+  {"id" : 64, "id_tipo" : 1, "id_padre" : [], "material_id" : [30, 31, 32, 33, 34, 35], "nombre" : "LIBROS"},
+
+
   { "id": 3146, "id_tipo": 2, "id_padre": [1, 5, 47], "material_id": [11, 12, 13, 20, 21, 22, 23, 24, 28, 29, 36], "nombre": "TOMO 1" },
   { "id": 3147, "id_tipo": 2, "id_padre": [1, 5, 47], "material_id": [11, 12, 13, 28, 29, 36], "nombre": "TOMO 2" },
   { "id": 3164, "id_tipo": 2, "id_padre": [5], "material_id": [13], "nombre": "TOMO 3" },
@@ -291,7 +303,13 @@ export const tipo_material = [
   { "id": 3420, "id_tipo": 2, "id_padre": [2], "material_id": [28], "nombre": "CAPITULO 8" },
   { "id": 3327, "id_tipo": 2, "id_padre": [2], "material_id": [28], "nombre": "INTENSIVO 1" },
   { "id": 3328, "id_tipo": 2, "id_padre": [2], "material_id": [28], "nombre": "INTENSIVO 2" },
-  { "id": 3329, "id_tipo": 2, "id_padre": [2], "material_id": [28], "nombre": "INTENSIVO 3" }
+  { "id": 3329, "id_tipo": 2, "id_padre": [2], "material_id": [28], "nombre": "INTENSIVO 3" },
+  {"id" : 3217, "id_tipo" : 2, "id_padre" : [47], "material_id" : [30, 31, 32, 33, 34, 35], "nombre" : "SEMANA 1"},
+  {"id" : 3218, "id_tipo" : 2, "id_padre" : [47], "material_id" : [30, 31, 32, 33, 34, 35], "nombre" : "SEMANA 2"},
+  {"id" : 3219, "id_tipo" : 2, "id_padre" : [47], "material_id" : [30, 31, 32, 33, 34, 35], "nombre" : "SEMANA 3"},
+  {"id" : 3220, "id_tipo" : 2, "id_padre" : [47], "material_id" : [30, 31, 32, 33, 34, 35], "nombre" : "SEMANA 4"},
+  {"id" : 3221, "id_tipo" : 2, "id_padre" : [47], "material_id" : [30, 31, 32, 33, 34, 35], "nombre" : "SEMANA 5"},
+  {"id" : 3222, "id_tipo" : 2, "id_padre" : [47], "material_id" : [30, 31, 32, 33, 34, 35], "nombre" : "SEMANA 6"}
 ];
 
 /*
