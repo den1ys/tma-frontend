@@ -291,8 +291,8 @@ export const tipo_material = [
 
   { "id": 3146, "id_tipo": 2, "id_padre": [1, 5, 47], "material_id": [11, 12, 13, 20, 21, 22, 23, 24, 28, 29, 36], "nombre": "TOMO 1" },
   { "id": 3147, "id_tipo": 2, "id_padre": [1, 5, 47], "material_id": [11, 12, 13, 28, 29, 36], "nombre": "TOMO 2" },
-  { "id": 3164, "id_tipo": 2, "id_padre": [5], "material_id": [13], "nombre": "TOMO 3" },
-  { "id": 3165, "id_tipo": 2, "id_padre": [5], "material_id": [13], "nombre": "TOMO 4" },
+  { "id": 3164, "id_tipo": 2, "id_padre": [1, 5], "material_id": [13, 28], "nombre": "TOMO 3" },
+  { "id": 3165, "id_tipo": 2, "id_padre": [1, 5], "material_id": [13, 28], "nombre": "TOMO 4" },
   { "id": 3196, "id_tipo": 2, "id_padre": [2], "material_id": [20, 21, 22, 23, 24, 28, 29], "nombre": "CAPITULO 1" },
   { "id": 3197, "id_tipo": 2, "id_padre": [2], "material_id": [20, 21, 22, 23, 24, 28, 29], "nombre": "CAPITULO 2" },
   { "id": 3198, "id_tipo": 2, "id_padre": [2], "material_id": [20, 21, 22, 23, 24, 28, 29], "nombre": "CAPITULO 3" },
