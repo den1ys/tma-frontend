@@ -244,11 +244,6 @@ export default function Horario() {
           matches && 
           <Card sx={{ maxWidth: 750 }}>
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Horario
-              </Typography>
-
-
               <List
                 sx={{ width: '100%', maxWidth: 650, bgcolor: 'background.paper' }}
                 component="nav"
@@ -263,7 +258,7 @@ export default function Horario() {
 
                         return (
                           <ListItem key={i} sx={{ padding: 2 }}>
-                            <ListItemText primary={`${dia_nombre} ${hora_inicio} - ${hora_fin} / ${curso_nombre}`} secondary={<><div>{aula}</div> <div>{sede}</div></>} />
+                            <ListItemText primaryTypographyProps={{fontSize: '2.5vw'}} primary={`${dia_nombre} ${hora_inicio} - ${hora_fin} / ${curso_nombre}`} secondaryTypographyProps={{fontSize: '2.3vw'}} secondary={<><div>{aula}</div> <div>{sede}</div></>} />
 
                             <ListItemSecondaryAction sx={{ display: 'flex', alignItems: 'flex-start', top: 15, transform: "none" }}>
                               <Button variant="outlined" endIcon={<RemoveRedEyeIcon />} onClick={(e) => {ver_tipo_material(x)}}> Ver</Button>
