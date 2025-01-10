@@ -258,11 +258,11 @@ export default function Horario() {
 
                         return (
                           <ListItem key={i} sx={{ padding: 2 }}>
-                            <ListItemText primaryTypographyProps={{fontSize: '2.5vw'}} primary={`${dia_nombre} ${hora_inicio} - ${hora_fin} / ${curso_nombre}`} secondaryTypographyProps={{fontSize: '2.3vw'}} secondary={<><div>{aula}</div> <div>{sede}</div></>} />
-
-                            <ListItemSecondaryAction sx={{ display: 'flex', alignItems: 'flex-start', top: 15, transform: "none" }}>
-                              <Button variant="outlined" endIcon={<RemoveRedEyeIcon />} onClick={(e) => {ver_tipo_material(x)}}> Ver</Button>
-                            </ListItemSecondaryAction>
+                            <ListItemText
+                            primaryTypographyProps={{fontSize: '3.2vw'}}
+                            primary={`${dia_nombre} ${hora_inicio} - ${hora_fin} / ${curso_nombre}`}
+                            secondaryTypographyProps={{fontSize: '3vw'}}
+                            secondary={<><div>{aula}</div> <div>{sede}</div> <div><Button sx={{width: '100%', marginTop: '.3rem'}} variant="outlined" onClick={(e) => {ver_tipo_material(x)}}>Ver material</Button></div></>} />
                           </ListItem>
                         );
                       });
