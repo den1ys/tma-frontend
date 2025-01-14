@@ -276,7 +276,7 @@ export const tipo_material = [
   { "id": 16, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24], "nombre": "CARPETA HELICOIDAL" },
   { "id": 48, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24], "nombre": "SYLLABUS" },
   { "id": 49, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24, 30, 31, 32, 33, 34, 35], "nombre": "CALENDARIZACIÓN" },
-  { "id": 47, "id_tipo": 1, "id_padre": [], "material_id": [11, 12, 30, 31, 32, 33, 34, 35, 36], "nombre": "DIAPOSITIVA" },
+  { "id": 47, "id_tipo": 1, "id_padre": [], "material_id": [11, 12, 13, 30, 31, 32, 33, 34, 35, 36], "nombre": "DIAPOSITIVA" },
 
 
   {"id" : 57, "id_tipo" : 1, "id_padre" : [], "material_id" : [30, 31, 32, 33, 34, 35], "nombre" : "CARTEL DE COMPETENCIAS Y CONTENIDOS TEMÁTICOS"},
@@ -305,7 +305,16 @@ export const tipo_material = [
   {"id" : 3219, "id_tipo" : 2, "id_padre" : [47], "material_id" : [30, 31, 32, 33, 34, 35], "nombre" : "SEMANA 3"},
   {"id" : 3220, "id_tipo" : 2, "id_padre" : [47], "material_id" : [30, 31, 32, 33, 34, 35], "nombre" : "SEMANA 4"},
   {"id" : 3221, "id_tipo" : 2, "id_padre" : [47], "material_id" : [30, 31, 32, 33, 34, 35], "nombre" : "SEMANA 5"},
-  {"id" : 3222, "id_tipo" : 2, "id_padre" : [47], "material_id" : [30, 31, 32, 33, 34, 35], "nombre" : "SEMANA 6"}
+  {"id" : 3222, "id_tipo" : 2, "id_padre" : [47], "material_id" : [30, 31, 32, 33, 34, 35], "nombre" : "SEMANA 6"},
+
+  {"id" : 11, "id_tipo" : 3, "id_padre" : [3146], "material_id" : [11, 12, 13, 36], "nombre" : "CAP1"},
+  {"id" : 12, "id_tipo" : 3, "id_padre" : [3146], "material_id" : [11, 12, 13, 36], "nombre" : "CAP2"},
+  {"id" : 13, "id_tipo" : 3, "id_padre" : [3146], "material_id" : [11, 12, 13, 36], "nombre" : "CAP3"},
+  {"id" : 17, "id_tipo" : 3, "id_padre" : [3146], "material_id" : [11, 12, 13, 36], "nombre" : "CAP4"},
+  {"id" : 18, "id_tipo" : 3, "id_padre" : [3147], "material_id" : [11, 12, 13, 36], "nombre" : "CAP5"},
+  {"id" : 19, "id_tipo" : 3, "id_padre" : [3147], "material_id" : [11, 12, 13, 36], "nombre" : "CAP6"},
+  {"id" : 20, "id_tipo" : 3, "id_padre" : [3147], "material_id" : [11, 12, 13, 36], "nombre" : "CAP7"},
+  {"id" : 21, "id_tipo" : 3, "id_padre" : [3147], "material_id" : [11, 12, 13, 36], "nombre" : "CAP8"}
 ];
 
 /*

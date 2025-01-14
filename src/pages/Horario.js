@@ -1,7 +1,5 @@
 // @mui
-import { Alert, Button, Card, CardActions, CardContent, CircularProgress, Container, FormControl, IconButton, InputLabel, List, ListItem, ListItemSecondaryAction, ListItemText, MenuItem, Paper, Select, Snackbar, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
-
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import { Alert, Button, Card, CardContent, CircularProgress, Container, FormControl, InputLabel, List, ListItem, ListItemText, MenuItem, Select, Snackbar, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 // hooks
 import { useEffect, useState } from 'react';
 import useSettings from '../hooks/useSettings';
@@ -19,7 +17,7 @@ import DialogRadio from 'src/components/DialogRadio';
 // data
 import { curso_grupos } from '../_mock/tipo_material';
 import AulaSearch from 'src/sections/@dashboard/horario/AulaSearch';
-import { Box, padding } from '@mui/system';
+import { Box } from '@mui/system';
 
 import useMediaQuery from '@mui/material/useMediaQuery';
 

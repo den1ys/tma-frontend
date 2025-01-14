@@ -32,7 +32,11 @@ export default function Periodo() {
     set_parametro(actual => ({ ...actual, periodo_id: id, periodo_nombre: nombre }));
 
     // CICLO VACACIONAL
-    navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
+    if ([3146, 3147].includes(id) && [47].includes(tipo_material_id) && [11, 12, 13, 36].includes(material_id)) {
+      navigate("/principal/grupo", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
+    } else {
+      navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
+    }
 
     // CICLO REGULAR
     /*if ([3170, 3171, 3172, 3173, 3174, 3175, 3176, 3177].includes(id) && [1, 2, 3, 4, 5].includes(material_id)) {
