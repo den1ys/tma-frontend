@@ -377,3 +377,41 @@ export const curso_grupos = [
   { group_id: 175, id: 21, text: "HISTORIA UNIVERSAL" },
   { group_id: 175, id: 48, text: "TUTORIA" }
 ];
+
+// PRIMARIA REGULAR
+export const tipo_material_primaria = [
+  {"id" : 47, "id_tipo" : 1, "id_padre" : [], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "DIAPOSITIVA"},
+  {"id" : 58, "id_tipo" : 1, "id_padre" : [], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "REGISTROS AUXILIARES"},
+  {"id" : 60, "id_tipo" : 1, "id_padre" : [], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "CARPETA PEDAGÓGICA"},
+  {"id" : 61, "id_tipo" : 1, "id_padre" : [], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "REGLAMENTO INTERNO"},
+  {"id" : 63, "id_tipo" : 1, "id_padre" : [], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "ACOMPAÑAMIENTO DOCENTE"},
+  {"id" : 65, "id_tipo" : 1, "id_padre" : [], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "CAPACITACIONES"},
+
+  {"id" : 3174, "id_tipo" : 2, "id_padre" : [65], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "BIMESTRAL 1"},
+  {"id" : 3175, "id_tipo" : 2, "id_padre" : [65], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "BIMESTRAL 2"},
+  {"id" : 3176, "id_tipo" : 2, "id_padre" : [65], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "BIMESTRAL 3"},
+  {"id" : 3177, "id_tipo" : 2, "id_padre" : [65], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "BIMESTRAL 4"},
+  {"id" : 3326, "id_tipo" : 2, "id_padre" : [58, 61, 63], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "SIN PERIODO"},
+  {"id" : 3332, "id_tipo" : 2, "id_padre" : [47], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "UNIDAD 1"},
+  {"id" : 3333, "id_tipo" : 2, "id_padre" : [47], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "UNIDAD 2"},
+  {"id" : 3334, "id_tipo" : 2, "id_padre" : [47], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "UNIDAD 3"},
+  {"id" : 3335, "id_tipo" : 2, "id_padre" : [47], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "UNIDAD 4"},
+  {"id" : 3336, "id_tipo" : 2, "id_padre" : [47], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "UNIDAD 5"},
+  {"id" : 3337, "id_tipo" : 2, "id_padre" : [47], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "UNIDAD 6"},
+  {"id" : 3338, "id_tipo" : 2, "id_padre" : [47], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "UNIDAD 7"},
+  {"id" : 3339, "id_tipo" : 2, "id_padre" : [47], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "UNIDAD 8"},
+  {"id" : 3537, "id_tipo" : 2, "id_padre" : [60], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "PLANIFICACIÓN ANUAL"},
+  {"id" : 3538, "id_tipo" : 2, "id_padre" : [60], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "UNIDAD DIDÁCTICA"},
+  {"id" : 3539, "id_tipo" : 2, "id_padre" : [60], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "MAPA DE COMPETENCIAS"},
+  {"id" : 3540, "id_tipo" : 2, "id_padre" : [60], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "MODELO DE SESIÓN Y GUÍA"},
+  {"id" : 3541, "id_tipo" : 2, "id_padre" : [60], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "CONVIVENCIA ESCOLAR"},
+  {"id" : 3542, "id_tipo" : 2, "id_padre" : [60], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "FORMATO DE CARPETA PEDAGÓGICA"},
+  {"id" : 3543, "id_tipo" : 2, "id_padre" : [60], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "CARTEL DE CONTENIDOS"},
+  {"id" : 3544, "id_tipo" : 2, "id_padre" : [60], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "PLAN DE ÁREA"},
+  {"id" : 3545, "id_tipo" : 2, "id_padre" : [60], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "CALENDARIZACIÓN"},
+
+  {"id" : 11, "id_tipo" : 3, "id_padre" : [3174,3175,3176,3177,3332,3333,3334,3335,3336,3337,3338,3339], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "CAPITULO 1"},
+  {"id" : 12, "id_tipo" : 3, "id_padre" : [3174,3175,3176,3177,3332,3333,3334,3335,3336,3337,3338,3339], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "CAPITULO 2"},
+  {"id" : 13, "id_tipo" : 3, "id_padre" : [3174,3175,3176,3177,3332,3333,3334,3335,3336,3337,3338,3339], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "CAPITULO 3"},
+  {"id" : 17, "id_tipo" : 3, "id_padre" : [3332,3333,3334,3335,3336,3337,3338,3339], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "CAPITULO 4"}
+];

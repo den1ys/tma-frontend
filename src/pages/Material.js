@@ -12,7 +12,7 @@ import HeaderBreadcrumbs from '../components/HeaderBreadcrumbs';
 // sections
 import { TipoMaterialCard } from '../sections/@dashboard/user/cards';
 // data
-import { tipo_material } from '../_mock/tipo_material';
+import { tipo_material, tipo_material_primaria } from '../_mock/tipo_material';
 
 export default function Material() {
   const { themeStretch } = useSettings();
@@ -31,11 +31,20 @@ export default function Material() {
   const ver_periodo = ({ id, nombre }) => {
     set_parametro(actual => ({ ...actual, tipo_material_id: id, tipo_material_nombre: nombre }));
 
+    // PRIMARIA REGULAR
+    if ([37, 38, 39, 40, 41, 42, 43, 44, 45].includes(material_id)) {
+      if ([58, 61, 63].includes(id)) {
+        navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
+      } else {
+        navigate("/principal/periodo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
+      }
     // CICLO VACACIONAL
-    if ([1, 2, 5, 47].includes(id)) {
-      navigate("/principal/periodo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
     } else {
-      navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
+      if ([1, 2, 5, 47].includes(id)) {
+        navigate("/principal/periodo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
+      } else {
+        navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
+      }
     }
 
     // CICLO REGULAR
@@ -47,8 +56,13 @@ export default function Material() {
   };
 
   useEffect(() => {
-    console.log(tipo_material)
-    let lista = tipo_material.filter(e => e.id_tipo === 1 && e.material_id.includes(material_id));
+    let lista;
+    
+    if ([37, 38, 39, 40, 41, 42, 43, 44, 45].includes(material_id)) {
+      lista = tipo_material_primaria.filter(e => e.id_tipo === 1 && e.material_id.includes(material_id));
+    } else {
+      lista = tipo_material.filter(e => e.id_tipo === 1 && e.material_id.includes(material_id));
+    }
 
     lista = lista.map(e => ({ ...e, callback: ver_periodo }));
 

@@ -12,7 +12,7 @@ import HeaderBreadcrumbs from '../components/HeaderBreadcrumbs';
 // sections
 import { TipoMaterialCard } from '../sections/@dashboard/user/cards';
 // data
-import { tipo_material } from '../_mock/tipo_material';
+import { tipo_material, tipo_material_primaria } from '../_mock/tipo_material';
 
 export default function Grupo() {
   const { themeStretch } = useSettings();
@@ -35,7 +35,15 @@ export default function Grupo() {
   };
 
   useEffect(() => {
-    let lista = tipo_material.filter(e => e.id_tipo === 3 && e.id_padre.includes(periodo_id) && e.material_id.includes(material_id));
+    let lista;
+    
+    // PRIMARIA REGULAR
+     if ([37, 38, 39, 40, 41, 42, 43, 44, 45].includes(material_id)) {
+      lista = tipo_material_primaria.filter(e => e.id_tipo === 3 && e.id_padre.includes(periodo_id) && e.material_id.includes(material_id));
+    // CICLO VACACIONAL
+    } else {
+      lista = tipo_material.filter(e => e.id_tipo === 3 && e.id_padre.includes(periodo_id) && e.material_id.includes(material_id));
+    }
 
     if ([1, 2, 3, 4, 5, 19].includes(material_id) && tipo_material_id === 2) {
       if (periodo_id === 3146) {
