@@ -40,7 +40,7 @@ export default function Grupo() {
     // PRIMARIA REGULAR
      if ([37, 38, 39, 40, 41, 42, 43, 44, 45].includes(material_id)) {
       lista = tipo_material_primaria.filter(e => e.id_tipo === 3 && e.id_padre.includes(periodo_id) && e.material_id.includes(material_id));
-    // CICLO VACACIONAL
+    // CICLO VACACIONAL / CICLO ESCOLAR
     } else {
       lista = tipo_material.filter(e => e.id_tipo === 3 && e.id_padre.includes(periodo_id) && e.material_id.includes(material_id));
     }

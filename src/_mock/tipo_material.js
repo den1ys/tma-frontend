@@ -1,12 +1,12 @@
 // CICLO REGULAR
-/*export const tipo_material = [
-  {
+export const tipo_material = [
+  /*{
     "id": 1,
     "id_tipo": 1,
     "id_padre": null,
     "material_id": [1, 2, 3, 4, 5, 6, 7, 8, 19, 25, 26],
     "nombre": "COMPENDIO"
-  },
+  },*/
   {
     "id": 2,
     "id_tipo": 1,
@@ -49,6 +49,7 @@
     "material_id": [1, 2, 3, 4, 5],
     "nombre": "BALOTARIO"
   },
+  { "id": 5, "id_tipo": 1, "id_padre": null, "material_id": [1, 2, 3, 4, 5, 6, 7, 8, 19, 25, 26], "nombre": "BOLETINES" },
   {
     "id": 3146,
     "id_tipo": 2,
@@ -174,7 +175,7 @@
   { "id": 36, "id_tipo": 3, "id_padre": [3167, 3169], "material_id": [1, 2, 3, 4, 5, 6, 19], "nombre": "CAPÍTULO 23" },
   { "id": 37, "id_tipo": 3, "id_padre": [3167, 3169], "material_id": [1, 2, 3, 4, 5, 6, 19], "nombre": "CAPÍTULO 24" },
   { "id": 14, "id_tipo": 3, "id_padre": [3146, 3147, 3164, 3165, 3166, 3167, 3168, 3169], "material_id": [1, 2, 3, 4, 5, 19], "nombre": "RETROALIMENTACIÓN" }
-];*/
+];
 
 // CICLO VACACIONAL
 /*export const tipo_material = [
@@ -267,7 +268,7 @@ export const tipo_material_psicologia = [
 ];
 
 // CICLO VACACIONAL V2
-export const tipo_material = [
+/*export const tipo_material = [
   { "id": 1, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24, 28, 29], "nombre": "COMPENDIOS" },
   { "id": 2, "id_tipo": 1, "id_padre": [], "material_id": [20, 21, 22, 23, 24, 28, 29], "nombre": "HELICODIAPOSITIVA" },
   { "id": 15, "id_tipo": 1, "id_padre": [], "material_id": [11, 12, 13, 20, 21, 22, 23, 24, 28, 29, 36], "nombre": "INTRODUCTORIO" },
@@ -315,7 +316,7 @@ export const tipo_material = [
   {"id" : 19, "id_tipo" : 3, "id_padre" : [3147], "material_id" : [11, 12, 13, 36], "nombre" : "CAP6"},
   {"id" : 20, "id_tipo" : 3, "id_padre" : [3147], "material_id" : [11, 12, 13, 36], "nombre" : "CAP7"},
   {"id" : 21, "id_tipo" : 3, "id_padre" : [3147], "material_id" : [11, 12, 13, 36], "nombre" : "CAP8"}
-];
+];*/
 
 /*
 export const curso_grupos = [

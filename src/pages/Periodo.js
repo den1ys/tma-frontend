@@ -38,14 +38,26 @@ export default function Periodo() {
       } else {
         navigate("/principal/grupo", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
       }
-    // CICLO VACACIONAL
     } else {
+      // CICLO REGULAR V2
+      if ([7, 8, 25, 26].includes(material_id)) {
+        navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
+      } else if ([6].includes(material_id) && [1].includes(tipo_material_id)) {
+        navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
+      } else if ([1, 2, 3, 4, 5, 19].includes(material_id) && [1, 3].includes(tipo_material_id)) {
+        navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
+      } else {
+        navigate("/principal/grupo", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
+      }
+    }
+    // CICLO VACACIONAL
+    /*} else {
       if ([3146, 3147].includes(id) && [47].includes(tipo_material_id) && [11, 12, 13, 36].includes(material_id)) {
         navigate("/principal/grupo", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
       } else {
         navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
       }
-    }
+    }*/
     // CICLO REGULAR
     /*if ([3170, 3171, 3172, 3173, 3174, 3175, 3176, 3177].includes(id) && [1, 2, 3, 4, 5].includes(material_id)) {
       navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
@@ -69,7 +81,7 @@ export default function Periodo() {
     // PRIMARIA REGULAR
     if ([37, 38, 39, 40, 41, 42, 43, 44, 45].includes(material_id)) {
       lista = tipo_material_primaria.filter(e => e.id_tipo === 2 && e.id_padre.includes(tipo_material_id) && e.material_id.includes(material_id));
-    // CICLO VACACIONAL
+    // CICLO VACACIONAL / CICLO ESCOLAR
     } else {
       lista = tipo_material.filter(e => e.id_tipo === 2 && e.id_padre.includes(tipo_material_id) && e.material_id.includes(material_id));
     }
@@ -86,6 +98,8 @@ export default function Periodo() {
       } else {
         lista = lista.filter(e => [3146, 3147, 3164, 3165, 3166, 3167, 3168, 3169, 3237].includes(e.id));
       }
+    } else if (material_id === 7 && tipo_material_id === 1) {
+      lista = lista.map(e => ({ ...e, nombre: e.nombre_uni }));
     }
     // ..........
 
