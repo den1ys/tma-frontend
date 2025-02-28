@@ -54,13 +54,6 @@ export default function Material() {
         navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
       }
     }*/
-
-    // CICLO REGULAR
-    /*if ([15, 16, 48, 49].includes(id)) {
-      navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
-    } else {
-      navigate("/principal/periodo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
-    }*/
   };
 
   useEffect(() => {
