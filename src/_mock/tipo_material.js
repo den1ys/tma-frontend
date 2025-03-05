@@ -18,7 +18,7 @@ export const tipo_material = [
     "id": 15,
     "id_tipo": 1,
     "id_padre": null,
-    "material_id": [1, 2, 3, 4, 5, 19],
+    "material_id": [1, 2, 3, 4, 5, 6, 7, 8, 19, 25, 26],
     "nombre": "INTRODUCTORIO"
   },
   {
@@ -32,7 +32,7 @@ export const tipo_material = [
     "id": 48,
     "id_tipo": 1,
     "id_padre": null,
-    "material_id": [1, 2, 3, 4, 5],
+    "material_id": [1, 2, 3, 4, 5, 6, 7, 8, 19, 25, 26],
     "nombre": "SYLLABUS"
   },
   {
@@ -49,7 +49,6 @@ export const tipo_material = [
     "material_id": [1, 2, 3, 4, 5],
     "nombre": "BALOTARIO"
   },
-  { "id": 5, "id_tipo": 1, "id_padre": null, "material_id": [1, 2, 3, 4, 5, 6, 7, 8, 19, 25, 26], "nombre": "BOLETINES" },
   {
     "id": 3146,
     "id_tipo": 2,
@@ -371,12 +370,14 @@ export const curso_grupos = [
   { group_id: 15, id: 161, text: "GEOGRAFÍA DEL MUNDO", material_id: [25, 26] },
   { group_id: 15, id: 162, text: "GEOGRAFÍA DEL PERÚ", material_id: [25, 26] },
 
-
   { group_id: 173, id: 106, text: "FORTALECIENDO MI FE" },
   { group_id: 173, id: 48, text: "TUTORIA" },
 
   { group_id: 175, id: 21, text: "HISTORIA UNIVERSAL" },
-  { group_id: 175, id: 48, text: "TUTORIA" }
+  { group_id: 175, id: 48, text: "TUTORIA" },
+
+  { group_id: 178, id: 30, text: "LITERATURA" },
+  { group_id: 178, id: 48, text: "TUTORÍA" }
 ];
 
 // PRIMARIA REGULAR
