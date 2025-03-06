@@ -1,5 +1,5 @@
 import WebViewer from '@pdftron/pdfjs-express-viewer';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const container_css = {
     "width": "100%",
@@ -26,7 +26,7 @@ const viewer_css = {
     "boxShadow": "1px 1px 10px #999"
 };
 
-export default function PdfViewerComponent({ url }) {
+export default function PdfViewerComponent({ url, esDescargable }) {
     const viewer = useRef(null);
     const instance = useRef();
 
@@ -40,8 +40,9 @@ export default function PdfViewerComponent({ url }) {
                     'ribbons',
                     'toggleNotesButton',
                     'printButton',
-                    'downloadButton',
-                    'toolsHeader'
+                    'toolsHeader',
+                    'downloadButton'
+                    //...(!esDescargable ? ["downloadButton"] : [])
                 ]
             },
             viewer.current
@@ -49,6 +50,23 @@ export default function PdfViewerComponent({ url }) {
             ins.UI.setLanguage('es');
             ins.UI.setTheme('dark');
             instance.current = ins;
+
+            // Create our own button
+            if (esDescargable) {
+                debugger
+                ins.UI.setHeaderItems((header) => {
+                    header.getHeader('default').push({
+                    img: "icon-header-download",
+                    index: -1,
+                    type: "actionButton",
+                    element: 'downloadButton',
+                    title: "Descargar",
+                    onClick: () => {
+                        ins.UI.downloadPdf()
+                    }
+                    });
+                });
+            }
         });
     }, []);
 

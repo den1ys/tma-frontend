@@ -28,6 +28,8 @@ export default function Presentacion() {
 
   const [loader, setLoader] = useState(true);
 
+  const [esDescargable, setEsDescargable] = useState(null);
+
   const [error, setError] = useState(false);
 
   const { params } = location.state;
@@ -46,13 +48,13 @@ export default function Presentacion() {
       if (!material) {
         setError(true);
       } else {
-        const { material_drive_id, material_drive_encriptado } = material;
+        const { material_drive_id, material_drive_encriptado, es_descargable } = material;
 
         const response = await axios.get(`/api/materiales/recurso?drive_id=${material_drive_id}&drive_encrypted=${material_drive_encriptado}`);
         const { data: { server_url, drive_decrypted } } = await response.data;
-
         setContrasenia(drive_decrypted);
         setUrl(server_url);
+        setEsDescargable(es_descargable);
       }
     }
   }, []);
@@ -80,9 +82,7 @@ export default function Presentacion() {
           : ""
         }
 
-        {url &&
-          <PdfViewerComponent url={url} />
-        }
+        {url && esDescargable !== null && <PdfViewerComponent url={url} esDescargable={esDescargable} />}
       </Container>
     </Page>
   );
