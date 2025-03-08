@@ -16,8 +16,9 @@ const navConfig = [
   {
     subheader: 'Materiales',
     items: [
-      { title: 'Horario', path: '/principal/horario', icon: ICONS.dashboard }
+      { title: 'Horario', path: '/principal/horario', icon: ICONS.dashboard },
       //{ title: 'Psicología', path: '/principal/psicologia', icon: ICONS.kanban }
+      { title: 'Acompañamiento', path: '/principal/acompanamiento', icon: ICONS.kanban }
     ]
   }
 ];

@@ -42,7 +42,9 @@ export default function Router() {
         { path: 'archivo', element: <PageArchivo /> },
         { path: 'periodo2', element: <PagePeriodo2 /> },
         { path: 'presentacion2', element: <PagePresentacion2 /> },
-        { path: 'video', element: <PageVideo /> }
+        { path: 'video', element: <PageVideo /> },
+        { path: 'acompanamiento', element: <PageAcompanamiento /> },
+        { path: 'acompanamiento_actualizar', element: <PageAcompanamientoActualizar /> }
       ],
     },
     {
@@ -90,4 +92,6 @@ const PagePeriodo2 = Loadable(lazy(() => import('../pages/Periodo2')))
 const PageArchivo = Loadable(lazy(() => import('../pages/Archivo')));
 const PagePresentacion2 = Loadable(lazy(() => import('../pages/Presentacion2')));
 const PageVideo = Loadable(lazy(() => import('../pages/Video')));
+const PageAcompanamiento = Loadable(lazy(() => import('../pages/Acompanamiento')));
+const PageAcompanamientoActualizar = Loadable(lazy(() => import('../pages/AcompanamientoActualizar')));
 const Page404 = Loadable(lazy(() => import('../pages/Page404')));
