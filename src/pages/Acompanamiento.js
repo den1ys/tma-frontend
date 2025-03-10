@@ -29,7 +29,7 @@ export default function Acompanamiento() {
   const [lista_ficha_profesor, set_lista_ficha_profesor] = useState([]);
 
   const listar_ficha_profesor = async (numero_documento) => {
-    const response = await axios.get(`/api/acompanamiento?tipo_operacion=listar_ficha_profesor&numero_documento=${41152708}`);
+    const response = await axios.get(`/api/acompanamiento?tipo_operacion=listar_ficha_profesor&numero_documento=${numero_documento}`);
     const { json: { data } } = await response.data;
     return data;
   }
