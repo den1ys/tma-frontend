@@ -71,7 +71,7 @@ export default function AcompanamientoActualizar() {
         navigate("/principal/acompanamiento", { replace: true });
       }, 3000);
     }
-
+    //console.log()
     setAlertaGU(true);
   };
 
