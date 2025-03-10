@@ -55,7 +55,7 @@ export default function AcompanamientoActualizar() {
     }
 
     const entrada = JSON.stringify({ tipo_operacion: "actualizar_conformidad", estado_id: estadoId, observacion_profesor: observacionProfesor, acompanamiento_profesor_id: acompanamientoProfesorId });
-    const response = await fetch("http://localhost:3000/api/acompanamiento/conformidad", { headers: { "Content-Type": "application/json" }, method: "POST", body: entrada });
+    const response = await fetch("https://fichaonline.sacooliveros.edu.pe:4000/api/acompanamiento/conformidad", { headers: { "Content-Type": "application/json" }, method: "POST", body: entrada });
     const { status, message } = await response.json();
 
     if (!status) {
