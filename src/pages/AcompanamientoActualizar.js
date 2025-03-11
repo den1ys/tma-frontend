@@ -33,6 +33,8 @@ export default function AcompanamientoActualizar() {
 
   const [observacionDirector, setObservacionDirector] = useState("");
 
+  const [observacionProfesor2, setObservacionProfesor2] = useState("");
+
   const [alertaGU, setAlertaGU] = useState(false);
 
   const [alertaGUColor, setAlertaGUColor] = useState('error');
@@ -40,9 +42,10 @@ export default function AcompanamientoActualizar() {
   const [alertaGUMensaje, setAlertaGUMensaje] = useState('');
 
   const listar_ficha_profesor = async () => {
-    const { acompanamiento_profesor_id, observacion_director } = location.state;
+    const { acompanamiento_profesor_id, observacion_director, observacion_profesor } = location.state;
     setAcompanamientoProfesorId(acompanamiento_profesor_id);
     setObservacionDirector(observacion_director);
+    setObservacionProfesor2(observacion_profesor);
     const response = await axios.get(`/api/acompanamiento?tipo_operacion=listar_indicador_profesor&acompanamiento_profesor_id=${acompanamiento_profesor_id}`);
     const { json: { data } } = await response.data;
     return data;
@@ -147,7 +150,7 @@ export default function AcompanamientoActualizar() {
                       key={index}
                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                     >
-                      <TableCell sx={{ border: 1, borderColor: 'primary' }} rowSpan={lista_indicador.length + 1} component="td" scope="row">{criterio_nombre}</TableCell>
+                      <TableCell sx={{ border: 1, borderColor: 'primary' }} rowSpan={lista_indicador.length + 2} component="td" scope="row">{criterio_nombre}</TableCell>
                     </TableRow>
                   ));
 
@@ -176,7 +179,6 @@ export default function AcompanamientoActualizar() {
                       key={index + 20}
                       sx={{ '&:last-child td, &:last-child th': { border: 0 }, bgcolor: 'rgba(1, 1, 1, 0.15)' }}
                     >
-                      <TableCell component="td" sx={{ border: 1, borderColor: 'primary' }}></TableCell>
                       <TableCell component="td" sx={{ border: 1, borderColor: 'primary' }}>PROMEDIO</TableCell>
                       <TableCell align='center' colSpan={5} component="td" sx={{ border: 1, borderColor: 'primary' }}>{promedio}</TableCell>
                     </TableRow>
@@ -192,6 +194,13 @@ export default function AcompanamientoActualizar() {
         <FormControl fullWidth>
           <TextField fullWidth label="Observación del director" variant="standard" disabled value={observacionDirector} />
         </FormControl>
+
+        {
+          observacionProfesor2 &&
+          (<FormControl fullWidth sx={{ minWidth: 800, position: 'relative', marginTop: "2rem" }}>
+            <TextField fullWidth label="Observación del profesor" variant="standard" disabled value={observacionProfesor2} />
+          </FormControl>)
+        }
 
         <Dialog
           open={open}

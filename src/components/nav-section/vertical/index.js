@@ -4,6 +4,8 @@ import { styled } from '@mui/material/styles';
 import { List, Box, ListSubheader } from '@mui/material';
 //
 import { NavListRoot } from './NavList';
+import useAuth from 'src/hooks/useAuth';
+import { useEffect, useState } from 'react';
 
 // ----------------------------------------------------------------------
 
@@ -28,6 +30,22 @@ NavSectionVertical.propTypes = {
 };
 
 export default function NavSectionVertical({ navConfig, isCollapse = false, ...other }) {
+  const { user } = useAuth();
+
+  const[config_1, set_config_1] = useState(navConfig);
+
+  useEffect(() => {
+    const { tiene_acompanamiento } = user;
+
+    if (!tiene_acompanamiento) {
+      const objeto = config_1;
+
+      objeto[0].items = objeto[0].items.filter(x => x.title !== "Acompañamiento");
+
+      set_config_1(objeto);
+    }
+  }, []);
+
   return (
     <Box {...other}>
       {navConfig.map((group) => (
