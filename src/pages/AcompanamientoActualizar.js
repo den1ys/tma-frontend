@@ -25,9 +25,11 @@ export default function AcompanamientoActualizar() {
 
   const [open, setOpen] = useState(false);
 
-  const [estadoId, setEstadoId] = useState(null);
+  const [estadoId, setEstadoId] = useState("");
 
-  const [observacionProfesor, setObservacionProfesor] = useState(null);
+  const [estadoNombre, setEstadoNombre] = useState(null);
+
+  const [observacionProfesor, setObservacionProfesor] = useState("");
 
   const [acompanamientoProfesorId, setAcompanamientoProfesorId] = useState(null);
 
@@ -41,11 +43,14 @@ export default function AcompanamientoActualizar() {
 
   const [alertaGUMensaje, setAlertaGUMensaje] = useState('');
 
+  const [mostrarCampoObservacion, setMostrarCampoObservacion] = useState(false);
+
   const listar_ficha_profesor = async () => {
-    const { acompanamiento_profesor_id, observacion_director, observacion_profesor } = location.state;
+    const { acompanamiento_profesor_id, observacion_director, observacion_profesor, estado_nombre } = location.state;
     setAcompanamientoProfesorId(acompanamiento_profesor_id);
     setObservacionDirector(observacion_director);
     setObservacionProfesor2(observacion_profesor);
+    setEstadoNombre(estado_nombre);
     const response = await axios.get(`/api/acompanamiento?tipo_operacion=listar_indicador_profesor&acompanamiento_profesor_id=${acompanamiento_profesor_id}`);
     const { json: { data } } = await response.data;
     return data;
@@ -53,7 +58,16 @@ export default function AcompanamientoActualizar() {
 
   const actualizar_conformidad = async (event) => {
     if (!acompanamientoProfesorId || !estadoId) {
-      alert("¡Seleccione un estado!")
+      setAlertaGUMensaje("¡Seleccione un estado!");
+      setAlertaGUColor("warning");
+      setAlertaGU(true);
+      return false;
+    }
+
+    if (estadoId == 3592 && !observacionProfesor) {
+      setAlertaGUMensaje("¡Ingrese una observación!");
+      setAlertaGUColor("warning");
+      setAlertaGU(true);
       return false;
     }
 
@@ -88,6 +102,12 @@ export default function AcompanamientoActualizar() {
 
   const handleEstadoIdChange = (event) => {
     setEstadoId(event.target.value);
+
+    if (event.target.value == 3592) {
+      setMostrarCampoObservacion(true);
+    } else {
+      setMostrarCampoObservacion(false);
+    }
   };
 
   const handleObservacionProfesorChange = (event) => {
@@ -119,12 +139,15 @@ export default function AcompanamientoActualizar() {
           ]}
         />
 
-        <Stack direction="row" sx={{
-          justifyContent: "flex-end",
-          marginBottom: "2rem"
-        }}>
-          <Button variant="contained" onClick={handleClickOpen} disabled={disableBotonConformidad}>Conformidad</Button>
-        </Stack>
+        { !["OBSERVADO", "VALIDADO"].includes(estadoNombre) && (
+          <Stack direction="row" sx={{
+            justifyContent: "flex-end",
+            marginBottom: "2rem"
+          }}>
+            <Button variant="contained" onClick={handleClickOpen} disabled={disableBotonConformidad}>Conformidad</Button>
+          </Stack>
+        )
+        }
 
         <TableContainer sx={{ minWidth: 800, position: 'relative', marginBottom: "2rem" }}>
           <Table sx={{ minWidth: 650, border: 1, borderColor: 'primary' }}>
@@ -212,21 +235,25 @@ export default function AcompanamientoActualizar() {
             <FormControl sx={{ marginTop: "1rem" }}>
               <InputLabel id="test-select-label">Estado</InputLabel>
 
-              <Select labelId="test-select-label" label="Label" onChange={handleEstadoIdChange}>
+              <Select labelId="test-select-label" label="Label" value={estadoId} onChange={handleEstadoIdChange}>
                 <MenuItem value={3593}>VALIDADO</MenuItem>
                 <MenuItem value={3592}>OBSERVADO</MenuItem>
               </Select>
             </FormControl>
 
-            <FormControl>
-              <TextField label="Observación" variant="standard" onChange={handleObservacionProfesorChange} />
-            </FormControl>
+            { mostrarCampoObservacion &&
+              (
+              <FormControl>
+                <TextField label="Observación" variant="standard" value={observacionProfesor} onChange={handleObservacionProfesorChange} />
+              </FormControl>
+              )
+            }
           </DialogContent>
 
           <DialogActions>
             <Button color="error" onClick={handleClose}>Cancelar</Button>
 
-            <Button type="button" onClick={actualizar_conformidad}>Actualizar</Button>
+            <Button type="button" onClick={actualizar_conformidad}>Registrar</Button>
           </DialogActions>
         </Dialog>
 
