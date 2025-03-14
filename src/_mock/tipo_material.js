@@ -49,6 +49,50 @@ export const tipo_material = [
     "material_id": [1, 2, 3, 4, 5],
     "nombre": "BALOTARIO"
   },
+
+
+
+
+  { "id": 11, "id_tipo": 1, "id_padre": null, "material_id": [14, 46], "nombre": "CAPÍTULO 1" },
+  { "id": 12, "id_tipo": 1, "id_padre": null, "material_id": [14, 46], "nombre": "CAPÍTULO 2" },
+  { "id": 13, "id_tipo": 1, "id_padre": null, "material_id": [14, 46], "nombre": "CAPÍTULO 3" },
+  { "id": 17, "id_tipo": 1, "id_padre": null, "material_id": [14, 46], "nombre": "CAPÍTULO 4" },
+  { "id": 18, "id_tipo": 1, "id_padre": null, "material_id": [14, 46], "nombre": "CAPÍTULO 5" },
+  { "id": 19, "id_tipo": 1, "id_padre": null, "material_id": [14, 46], "nombre": "CAPÍTULO 6" },
+  { "id": 20, "id_tipo": 1, "id_padre": null, "material_id": [14, 46], "nombre": "CAPÍTULO 7" },
+  { "id": 21, "id_tipo": 1, "id_padre": null, "material_id": [14, 46], "nombre": "CAPÍTULO 8" },
+  { "id": 22, "id_tipo": 1, "id_padre": null, "material_id": [14, 46], "nombre": "CAPÍTULO 9" },
+  { "id": 23, "id_tipo": 1, "id_padre": null, "material_id": [14, 46], "nombre": "CAPÍTULO 10" },
+  { "id": 24, "id_tipo": 1, "id_padre": null, "material_id": [14, 46], "nombre": "CAPÍTULO 11" },
+  { "id": 25, "id_tipo": 1, "id_padre": null, "material_id": [14, 46], "nombre": "CAPÍTULO 12" },
+  { "id": 26, "id_tipo": 1, "id_padre": null, "material_id": [14, 46], "nombre": "CAPÍTULO 13" },
+  { "id": 27, "id_tipo": 1, "id_padre": null, "material_id": [14, 46], "nombre": "CAPÍTULO 14" },
+  { "id": 28, "id_tipo": 1, "id_padre": null, "material_id": [14, 46], "nombre": "CAPÍTULO 15" },
+  { "id": 29, "id_tipo": 1, "id_padre": null, "material_id": [14, 46], "nombre": "CAPÍTULO 16" },
+  { "id": 30, "id_tipo": 1, "id_padre": null, "material_id": [14], "nombre": "CAPÍTULO 17" },
+  { "id": 31, "id_tipo": 1, "id_padre": null, "material_id": [14], "nombre": "CAPÍTULO 18" },
+  { "id": 32, "id_tipo": 1, "id_padre": null, "material_id": [14], "nombre": "CAPÍTULO 19" },
+  { "id": 33, "id_tipo": 1, "id_padre": null, "material_id": [14], "nombre": "CAPÍTULO 20" },
+  { "id": 34, "id_tipo": 1, "id_padre": null, "material_id": [14], "nombre": "CAPÍTULO 21" },
+  { "id": 35, "id_tipo": 1, "id_padre": null, "material_id": [14], "nombre": "CAPÍTULO 22" },
+  { "id": 36, "id_tipo": 1, "id_padre": null, "material_id": [14], "nombre": "CAPÍTULO 23" },
+  { "id": 37, "id_tipo": 1, "id_padre": null, "material_id": [14], "nombre": "CAPÍTULO 24" },
+  { "id": 38, "id_tipo": 1, "id_padre": null, "material_id": [14], "nombre": "CAPÍTULO 25" },
+  { "id": 39, "id_tipo": 1, "id_padre": null, "material_id": [14], "nombre": "CAPÍTULO 26" },
+  { "id": 40, "id_tipo": 1, "id_padre": null, "material_id": [14], "nombre": "CAPÍTULO 27" },
+  { "id": 41, "id_tipo": 1, "id_padre": null, "material_id": [14], "nombre": "CAPÍTULO 28" },
+  { "id": 42, "id_tipo": 1, "id_padre": null, "material_id": [14], "nombre": "CAPÍTULO 29" },
+  { "id": 43, "id_tipo": 1, "id_padre": null, "material_id": [14], "nombre": "CAPÍTULO 30" },
+  { "id": 44, "id_tipo": 1, "id_padre": null, "material_id": [14], "nombre": "CAPÍTULO 31" },
+  { "id": 45, "id_tipo": 1, "id_padre": null, "material_id": [14], "nombre": "CAPÍTULO 32" },
+  { "id": 69, "id_tipo": 1, "id_padre": null, "material_id": [14], "nombre": "CAPÍTULO 33" },
+  { "id": 70, "id_tipo": 1, "id_padre": null, "material_id": [14], "nombre": "CAPÍTULO 34" },
+  { "id": 71, "id_tipo": 1, "id_padre": null, "material_id": [14], "nombre": "CAPÍTULO 35" },
+  { "id": 72, "id_tipo": 1, "id_padre": null, "material_id": [14], "nombre": "CAPÍTULO 36" },
+
+
+
+
   {
     "id": 3146,
     "id_tipo": 2,
