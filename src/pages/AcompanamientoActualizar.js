@@ -139,7 +139,7 @@ export default function AcompanamientoActualizar() {
           ]}
         />
 
-        { !["OBSERVADO", "VALIDADO"].includes(estadoNombre) && (
+        { !["OBSERVADO", "INFORMADO"].includes(estadoNombre) && (
           <Stack direction="row" sx={{
             justifyContent: "flex-end",
             marginBottom: "2rem"
@@ -236,7 +236,7 @@ export default function AcompanamientoActualizar() {
               <InputLabel id="test-select-label">Estado</InputLabel>
 
               <Select labelId="test-select-label" label="Label" value={estadoId} onChange={handleEstadoIdChange}>
-                <MenuItem value={3593}>VALIDADO</MenuItem>
+                <MenuItem value={3593}>INFORMADO</MenuItem>
                 <MenuItem value={3592}>OBSERVADO</MenuItem>
               </Select>
             </FormControl>
