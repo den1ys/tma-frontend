@@ -13,6 +13,8 @@ import HeaderBreadcrumbs from '../components/HeaderBreadcrumbs';
 import { TipoMaterialCard } from '../sections/@dashboard/user/cards';
 // data
 import { tipo_material, tipo_material_primaria } from '../_mock/tipo_material';
+// axios
+import axios from '../utils/axios';
 
 export default function Material() {
   const { themeStretch } = useSettings();
@@ -28,15 +30,17 @@ export default function Material() {
 
   const [lista_tipo_material, set_lista_tipo_material] = useState([]);
 
-  const ver_periodo = ({ id, nombre }) => {
+  const ver_periodo = ({ id, nombre, es_archivo_descarga }) => {
     set_parametro(actual => ({ ...actual, tipo_material_id: id, tipo_material_nombre: nombre }));
 
     // PRIMARIA REGULAR
     if ([37, 38, 39, 40, 41, 42, 43, 44, 45].includes(material_id)) {
-      if ([58, 61, 63].includes(id)) {
+      if ([61, 63].includes(id)) {
         navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
-      } else {
+      } else if (!es_archivo_descarga) {
         navigate("/principal/periodo", { replace: true, state: { params: { ...parametro, tipo_material_id: id, tipo_material_nombre: nombre } } });
+      } else {
+        descargarMaterial();
       }
     } else {
       // CICLO REGULAR
@@ -58,7 +62,7 @@ export default function Material() {
 
   useEffect(() => {
     let lista;
-    
+
     if ([37, 38, 39, 40, 41, 42, 43, 44, 45].includes(material_id)) {
       lista = tipo_material_primaria.filter(e => e.id_tipo === 1 && e.material_id.includes(material_id));
     } else {
@@ -69,6 +73,21 @@ export default function Material() {
 
     set_lista_tipo_material(actual => [...actual, ...lista]);
   }, []);
+
+  const descargarMaterial = async () => {
+    const materiales = JSON.parse(localStorage.getItem("materiales"));
+
+    if (materiales) {
+      const material = materiales.find(e => e.curso_id === curso_id && e.aula_id === aula_id && e.tipo_material_id === 58);
+      const response = await axios.get(`/api/materiales/recurso?drive_id=${material.material_drive_id}`);
+      const { data: { server_url } } = await response.data;
+      const fileUrl = server_url;
+      const link = document.createElement('a');
+      link.href = fileUrl;
+      link.download = fileUrl.split('/').pop();
+      link.click();
+    }
+  };
 
   return (
     <Page title="TMA - Saco Oliveros (Tipo material)">

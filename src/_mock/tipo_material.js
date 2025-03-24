@@ -424,13 +424,16 @@ export const curso_grupos = [
   { group_id: 175, id: 48, text: "TUTORIA" },
 
   { group_id: 178, id: 30, text: "LITERATURA" },
-  { group_id: 178, id: 48, text: "TUTORÍA" }
+  { group_id: 178, id: 48, text: "TUTORÍA" },
+
+  { group_id: 177, id: 27, text: "LENGUAJE" },
+  { group_id: 177, id: 106, text: "FORTALECIENDO MI FE" }
 ];
 
 // PRIMARIA REGULAR
 export const tipo_material_primaria = [
   {"id" : 47, "id_tipo" : 1, "id_padre" : [], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "DIAPOSITIVA"},
-  {"id" : 58, "id_tipo" : 1, "id_padre" : [], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "REGISTROS AUXILIARES"},
+  {"id" : 58, "id_tipo" : 1, "id_padre" : [], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "REGISTROS AUXILIARES", "es_archivo_descarga": true},
   {"id" : 60, "id_tipo" : 1, "id_padre" : [], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "CARPETA PEDAGÓGICA"},
   {"id" : 61, "id_tipo" : 1, "id_padre" : [], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "REGLAMENTO INTERNO"},
   {"id" : 63, "id_tipo" : 1, "id_padre" : [], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "ACOMPAÑAMIENTO DOCENTE"},

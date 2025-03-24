@@ -20,7 +20,7 @@ const OverlayStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function TipoMaterialCard({ tipo_material }) {
-  const { id, nombre, tipo_archivo_id, callback } = tipo_material;
+  const { id, nombre, tipo_archivo_id, es_archivo_descarga, callback } = tipo_material;
 
   const numeroRandom = (min, max) => { 
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -72,8 +72,8 @@ export default function TipoMaterialCard({ tipo_material }) {
       <Divider sx={{ borderStyle: 'dashed' }} />
 
       <Stack direction="row" justifyContent="center" sx={{ my: 2 }}>
-        <Button variant="contained" onClick={() => { callback({ id, nombre, tipo_archivo_id }); }}>
-          Ver material
+        <Button variant="contained" onClick={() => { callback({ id, nombre, tipo_archivo_id, es_archivo_descarga }); }}>
+          {!es_archivo_descarga ? "Ver material" : "Descargar material"}
         </Button>
       </Stack>
     </Card>
