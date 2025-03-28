@@ -33,7 +33,7 @@ export default function Periodo() {
 
     // PRIMARIA REGULAR
     if ([37, 38, 39, 40, 41, 42, 43, 44, 45].includes(material_id)) {
-      if ([3537, 3538, 3540, 3541, 3542, 3543, 3544, 3545].includes(id) && [60].includes(tipo_material_id)) {
+      if ([3537, 3540, 3541, 3542, 3543, 3544, 3545].includes(id) && [60].includes(tipo_material_id)) {
         navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
       } else {
         navigate("/principal/grupo", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
