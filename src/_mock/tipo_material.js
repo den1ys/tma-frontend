@@ -472,5 +472,15 @@ export const tipo_material_primaria = [
   {"id" : 11, "id_tipo" : 3, "id_padre" : [3174,3175,3176,3177,3332,3333,3334,3335,3336,3337,3338,3339], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "CAPITULO 1"},
   {"id" : 12, "id_tipo" : 3, "id_padre" : [3174,3175,3176,3177,3332,3333,3334,3335,3336,3337,3338,3339], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "CAPITULO 2"},
   {"id" : 13, "id_tipo" : 3, "id_padre" : [3174,3175,3176,3177,3332,3333,3334,3335,3336,3337,3338,3339], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "CAPITULO 3"},
-  {"id" : 17, "id_tipo" : 3, "id_padre" : [3332,3333,3334,3335,3336,3337,3338,3339], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "CAPITULO 4"}
+  {"id" : 17, "id_tipo" : 3, "id_padre" : [3332,3333,3334,3335,3336,3337,3338,3339], "material_id" : [37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre" : "CAPITULO 4"},
+
+
+  {"id":66, "id_tipo":3, "id_padre":[3539], "material_id":[37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre":"UNIDAD 1"}, 
+  {"id":67, "id_tipo":3, "id_padre":[3539], "material_id":[37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre":"UNIDAD 2"}, 
+  {"id":68, "id_tipo":3, "id_padre":[3539], "material_id":[37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre":"UNIDAD 3"}, 
+  {"id":75, "id_tipo":3, "id_padre":[3539], "material_id":[37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre":"UNIDAD 4"}, 
+  {"id":76, "id_tipo":3, "id_padre":[3539], "material_id":[37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre":"UNIDAD 5"}, 
+  {"id":77, "id_tipo":3, "id_padre":[3539], "material_id":[37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre":"UNIDAD 6"}, 
+  {"id":78, "id_tipo":3, "id_padre":[3539], "material_id":[37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre":"UNIDAD 7"}, 
+  {"id":79, "id_tipo":3, "id_padre":[3539], "material_id":[37, 38, 39, 40, 41, 42, 43, 44, 45], "nombre":"UNIDAD 8"}
 ];
