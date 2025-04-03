@@ -13,6 +13,8 @@ import HeaderBreadcrumbs from '../components/HeaderBreadcrumbs';
 import { TipoMaterialCard } from '../sections/@dashboard/user/cards';
 // data
 import { tipo_material, tipo_material_primaria } from '../_mock/tipo_material';
+// axios
+import axios from '../utils/axios';
 
 export default function Grupo() {
   const { themeStretch } = useSettings();
@@ -28,19 +30,43 @@ export default function Grupo() {
 
   const [lista_tipo_material, set_lista_tipo_material] = useState([]);
 
-  const ver_presentacion = ({ id, nombre }) => {
+  const ver_presentacion = async ({ id, nombre }) => {
     set_parametro(actual => ({ ...actual, grupo_id: id, grupo_nombre: nombre }));
 
-    navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, grupo_id: id, grupo_nombre: nombre } } });
+    const materiales = JSON.parse(localStorage.getItem("materiales"));
+
+    if (materiales) {
+      const material = materiales.find(e => e.curso_id === curso_id && e.aula_id === aula_id
+        && e.tipo_material_id === tipo_material_id && (periodo_id ? e.periodo_id === periodo_id : true) && (id ? e.grupo_id === id : true));
+
+      if (material) {
+        const { material_drive_id, material_drive_encriptado, es_descargable } = material;
+
+        if (!es_descargable) {
+          navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, grupo_id: id, grupo_nombre: nombre } } });
+        }
+
+        const response = await axios.get(`/api/materiales/recurso?drive_id=${material_drive_id}${material_drive_encriptado ? `&drive_encrypted=${material_drive_encriptado}` : ""}`);
+        const { data: { server_url } } = await response.data;
+
+        if (!material_drive_encriptado) {
+          const fileUrl = server_url;
+          const link = document.createElement('a');
+          link.href = fileUrl;
+          link.download = fileUrl.split('/').pop();
+          link.click();
+        }
+      }
+    }
   };
 
   useEffect(() => {
     let lista;
-    
+
     // PRIMARIA REGULAR
-     if ([37, 38, 39, 40, 41, 42, 43, 44, 45].includes(material_id)) {
+    if ([37, 38, 39, 40, 41, 42, 43, 44, 45].includes(material_id)) {
       lista = tipo_material_primaria.filter(e => e.id_tipo === 3 && e.id_padre.includes(periodo_id) && e.material_id.includes(material_id));
-    // CICLO VACACIONAL / CICLO ESCOLAR
+      // CICLO VACACIONAL / CICLO ESCOLAR
     } else {
       lista = tipo_material.filter(e => e.id_tipo === 3 && e.id_padre.includes(periodo_id) && e.material_id.includes(material_id));
     }

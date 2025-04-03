@@ -13,6 +13,8 @@ import HeaderBreadcrumbs from '../components/HeaderBreadcrumbs';
 import { TipoMaterialCard } from '../sections/@dashboard/user/cards';
 // data
 import { tipo_material, tipo_material_primaria } from '../_mock/tipo_material';
+// axios
+import axios from '../utils/axios';
 
 export default function Periodo() {
   const { themeStretch } = useSettings();
@@ -28,13 +30,37 @@ export default function Periodo() {
 
   const [lista_tipo_material, set_lista_tipo_material] = useState([]);
 
-  const ver_grupo_o_presentacion = ({ id, nombre }) => {
+  const ver_grupo_o_presentacion = async ({ id, nombre }) => {
     set_parametro(actual => ({ ...actual, periodo_id: id, periodo_nombre: nombre }));
 
     // PRIMARIA REGULAR
     if ([37, 38, 39, 40, 41, 42, 43, 44, 45].includes(material_id)) {
-      if ([3537, 3540, 3541, 3542, 3543, 3544, 3545].includes(id) && [60].includes(tipo_material_id)) {
-        navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
+      if ([3537, 3540, 3541, 3542, 3543, 3544, 3545, 3332, 3333, 3334, 3335, 3336, 3337, 3338, 3339].includes(id) && [58, 60].includes(tipo_material_id)) {
+        const materiales = JSON.parse(localStorage.getItem("materiales"));
+
+        if (materiales) {
+          const material = materiales.find(e => e.curso_id === curso_id && e.aula_id === aula_id
+            && e.tipo_material_id === tipo_material_id && (id ? e.periodo_id === id : true));
+
+          if (material) {
+            const { material_drive_id, material_drive_encriptado, es_descargable } = material;
+
+            if (!es_descargable) {
+              navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
+            }
+
+            const response = await axios.get(`/api/materiales/recurso?drive_id=${material_drive_id}${material_drive_encriptado ? `&drive_encrypted=${material_drive_encriptado}` : ""}`);
+            const { data: { server_url } } = await response.data;
+
+            if (!material_drive_encriptado) {
+              const fileUrl = server_url;
+              const link = document.createElement('a');
+              link.href = fileUrl;
+              link.download = fileUrl.split('/').pop();
+              link.click();
+            }
+          }
+        }
       } else {
         navigate("/principal/grupo", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
       }
@@ -81,7 +107,7 @@ export default function Periodo() {
     // PRIMARIA REGULAR
     if ([37, 38, 39, 40, 41, 42, 43, 44, 45].includes(material_id)) {
       lista = tipo_material_primaria.filter(e => e.id_tipo === 2 && e.id_padre.includes(tipo_material_id) && e.material_id.includes(material_id));
-    // CICLO VACACIONAL / CICLO ESCOLAR
+      // CICLO VACACIONAL / CICLO ESCOLAR
     } else {
       lista = tipo_material.filter(e => e.id_tipo === 2 && e.id_padre.includes(tipo_material_id) && e.material_id.includes(material_id));
     }
