@@ -40,9 +40,9 @@ export default function Grupo() {
         && e.tipo_material_id === tipo_material_id && (periodo_id ? e.periodo_id === periodo_id : true) && (id ? e.grupo_id === id : true));
 
       if (material) {
-        const { material_drive_id, material_drive_encriptado, es_descargable } = material;
+        const { material_drive_id, material_drive_encriptado, es_visualizable } = material;
 
-        if (!es_descargable) {
+        if (es_visualizable) {
           navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, grupo_id: id, grupo_nombre: nombre } } });
         }
 
