@@ -56,6 +56,8 @@ export default function Grupo() {
           link.download = fileUrl.split('/').pop();
           link.click();
         }
+      } else {
+        navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, grupo_id: id, grupo_nombre: nombre } } });
       }
     }
   };
