@@ -44,8 +44,8 @@ export default function Acompanamiento() {
     }
   }, []);
 
-  const ver_indicador = async (acompanamiento_profesor_id, observacion_director, observacion_profesor, estado_nombre) => {
-    navigate("/principal/acompanamiento_actualizar", { replace: true, state: { acompanamiento_profesor_id, observacion_director, observacion_profesor, estado_nombre } });
+  const ver_indicador = async (acompanamiento_profesor_id, observacion_director, observacion_profesor, estado_nombre, nivel_id) => {
+    navigate("/principal/acompanamiento_actualizar", { replace: true, state: { acompanamiento_profesor_id, observacion_director, observacion_profesor, estado_nombre, nivel_id } });
   };
 
   return (
@@ -82,7 +82,7 @@ export default function Acompanamiento() {
                       <TableCell>{row.puntaje}</TableCell>
                       <TableCell>{row.estado_nombre}</TableCell>
                       <TableCell>
-                        <IconButton color="secondary" onClick={() => { ver_indicador(row.acompanamiento_profesor_id, row.observacion_director, row.observacion_profesor, row.estado_nombre) }}>
+                        <IconButton color="secondary" onClick={() => { ver_indicador(row.acompanamiento_profesor_id, row.observacion_director, row.observacion_profesor, row.estado_nombre, row.nivel_id) }}>
                           <Edit />
                         </IconButton>
                       </TableCell>

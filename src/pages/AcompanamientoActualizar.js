@@ -37,6 +37,8 @@ export default function AcompanamientoActualizar() {
 
   const [observacionProfesor2, setObservacionProfesor2] = useState("");
 
+  const [nivelId, setNivelId] = useState(null);
+
   const [alertaGU, setAlertaGU] = useState(false);
 
   const [alertaGUColor, setAlertaGUColor] = useState('error');
@@ -46,11 +48,12 @@ export default function AcompanamientoActualizar() {
   const [mostrarCampoObservacion, setMostrarCampoObservacion] = useState(false);
 
   const listar_ficha_profesor = async () => {
-    const { acompanamiento_profesor_id, observacion_director, observacion_profesor, estado_nombre } = location.state;
+    const { acompanamiento_profesor_id, observacion_director, observacion_profesor, estado_nombre, nivel_id } = location.state;
     setAcompanamientoProfesorId(acompanamiento_profesor_id);
     setObservacionDirector(observacion_director);
     setObservacionProfesor2(observacion_profesor);
     setEstadoNombre(estado_nombre);
+    setNivelId(nivel_id);
     const response = await axios.get(`/api/acompanamiento?tipo_operacion=listar_indicador_profesor&acompanamiento_profesor_id=${acompanamiento_profesor_id}`);
     const { json: { data } } = await response.data;
     return data;
@@ -144,7 +147,12 @@ export default function AcompanamientoActualizar() {
             justifyContent: "flex-end",
             marginBottom: "2rem"
           }}>
+            {
+            [88, 89].includes(nivelId) ?
+            <Button variant="contained" onClick={handleClickOpen} disabled={disableBotonConformidad}>Confirmar</Button>
+            :
             <Button variant="contained" onClick={handleClickOpen} disabled={disableBotonConformidad}>Conformidad</Button>
+            }
           </Stack>
         )
         }
@@ -229,8 +237,12 @@ export default function AcompanamientoActualizar() {
           open={open}
           onClose={handleClose}
         >
-          <DialogTitle sx={{ marginBottom: "1rem" }}>Actualizar estado de conformidad</DialogTitle>
-
+            {[88, 89].includes(nivelId) ? 
+             <DialogTitle sx={{ marginBottom: "1rem" }}>Actualizar estado</DialogTitle>
+             :
+             <DialogTitle sx={{ marginBottom: "1rem" }}>Actualizar estado de conformidad</DialogTitle>
+             }
+          
           <DialogContent sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
             <FormControl sx={{ marginTop: "1rem" }}>
               <InputLabel id="test-select-label">Estado</InputLabel>

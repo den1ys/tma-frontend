@@ -59,6 +59,8 @@ export default function Periodo() {
               link.download = fileUrl.split('/').pop();
               link.click();
             }
+          } else {
+            navigate("/principal/presentacion", { replace: true, state: { params: { ...parametro, periodo_id: id, periodo_nombre: nombre } } });
           }
         }
       } else {
