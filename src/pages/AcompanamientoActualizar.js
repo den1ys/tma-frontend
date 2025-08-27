@@ -35,6 +35,12 @@ export default function AcompanamientoActualizar() {
 
   const [observacionDirector, setObservacionDirector] = useState("");
 
+  const [fortalezas, setFortalezas] = useState("");
+
+  const [mejora_continua, setMejoraContinua] = useState("");
+
+  const [acuerdos_plan_accion, setAcuerdosPlanAccion] = useState("");
+
   const [observacionProfesor2, setObservacionProfesor2] = useState("");
 
   const [nivelId, setNivelId] = useState(null);
@@ -48,9 +54,12 @@ export default function AcompanamientoActualizar() {
   const [mostrarCampoObservacion, setMostrarCampoObservacion] = useState(false);
 
   const listar_ficha_profesor = async () => {
-    const { acompanamiento_profesor_id, observacion_director, observacion_profesor, estado_nombre, nivel_id } = location.state;
+    const { acompanamiento_profesor_id, observacion_director, fortalezas, mejora_continua, acuerdos_plan_accion, observacion_profesor, estado_nombre, nivel_id } = location.state;
     setAcompanamientoProfesorId(acompanamiento_profesor_id);
     setObservacionDirector(observacion_director);
+    setFortalezas(fortalezas);
+    setMejoraContinua(mejora_continua);
+    setAcuerdosPlanAccion(acuerdos_plan_accion);
     setObservacionProfesor2(observacion_profesor);
     setEstadoNombre(estado_nombre);
     setNivelId(nivel_id);
@@ -225,6 +234,27 @@ export default function AcompanamientoActualizar() {
         <FormControl fullWidth>
           <TextField fullWidth label="Observación del director" variant="standard" disabled value={observacionDirector} />
         </FormControl>
+
+        {
+          fortalezas &&
+          (<FormControl fullWidth sx={{ minWidth: 800, position: 'relative', marginTop: "2rem" }}>
+            <TextField fullWidth label="Fortalezas" variant="standard" disabled value={fortalezas} />
+          </FormControl>)
+        }
+
+        {
+          mejora_continua &&
+          (<FormControl fullWidth sx={{ minWidth: 800, position: 'relative', marginTop: "2rem" }}>
+            <TextField fullWidth label="Oportunidades de mejora continua" variant="standard" disabled value={mejora_continua} />
+          </FormControl>)
+        }
+
+        {
+          acuerdos_plan_accion &&
+          (<FormControl fullWidth sx={{ minWidth: 800, position: 'relative', marginTop: "2rem" }}>
+            <TextField fullWidth label="Acuerdos y plan de acción" variant="standard" disabled value={acuerdos_plan_accion} />
+          </FormControl>)
+        }
 
         {
           observacionProfesor2 &&
