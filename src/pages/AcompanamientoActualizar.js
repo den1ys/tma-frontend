@@ -134,11 +134,15 @@ export default function AcompanamientoActualizar() {
     setAlertaGU(false);
   };
 
-  useEffect(async () => {
-    let lista = await listar_ficha_profesor();
+  useEffect(() => {
+    const fetchData = async () => {
+      const lista = await listar_ficha_profesor();
+      set_listar_indicador_profesor(actual => [...actual, ...lista]);
+    };
 
-    set_listar_indicador_profesor(actual => [...actual, ...lista]);
+    fetchData();
   }, []);
+
 
   return (
     <Page title="TMA - Saco Oliveros (Acompañamiento)">
