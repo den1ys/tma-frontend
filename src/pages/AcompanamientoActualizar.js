@@ -223,7 +223,7 @@ export default function AcompanamientoActualizar() {
                       key={index + 20}
                       sx={{ '&:last-child td, &:last-child th': { border: 0 }, bgcolor: 'rgba(1, 1, 1, 0.15)' }}
                     >
-                      <TableCell component="td" sx={{ border: 1, borderColor: 'primary' }}>PROMEDIO</TableCell>
+                      <TableCell component="td" sx={{ border: 1, borderColor: 'primary' }}>{[88, 89].includes(nivelId) ? "VALORACIÓN" : "PROMEDIO"}</TableCell>
                       <TableCell align='center' colSpan={5} component="td" sx={{ border: 1, borderColor: 'primary' }}>{promedio}</TableCell>
                     </TableRow>
                   ));
